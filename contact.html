@@ -1,0 +1,317 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us | Los Cabos Rental App</title>
+<meta name="description" content="Get in touch with the Los Cabos Rental App team. Questions about renting, listing, or partnering? We'd love to hear from you."/>
+<meta property="og:title" content="Contact Us | Los Cabos Rental App"/>
+<meta property="og:description" content="Get in touch with the Los Cabos Rental App team. Questions about renting, listing, or partnering? We'd love to hear from you."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://loscabosrentalapp.com/contact.html"/>
+<meta property="og:image" content="https://loscabosrentalapp.com/images/og-default.jpg"/>
+<meta property="og:site_name" content="Los Cabos Rental App"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Contact Us | Los Cabos Rental App"/>
+<meta name="twitter:description" content="Get in touch with the Los Cabos Rental App team. We'd love to hear from you."/>
+<meta name="twitter:image" content="https://loscabosrentalapp.com/images/og-default.jpg"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#D55E46",
+            "accent-sunset": "#D5B58F",
+            "accent-pink": "#E37A81",
+            "ocean-deep": "#3D3330",
+            "background-light": "#F5F0EB",
+            "background-dark": "#2A2220",
+          },
+          fontFamily: {
+            "display": ["Outfit", "Inter", "sans-serif"],
+            "sans": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-background-dark/80">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-2">
+<a href="index.html" class="flex items-center gap-2">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+<span class="material-symbols-outlined">beach_access</span>
+</div>
+<h1 class="font-display text-xl font-bold tracking-tight text-ocean-deep dark:text-white">Los Cabos Rental App</h1>
+</a>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="about.html">About</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="blog-index.html">Blog</a>
+<a class="cursor-pointer text-sm font-semibold text-primary transition-all duration-200 hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-primary" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary" aria-label="Toggle menu" aria-expanded="false">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<button id="lang-toggle" onclick="toggleLanguage()" class="cursor-pointer flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300" aria-label="Toggle language">
+<span class="material-symbols-outlined text-lg">language</span>
+<span class="lang-label">EN</span>
+</button>
+<a href="index.html#waitlist" class="cursor-pointer rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            Join Waitlist
+          </a>
+</div>
+</div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden lg:hidden fixed top-[73px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg dark:bg-background-dark/95 dark:border-slate-800">
+<nav class="flex flex-col px-6 py-4 space-y-3">
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="about.html">About</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="blog-index.html">Blog</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="contact.html">Contact</a>
+<a class="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90" href="index.html#waitlist">Join Waitlist</a>
+</nav>
+</div>
+
+<!-- Hero Section -->
+<section class="relative bg-ocean-deep py-20">
+<div class="absolute inset-0 bg-gradient-to-br from-ocean-deep via-ocean-deep/95 to-primary/20"></div>
+<div class="relative mx-auto max-w-7xl px-6 text-center">
+<h1 class="font-display text-4xl font-black text-white md:text-5xl" data-i18n="contact.hero.title">Get in Touch</h1>
+<p class="mx-auto mt-4 max-w-2xl text-lg text-slate-200/80" data-i18n="contact.hero.subtitle">Questions about renting, listing, or partnering? We'd love to hear from you.</p>
+</div>
+</section>
+
+<!-- Contact Form + Info -->
+<section class="bg-background-light py-24 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid gap-12 lg:grid-cols-2">
+<!-- Left: Contact Form -->
+<div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-slate-900/50 md:p-10">
+<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="contact.form.title">Send Us a Message</h2>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="contact.form.subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
+<div id="contact-success" class="hidden rounded-xl bg-green-50 border border-green-200 p-6 text-center dark:bg-green-900/20 dark:border-green-800">
+<span class="material-symbols-outlined text-4xl text-green-600 dark:text-green-400">check_circle</span>
+<h3 class="mt-3 text-lg font-bold text-green-800 dark:text-green-300">Message Sent!</h3>
+<p class="mt-1 text-sm text-green-700 dark:text-green-400">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+</div>
+<form id="contact-form" class="mt-8 space-y-6" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="a06d5803-4d0a-4be5-863b-a3814523ac3e"/>
+<input type="hidden" name="subject" value="New Contact from Los Cabos Rental App"/>
+<input type="hidden" name="from_name" value="Los Cabos Rental App Contact Form"/>
+<input type="checkbox" name="botcheck" class="hidden" style="display:none"/>
+<div>
+<label for="contact-name" class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="contact.form.nameLabel">Full Name</label>
+<input id="contact-name" name="name" type="text" required class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your full name" data-i18n-placeholder="contact.form.namePlaceholder"/>
+</div>
+<div>
+<label for="contact-email" class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="contact.form.emailLabel">Email Address</label>
+<input id="contact-email" name="email" type="email" required class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="you@example.com" data-i18n-placeholder="contact.form.emailPlaceholder"/>
+</div>
+<div>
+<label for="contact-subject" class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="contact.form.subjectLabel">Subject</label>
+<select id="contact-subject" name="subject_type" required class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+<option value="" disabled selected data-i18n="contact.form.subjectDefault">Select a subject</option>
+<option value="General Inquiry" data-i18n="contact.form.subjectGeneral">General Inquiry</option>
+<option value="Renter Question" data-i18n="contact.form.subjectRenter">Renter Question</option>
+<option value="Landlord Question" data-i18n="contact.form.subjectLandlord">Landlord Question</option>
+<option value="Agent Inquiry" data-i18n="contact.form.subjectAgent">Agent Inquiry</option>
+<option value="Partnership" data-i18n="contact.form.subjectPartnership">Partnership</option>
+<option value="Technical Support" data-i18n="contact.form.subjectSupport">Technical Support</option>
+</select>
+</div>
+<div>
+<label for="contact-message" class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="contact.form.messageLabel">Message</label>
+<textarea id="contact-message" name="message" rows="5" required class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Tell us how we can help..." data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+</div>
+<button type="submit" class="cursor-pointer flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+<span class="material-symbols-outlined">send</span>
+<span data-i18n="contact.form.submit">Send Message</span>
+</button>
+</form>
+<script>
+const form = document.getElementById('contact-form');
+const successDiv = document.getElementById('contact-success');
+if (new URLSearchParams(window.location.search).has('sent')) {
+  form.style.display = 'none';
+  successDiv.classList.remove('hidden');
+}
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    });
+    const data = await res.json();
+    if (data.success) {
+      form.style.display = 'none';
+      successDiv.classList.remove('hidden');
+      form.reset();
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined">send</span><span>Send Message</span>';
+      alert('Something went wrong. Please try again.');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = '<span class="material-symbols-outlined">send</span><span>Send Message</span>';
+    alert('Network error. Please check your connection and try again.');
+  }
+});
+</script>
+</div>
+
+<!-- Right: Contact Info Cards -->
+<div class="space-y-6">
+<div class="rounded-2xl bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md dark:bg-slate-900/50">
+<div class="flex items-start gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">mail</span>
+</div>
+<div>
+<h3 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="contact.info.emailTitle">Email</h3>
+<p class="mt-1 text-sm text-slate-600 dark:text-slate-400" data-i18n="contact.info.emailDesc">Our team typically responds within a few hours.</p>
+<a href="mailto:hello@loscabosrentalapp.com" class="mt-2 inline-block text-sm font-semibold text-primary hover:text-primary/80">hello@loscabosrentalapp.com</a>
+</div>
+</div>
+</div>
+
+<div class="rounded-2xl bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md dark:bg-slate-900/50">
+<div class="flex items-start gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined text-2xl">phone</span>
+</div>
+<div>
+<h3 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="contact.info.phoneTitle">Phone</h3>
+<p class="mt-1 text-sm text-slate-600 dark:text-slate-400" data-i18n="contact.info.phoneDesc">Give us a call during business hours.</p>
+<a href="tel:+526245030036" class="mt-2 inline-block text-sm font-semibold text-primary hover:text-primary/80">+52 624 503 0036</a>
+</div>
+</div>
+</div>
+
+<div class="rounded-2xl bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md dark:bg-slate-900/50">
+<div class="flex items-start gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-pink/10 text-accent-pink">
+<span class="material-symbols-outlined text-2xl">location_on</span>
+</div>
+<div>
+<h3 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="contact.info.officeTitle">Office</h3>
+<p class="mt-1 text-sm text-slate-600 dark:text-slate-400" data-i18n="contact.info.officeDesc">Visit us at our office in downtown Cabo.</p>
+<p class="mt-2 text-sm font-semibold text-ocean-deep dark:text-slate-300">Cabo San Lucas, B.C.S., Mexico</p>
+</div>
+</div>
+</div>
+
+<div class="rounded-2xl bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md dark:bg-slate-900/50">
+<div class="flex items-start gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">schedule</span>
+</div>
+<div>
+<h3 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="contact.info.hoursTitle">Business Hours</h3>
+<p class="mt-1 text-sm text-slate-600 dark:text-slate-400" data-i18n="contact.info.hoursDesc">We're available during the following hours.</p>
+<p class="mt-2 text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="contact.info.hoursValue">Mon - Fri: 9:00 AM - 6:00 PM CST</p>
+<p class="mt-1 text-xs text-slate-500 dark:text-slate-500" data-i18n="contact.info.hoursWeekend">Sat - Sun: Closed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Map Section -->
+<section class="bg-white py-24 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-10 text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white" data-i18n="contact.map.title">Find Us in Cabo San Lucas</h2>
+<p class="mx-auto mt-4 max-w-xl text-slate-600 dark:text-slate-400" data-i18n="contact.map.subtitle">Located in the heart of Baja California Sur, serving the entire Los Cabos corridor.</p>
+</div>
+<div class="overflow-hidden rounded-2xl shadow-2xl">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115566.24!2d-109.95!3d22.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86af4911a2583f05%3A0x1e7b4a8f01a1c3a5!2sCabo%20San%20Lucas%2C%20B.C.S.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1" class="h-80 w-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</section>
+
+
+<!-- Footer -->
+<footer class="mt-auto border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid gap-12 md:grid-cols-4">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-sm">beach_access</span>
+</div>
+<h2 class="font-display text-lg font-bold text-ocean-deep dark:text-white">Los Cabos Rental App</h2>
+</div>
+<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400">
+The premier platform for long-term rentals in Baja California Sur. We bridge the gap between premium tenants and property owners.
+</p>
+<div class="mt-8">
+<p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300">App coming soon. Join the waitlist:</p>
+<form data-waitlist class="flex gap-2 max-w-sm">
+<input type="hidden" name="role" value="renter"/>
+<input class="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your email" type="email"/>
+<button class="cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" type="submit">Join Waitlist</button>
+</form>
+</div>
+</div>
+<div>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white">Quick Links</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="index.html">Home</a></li>
+<li><a class="hover:text-primary" href="about.html">About</a></li>
+<li><a class="hover:text-primary" href="blog-index.html">Blog</a></li>
+<li><a class="hover:text-primary" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white">Legal</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="terms.html">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="privacy.html">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500">
+&copy; 2026 Los Cabos Rental App. All rights reserved. Made for the Baja sun.
+</div>
+</div>
+</footer>
+</div>
+<script defer src="/_vercel/insights/script.js"></script>
+<script src="js/i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/waitlist.js"></script>
+<script src="js/mobile-nav.js"></script>
+</body></html>

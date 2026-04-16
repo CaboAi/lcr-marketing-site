@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Log In | Los Cabos Rental App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#D55E46",
+            "accent-sunset": "#D5B58F",
+            "accent-pink": "#E37A81",
+            "ocean-deep": "#3D3330",
+            "background-light": "#F5F0EB",
+            "background-dark": "#2A2220",
+          },
+          fontFamily: {
+            "display": ["Outfit", "Inter", "sans-serif"],
+            "sans": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .input-focus {
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .input-focus:focus {
+      border-color: #D55E46;
+      box-shadow: 0 0 0 3px rgba(213, 94, 70, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100">
+<div class="flex min-h-screen">
+
+  <!-- Left Side - Image -->
+  <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535392432937-a27c36ec07b5?w=1200&q=80');">
+      <div class="absolute inset-0 bg-gradient-to-br from-ocean-deep/80 via-ocean-deep/50 to-primary/30"></div>
+    </div>
+    <div class="relative z-10 flex flex-col justify-between p-12 w-full">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white transition-all duration-200 group-hover:bg-white/30">
+          <span class="material-symbols-outlined">beach_access</span>
+        </div>
+        <span class="font-display text-xl font-bold text-white tracking-tight">Los Cabos Rental App</span>
+      </a>
+      <!-- Testimonial -->
+      <div class="max-w-md">
+        <blockquote class="text-xl font-display font-semibold text-white leading-relaxed" data-i18n="login.testimonial">
+          "Finding our long-term home in Cabo was effortless. The platform connected us with the perfect oceanview apartment in El Tezal."
+        </blockquote>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent-sunset/30 text-white">
+            <span class="material-symbols-outlined text-xl">person</span>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white">Sarah & James Mitchell</p>
+            <p class="text-xs text-white/70" data-i18n="login.testimonialRole">Renter, El Tezal</p>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom decoration -->
+      <div class="flex items-center gap-2 text-white/50 text-xs">
+        <span class="material-symbols-outlined text-sm">location_on</span>
+        <span>Cabo San Lucas, B.C.S., Mexico</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side - Login Form -->
+  <div class="flex w-full lg:w-1/2 items-center justify-center px-6 py-12 relative">
+    <!-- Language Toggle -->
+    <button id="lang-toggle" onclick="toggleLanguage()" class="absolute top-6 right-6 cursor-pointer flex items-center gap-1.5 text-sm font-semibold text-slate-500 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-label="Toggle language">
+      <span class="material-symbols-outlined text-lg">language</span>
+      <span class="lang-label">EN</span>
+    </button>
+    <div class="w-full max-w-md">
+
+      <!-- Mobile Logo -->
+      <div class="mb-10 lg:hidden">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+            <span class="material-symbols-outlined">beach_access</span>
+          </div>
+          <span class="font-display text-xl font-bold text-ocean-deep dark:text-white tracking-tight">Los Cabos Rental App</span>
+        </a>
+      </div>
+
+      <!-- Form Card -->
+      <div class="glass-card rounded-2xl p-8 md:p-10 shadow-xl shadow-slate-900/5">
+        <div class="mb-8">
+          <h1 class="font-display text-3xl font-bold text-ocean-deep dark:text-white" data-i18n="login.title">Welcome back</h1>
+          <p class="mt-2 text-slate-500 dark:text-slate-400" data-i18n="login.subtitle">Log in to manage your rentals, listings, or commissions.</p>
+        </div>
+
+        <form id="login-form" class="space-y-5" novalidate>
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-semibold text-ocean-deep dark:text-slate-300 mb-1.5" data-i18n="label.email">Email address</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">mail</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                class="input-focus w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                placeholder="you@example.com"
+                data-i18n-placeholder="placeholder.emailExample"
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div>
+            <label for="password" class="block text-sm font-semibold text-ocean-deep dark:text-slate-300 mb-1.5" data-i18n="label.password">Password</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">lock</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                autocomplete="current-password"
+                class="input-focus w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-12 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                placeholder="Enter your password"
+                data-i18n-placeholder="placeholder.password"
+              />
+              <button
+                type="button"
+                onclick="togglePassword('password', this)"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer focus:outline-none"
+                aria-label="Toggle password visibility"
+              >
+                <span class="material-symbols-outlined text-xl">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me / Forgot -->
+          <div class="flex items-center justify-between">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="remember" class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary focus:ring-offset-0 dark:border-slate-600 dark:bg-slate-800"/>
+              <span class="text-sm text-slate-600 dark:text-slate-400" data-i18n="login.rememberMe">Remember me</span>
+            </label>
+            <a href="#" class="text-sm font-semibold text-primary hover:text-primary/80 transition-colors" data-i18n="login.forgotPassword">Forgot password?</a>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="cursor-pointer w-full rounded-xl bg-primary py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:scale-[0.98]"
+            data-i18n="login.submit"
+          >
+            Log In
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="my-6 flex items-center gap-4">
+          <div class="h-px flex-1 bg-slate-200 dark:bg-slate-700"></div>
+          <span class="text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider" data-i18n="login.orContinueWith">or continue with</span>
+          <div class="h-px flex-1 bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <!-- Google Sign-in -->
+        <button
+          type="button"
+          class="cursor-pointer w-full flex items-center justify-center gap-3 rounded-xl border border-slate-300 bg-white py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:bg-slate-50 hover:border-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          <span data-i18n="login.googleSignIn">Continue with Google</span>
+        </button>
+
+        <!-- Sign Up Link -->
+        <p class="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
+          <span data-i18n="login.noAccount">Don't have an account?</span>
+          <a href="signup.html" class="ml-1 font-semibold text-primary hover:text-primary/80 transition-colors" data-i18n="login.signUpLink">Sign up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function togglePassword(inputId, btn) {
+  const input = document.getElementById(inputId);
+  const icon = btn.querySelector('.material-symbols-outlined');
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.textContent = 'visibility_off';
+  } else {
+    input.type = 'password';
+    icon.textContent = 'visibility';
+  }
+}
+
+document.getElementById('login-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  if (!email || !password) return;
+  // Placeholder: integrate with auth backend
+  console.log('Login attempt:', { email });
+});
+</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

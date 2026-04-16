@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cabo San Lucas Local Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#D55E46",
+              "accent-sunset": "#D5B58F",
+              "accent-pink": "#E37A81",
+              "accent-gold": "#D5B58F",
+              "ocean-dark": "#3D3330",
+              "background-light": "#F5F0EB",
+              "background-dark": "#2A2220",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(16, 24, 34, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased" style="scroll-behavior: smooth;">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 lg:px-20 py-4 bg-white/80 dark:bg-ocean-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">diamond</span>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold leading-tight tracking-tight">Los Cabos Rental App</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="cursor-pointer text-slate-700 dark:text-slate-300 text-sm font-semibold transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded" href="rentals.html" data-i18n="nav.rentals">Rentals</a>
+<a class="cursor-pointer text-slate-700 dark:text-slate-300 text-sm font-semibold transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded" href="#neighborhoods" data-i18n="nav.neighborhoods">Neighborhoods</a>
+<a class="cursor-pointer text-slate-700 dark:text-slate-300 text-sm font-semibold transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded" href="#stats" data-i18n="nav.stats">Stats</a>
+<a class="cursor-pointer text-slate-700 dark:text-slate-300 text-sm font-semibold transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded" href="#faq" data-i18n="nav.faq">FAQ</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<label class="hidden lg:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 h-full placeholder:text-slate-500 px-4 rounded-l-none pl-2 text-sm" placeholder="Search areas..." value="" data-i18n-placeholder="placeholder.searchAreas"/>
+</div>
+</label>
+<button id="lang-toggle" onclick="toggleLanguage()" class="cursor-pointer flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300" aria-label="Toggle language">
+<span class="material-symbols-outlined text-lg">language</span>
+<span class="lang-label">EN</span>
+</button>
+<button aria-label="Sign up for an account" class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-i18n="cta.signUp">
+                    Sign Up
+                </button>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="px-6 lg:px-20 py-8">
+<div class="relative min-h-[560px] flex flex-col items-center justify-center overflow-hidden rounded-2xl bg-ocean-dark">
+<div class="absolute inset-0 opacity-60">
+<img alt="Luxury Marina view Cabo San Lucas" class="w-full h-full object-cover" data-alt="Luxury Marina view with yachts in Cabo San Lucas" src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=1920&q=80"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-ocean-dark via-ocean-dark/40 to-transparent"></div>
+<div class="relative z-10 flex flex-col gap-6 text-center max-w-3xl px-6">
+<div class="inline-flex items-center self-center gap-2 px-3 py-1 rounded-full bg-accent-gold/20 text-accent-gold border border-accent-gold/30 backdrop-blur-sm">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span class="text-xs font-bold uppercase tracking-widest" data-i18n="location.hero.badge">Premium Living in Baja</span>
+</div>
+<h1 class="text-white text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight">
+                            <span data-i18n="location.hero.titleStart">Find Your Long-Term Sanctuary in</span> <span class="text-primary">Cabo San Lucas</span>
+</h1>
+<p class="text-slate-200 text-lg lg:text-xl font-medium max-w-2xl mx-auto leading-relaxed" data-i18n="location.hero.subtitle">
+                            Experience the perfect blend of coastal luxury and vibrant desert living in Mexico's most prestigious destination.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center mt-4">
+<button aria-label="Browse long-term rentals" class="cursor-pointer flex items-center justify-center gap-2 rounded-xl h-14 px-8 bg-primary text-white text-base font-bold shadow-xl shadow-primary/30 transition-all duration-200 hover:translate-y-[-2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+<span class="material-symbols-outlined">explore</span>
+                                <span data-i18n="cta.exploreRentals">Explore Rentals</span>
+                            </button>
+<button aria-label="Learn about different neighborhoods" class="cursor-pointer flex items-center justify-center gap-2 rounded-xl h-14 px-8 bg-white/10 text-white text-base font-bold backdrop-blur-md border border-white/20 transition-all duration-200 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2" data-i18n="cta.learnAboutAreas">
+                                Learn About Areas
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Local Stats Bar -->
+<section id="stats" class="px-6 lg:px-20 py-6">
+<div class="flex flex-wrap gap-4 p-4 lg:p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex min-w-[200px] flex-1 items-center gap-5 p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider" data-i18n="stats.averageRent">Average Rent</p>
+<div class="flex items-center gap-2">
+<p class="text-slate-900 dark:text-white text-2xl font-black">$3,200/mo</p>
+<span class="text-primary text-xs font-bold flex items-center"><span class="material-symbols-outlined text-sm">trending_up</span>5.2%</span>
+</div>
+</div>
+</div>
+<div class="w-px h-12 bg-slate-200 dark:bg-slate-800 hidden lg:block self-center"></div>
+<div class="flex min-w-[200px] flex-1 items-center gap-5 p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-12 rounded-full bg-accent-gold/10 flex items-center justify-center text-accent-gold">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider" data-i18n="stats.popularity">Popularity</p>
+<p class="text-slate-900 dark:text-white text-2xl font-black">Top 5%</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold" data-i18n="stats.highDemand">High Demand Area</p>
+</div>
+</div>
+<div class="w-px h-12 bg-slate-200 dark:bg-slate-800 hidden lg:block self-center"></div>
+<div class="flex min-w-[200px] flex-1 items-center gap-5 p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-12 rounded-full bg-accent-pink/10 flex items-center justify-center text-accent-pink">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider" data-i18n="stats.safetyRating">Safety Rating</p>
+<p class="text-slate-900 dark:text-white text-2xl font-black">9.2/10</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold" data-i18n="stats.excellentSecurity">Excellent Security</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Neighborhood Explorer -->
+<section id="neighborhoods" class="px-6 lg:px-20 py-12">
+<div class="flex items-end justify-between mb-10">
+<div>
+<h2 class="text-slate-900 dark:text-white text-3xl font-black tracking-tight mb-2" data-i18n="neighborhood.title">Neighborhood Explorer</h2>
+<p class="text-slate-500 dark:text-slate-400 font-medium" data-i18n="neighborhood.subtitle">Discover the distinct vibes of Cabo's most desirable communities.</p>
+</div>
+<a href="https://www.google.com/maps/place/Cabo+San+Lucas,+B.C.S.,+Mexico" target="_blank" rel="noopener noreferrer" class="cursor-pointer hidden sm:flex text-primary font-bold items-center gap-2 transition-all duration-200 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 rounded px-2">
+                        <span data-i18n="neighborhood.viewMap">View Map</span> <span class="material-symbols-outlined">map</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Neighborhood Card 1 -->
+<div class="cursor-pointer group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 focus-within:ring-2 focus-within:ring-primary">
+<div class="relative h-64 overflow-hidden">
+<img alt="Pedregal Cabo San Lucas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Luxurious Pedregal villas overlooking the Pacific ocean" loading="lazy" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 rounded-full bg-ocean-dark/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest border border-white/20" data-i18n="neighborhood.pedregal.badge">Exclusive</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-3">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold">Pedregal</h3>
+<div class="flex text-accent-gold">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="neighborhood.pedregal.desc">
+                                The original luxury community. Experience ultra-luxury cliffside villas with private Pacific views and gated mountain security.
+                            </p>
+<div class="mt-auto flex items-center gap-4 text-xs font-bold text-slate-500 dark:text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">beach_access</span> <span data-i18n="neighborhood.pedregal.feat1">Private Beach</span></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">security</span> <span data-i18n="neighborhood.pedregal.feat2">24/7 Gated</span></span>
+</div>
+</div>
+</div>
+<!-- Neighborhood Card 2 -->
+<div class="cursor-pointer group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 focus-within:ring-2 focus-within:ring-primary">
+<div class="relative h-64 overflow-hidden">
+<img alt="El Tezal Cabo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Modern condos and homes in El Tezal area" loading="lazy" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 rounded-full bg-primary/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest border border-white/20" data-i18n="neighborhood.elTezal.badge">Popular</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-3">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold">El Tezal</h3>
+<span class="text-primary font-bold text-xs uppercase" data-i18n="neighborhood.elTezal.status">Developing</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="neighborhood.elTezal.desc">
+                                Modern developments with San Lucas Bay vistas. Family-friendly vibes close to international schools and essential shopping.
+                            </p>
+<div class="mt-auto flex items-center gap-4 text-xs font-bold text-slate-500 dark:text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">school</span> <span data-i18n="neighborhood.elTezal.feat1">Near Schools</span></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">shopping_bag</span> <span data-i18n="neighborhood.elTezal.feat2">Commercial Hub</span></span>
+</div>
+</div>
+</div>
+<!-- Neighborhood Card 3 -->
+<div class="cursor-pointer group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 focus-within:ring-2 focus-within:ring-primary">
+<div class="relative h-64 overflow-hidden">
+<img alt="The Corridor Los Cabos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Resort corridor landscape with beachfront views" loading="lazy" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-3">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold">The Corridor</h3>
+<span class="text-accent-pink font-bold text-xs uppercase" data-i18n="neighborhood.corridor.status">Resort Life</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="neighborhood.corridor.desc">
+                                The prestigious 20-mile strip connecting San Lucas and San Jose. Home to the most famous golf courses and luxury beachfront estates.
+                            </p>
+<div class="mt-auto flex items-center gap-4 text-xs font-bold text-slate-500 dark:text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">golf_course</span> <span data-i18n="neighborhood.corridor.feat1">World-Class Golf</span></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">waves</span> <span data-i18n="neighborhood.corridor.feat2">Oceanfront</span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section id="faq" class="px-6 lg:px-20 py-16 bg-slate-100 dark:bg-ocean-dark/50">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-slate-900 dark:text-white text-3xl font-black tracking-tight mb-4" data-i18n="faq.title">Common Questions</h2>
+<p class="text-slate-500 dark:text-slate-400 font-medium" data-i18n="faq.subtitle">Everything you need to know about long-term rentals in Cabo.</p>
+</div>
+<div class="space-y-4">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<button onclick="toggleLocationFaq(this)" class="cursor-pointer w-full px-6 py-5 text-left flex items-center justify-between">
+<span class="font-bold text-slate-900 dark:text-white" data-i18n="faq.q1">What is the typical lease duration?</span>
+<span class="material-symbols-outlined text-slate-400 transition-transform duration-300">add</span>
+</button>
+<div class="faq-answer px-6 pb-5 text-slate-600 dark:text-slate-400 text-sm" data-i18n="faq.a1">
+                                Most long-term rentals in Cabo San Lucas require a minimum commitment of 6 to 12 months. Short-term "snowbird" rentals are available but usually come at a premium during the winter season.
+                            </div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<button onclick="toggleLocationFaq(this)" class="cursor-pointer w-full px-6 py-5 text-left flex items-center justify-between">
+<span class="font-bold text-slate-900 dark:text-white" data-i18n="faq.q2">Are utilities typically included in the rent?</span>
+<span class="material-symbols-outlined text-slate-400 transition-transform duration-300">add</span>
+</button>
+<div class="faq-answer px-6 pb-5 text-slate-600 dark:text-slate-400 text-sm" data-i18n="faq.a2">
+                                It varies by property. Some landlords include water and internet, while electricity and gas are typically the tenant's responsibility. Always confirm utility arrangements before signing your lease.
+                            </div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<button onclick="toggleLocationFaq(this)" class="cursor-pointer w-full px-6 py-5 text-left flex items-center justify-between">
+<span class="font-bold text-slate-900 dark:text-white" data-i18n="faq.q3">Do I need a Mexican bank account for rent payments?</span>
+<span class="material-symbols-outlined text-slate-400 transition-transform duration-300">add</span>
+</button>
+<div class="faq-answer px-6 pb-5 text-slate-600 dark:text-slate-400 text-sm" data-i18n="faq.a3">
+                                Not necessarily. Our platform supports multiple payment methods including international bank transfers, credit cards, and digital payment options so you can pay from anywhere.
+                            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- App Download CTA -->
+<section class="px-6 lg:px-20 py-16">
+<div class="bg-primary rounded-3xl p-10 lg:p-16 relative overflow-hidden flex flex-col lg:flex-row items-center gap-12">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full fill-white" viewbox="0 0 100 100">
+<circle cx="100" cy="0" r="100"></circle>
+<circle cx="100" cy="0" r="70"></circle>
+<circle cx="100" cy="0" r="40"></circle>
+</svg>
+</div>
+<div class="relative z-10 flex-1 text-center lg:text-left">
+<h2 class="text-white text-4xl lg:text-5xl font-black mb-6 leading-tight" data-i18n="location.cta.title">Ready to find your Cabo home?</h2>
+<p class="text-white/80 text-lg lg:text-xl font-medium mb-8" data-i18n="location.cta.subtitle">Join the waitlist for the Los Cabos Rental App and get exclusive early access to premium listings and local insights.</p>
+<form class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start max-w-lg">
+<input class="flex-1 rounded-xl border-none bg-white/20 px-6 h-14 text-sm text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm" placeholder="Enter your email" type="email" data-i18n-placeholder="placeholder.enterEmail"/>
+<button class="cursor-pointer bg-white text-primary px-8 h-14 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-200 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2" type="submit">
+<span class="material-symbols-outlined text-sm">mail</span> <span data-i18n="cta.joinTheWaitlist">Join the Waitlist</span>
+</button>
+</form>
+</div>
+<div class="relative z-10 w-full max-w-sm lg:max-w-md">
+<div class="bg-ocean-dark rounded-3xl p-3 shadow-2xl rotate-3 border-4 border-white/20">
+<img alt="Luxury villa in Cabo San Lucas" class="rounded-2xl w-full" data-alt="Luxury beachfront villa with infinity pool in Los Cabos" loading="lazy" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 lg:px-20 py-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">diamond</span>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold tracking-tight">Los Cabos Rental App</h2>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed" data-i18n="location.footer.desc">
+                        The #1 source for long-term luxury rentals in Cabo San Lucas and San Jose del Cabo. Dedicated to finding your perfect Baja sanctuary.
+                    </p>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6" data-i18n="location.footer.explore">Explore</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
+<li><a class="hover:text-primary transition-colors" href="rentals.html" data-i18n="location.footer.allRentals">All Rentals</a></li>
+<li><a class="hover:text-primary transition-colors" href="rentals.html" data-i18n="location.footer.featuredVillas">Featured Villas</a></li>
+<li><a class="hover:text-primary transition-colors" href="rentals.html" data-i18n="location.footer.newCondos">New Condos</a></li>
+<li><a class="hover:text-primary transition-colors" href="rentals.html" data-i18n="location.footer.petFriendly">Pet Friendly</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6" data-i18n="location.footer.resources">Resources</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
+<li><a class="hover:text-primary transition-colors" href="blog-index.html" data-i18n="location.footer.rentalGuide">Rental Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="relocation.html" data-i18n="location.footer.relocationServices">Relocation Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="terms.html" data-i18n="location.footer.legalRequirements">Legal Requirements</a></li>
+<li><a class="hover:text-primary transition-colors" href="location.html" data-i18n="location.footer.neighborhoodStats">Neighborhood Stats</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6" data-i18n="location.footer.newsletter">Newsletter</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4" data-i18n="location.footer.newsletterDesc">Get local market updates and new listing alerts.</p>
+<form class="flex gap-2">
+<input class="flex-1 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm px-4 focus:ring-1 focus:ring-primary" placeholder="Email" type="email" data-i18n-placeholder="placeholder.emailShort"/>
+<button class="bg-primary text-white size-10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t border-slate-200 dark:border-slate-800">
+<p class="text-slate-400 text-xs" data-i18n="location.footer.copyright">&copy; 2025 Los Cabos Rental App. All rights reserved.</p>
+<div class="flex gap-8 text-xs font-bold text-slate-400">
+<a class="hover:text-slate-600" href="privacy.html" data-i18n="location.footer.privacyPolicy">Privacy Policy</a>
+<a class="hover:text-slate-600" href="terms.html" data-i18n="location.footer.termsOfService">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<script>
+function toggleLocationFaq(button) {
+  var answer = button.nextElementSibling;
+  var icon = button.querySelector('.material-symbols-outlined');
+  var isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+  // Close all
+  document.querySelectorAll('.faq-answer').forEach(function(el) {
+    el.style.maxHeight = '0px';
+    el.style.paddingTop = '0';
+    var btn = el.previousElementSibling;
+    if (btn) {
+      var ic = btn.querySelector('.material-symbols-outlined');
+      if (ic) { ic.textContent = 'add'; ic.style.transform = ''; }
+    }
+  });
+  // Toggle current
+  if (!isOpen) {
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+    answer.style.paddingTop = '0.75rem';
+    icon.textContent = 'remove';
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
+</script>
+<style>
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding-top 0.3s ease-out;
+  padding-top: 0;
+}
+</style>
+<script src="js/i18n.js"></script>
+</body></html>

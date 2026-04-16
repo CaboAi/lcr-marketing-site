@@ -1,0 +1,394 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Partner With Us | Los Cabos Rental App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#D55E46",
+            "accent-sunset": "#D5B58F",
+            "accent-pink": "#E37A81",
+            "ocean-deep": "#3D3330",
+            "background-light": "#F5F0EB",
+            "background-dark": "#2A2220",
+          },
+          fontFamily: {
+            "display": ["Outfit", "Inter", "sans-serif"],
+            "sans": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-background-dark/80">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+<span class="material-symbols-outlined">beach_access</span>
+</div>
+<a href="index.html" class="font-display text-xl font-bold tracking-tight text-ocean-deep dark:text-white">Los Cabos Rental App</a>
+</div>
+<nav class="hidden space-x-8 md:flex">
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="renters.html" data-i18n="nav.renters">Renters</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="landlords.html" data-i18n="nav.landlords">Landlords</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="agents.html" data-i18n="nav.agents">Agents</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="how-it-works.html" data-i18n="nav.howItWorks">How it Works</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="location.html" data-i18n="nav.areas">Areas</a>
+</nav>
+<div class="flex items-center gap-4">
+<button id="lang-toggle" onclick="toggleLanguage()" class="cursor-pointer flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300" aria-label="Toggle language">
+<span class="material-symbols-outlined text-lg">language</span>
+<span class="lang-label">EN</span>
+</button>
+<button class="cursor-pointer hidden text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 lg:block" data-i18n="cta.login">Log in</button>
+<button class="cursor-pointer rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-i18n="cta.getStarted">
+            Get Started
+          </button>
+</div>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-ocean-deep py-28">
+<div class="absolute inset-0 bg-cover bg-center opacity-15" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1920&q=80');"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-ocean-deep via-ocean-deep/95 to-accent-sunset/20"></div>
+<div class="relative mx-auto max-w-7xl px-6 text-center">
+<span class="mb-6 inline-block rounded-full bg-accent-sunset/20 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-sunset" data-i18n="partners.hero.badge">Partnership Program</span>
+<h1 class="font-display text-5xl font-black leading-tight text-white md:text-6xl" data-i18n="partners.hero.title">Grow Together</h1>
+<p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200/90" data-i18n="partners.hero.subtitle">Partner with the #1 long-term rental platform in Baja California Sur.</p>
+<a href="#partner-form" class="mt-10 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl transition-all duration-200 hover:bg-primary/90">
+<span class="material-symbols-outlined">handshake</span>
+<span data-i18n="partners.hero.cta">Become a Partner</span>
+</a>
+</div>
+</section>
+
+<!-- Partner Types -->
+<section class="bg-background-light py-24 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-16 text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="partners.types.title">Partner Types</h2>
+<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="partners.types.subtitle">Whether you manage properties, run an agency, or offer services, there is a partnership built for you.</p>
+</div>
+<div class="grid gap-8 md:grid-cols-3">
+<!-- Property Managers -->
+<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl">apartment</span>
+</div>
+<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="partners.types.pm.title">Property Managers</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="partners.types.pm.desc">Manage multiple properties? Get bulk tools and priority support. List entire portfolios at once, access consolidated reporting, and enjoy reduced commission rates as you scale.</p>
+<ul class="mt-6 space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span data-i18n="partners.types.pm.f1">Bulk listing management</span>
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span data-i18n="partners.types.pm.f2">Priority tenant matching</span>
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span data-i18n="partners.types.pm.f3">Consolidated financial reports</span>
+</li>
+</ul>
+</div>
+<!-- Real Estate Agencies -->
+<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-sunset/10 text-accent-sunset transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl">real_estate_agent</span>
+</div>
+<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="partners.types.agency.title">Real Estate Agencies</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="partners.types.agency.desc">Expand your business with our verified tenant pipeline. Tap into a growing pool of qualified renters seeking long-term homes in Los Cabos and earn referral commissions on every placement.</p>
+<ul class="mt-6 space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span>
+<span data-i18n="partners.types.agency.f1">Verified tenant pipeline</span>
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span>
+<span data-i18n="partners.types.agency.f2">Referral commission structure</span>
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span>
+<span data-i18n="partners.types.agency.f3">Co-branded marketing materials</span>
+</li>
+</ul>
+</div>
+<!-- Service Providers -->
+<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-pink/10 text-accent-pink transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl">home_repair_service</span>
+</div>
+<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="partners.types.service.title">Service Providers</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="partners.types.service.desc">Offer cleaning, maintenance, or legal services to our users. Get direct access to property owners and tenants who need your expertise, with seamless booking and payment through our platform.</p>
+<ul class="mt-6 space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span>
+<span data-i18n="partners.types.service.f1">Direct client access</span>
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span>
+<span data-i18n="partners.types.service.f2">In-app booking system</span>
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span>
+<span data-i18n="partners.types.service.f3">Verified provider badge</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Benefits -->
+<section class="bg-white py-24 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-16 text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="partners.benefits.title">Partnership Benefits</h2>
+<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="partners.benefits.subtitle">Every partner gets access to tools and support designed to accelerate growth.</p>
+</div>
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+<div class="text-center">
+<div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">trending_up</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="partners.benefits.revenue.title">Revenue Sharing</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="partners.benefits.revenue.desc">Earn competitive commissions on every transaction that comes through your partnership channel.</p>
+</div>
+<div class="text-center">
+<div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined text-3xl">campaign</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="partners.benefits.marketing.title">Co-Marketing</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="partners.benefits.marketing.desc">Joint campaigns, featured placement on our platform, and shared social media exposure to grow your brand.</p>
+</div>
+<div class="text-center">
+<div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-pink/10 text-accent-pink">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="partners.benefits.manager.title">Dedicated Account Manager</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="partners.benefits.manager.desc">A personal point of contact to help you maximize the partnership and resolve any issues quickly.</p>
+</div>
+<div class="text-center">
+<div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">new_releases</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="partners.benefits.early.title">Early Access</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="partners.benefits.early.desc">Be the first to test new features, tools, and integrations before they roll out to the general public.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How to Partner -->
+<section class="bg-background-light py-24 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-16 text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="partners.process.title">How to Partner</h2>
+<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="partners.process.subtitle">Getting started is simple. Three steps and you are in.</p>
+</div>
+<div class="grid gap-12 md:grid-cols-3">
+<div class="relative text-center">
+<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/25">
+<span class="font-display text-3xl font-black">1</span>
+</div>
+<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="partners.process.step1.title">Apply</h4>
+<p class="mt-3 text-slate-600 dark:text-slate-400" data-i18n="partners.process.step1.desc">Fill out the partnership form below with your company details and the type of partnership you are interested in.</p>
+</div>
+<div class="relative text-center">
+<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-accent-sunset text-white shadow-lg shadow-accent-sunset/25">
+<span class="font-display text-3xl font-black">2</span>
+</div>
+<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="partners.process.step2.title">Review</h4>
+<p class="mt-3 text-slate-600 dark:text-slate-400" data-i18n="partners.process.step2.desc">Our partnerships team will review your application and schedule a call to discuss terms, expectations, and mutual goals.</p>
+</div>
+<div class="relative text-center">
+<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-accent-pink text-white shadow-lg shadow-accent-pink/25">
+<span class="font-display text-3xl font-black">3</span>
+</div>
+<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="partners.process.step3.title">Launch</h4>
+<p class="mt-3 text-slate-600 dark:text-slate-400" data-i18n="partners.process.step3.desc">Once approved, get onboarded with your dedicated account manager, access partner tools, and start growing together.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Partnership Form -->
+<section id="partner-form" class="bg-white py-24 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid gap-16 lg:grid-cols-2">
+<div>
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="partners.form.title">Apply to Partner</h2>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="partners.form.subtitle">Tell us about your business and how you would like to work together. We review applications within 48 hours.</p>
+<div class="mt-10 space-y-6">
+<div class="flex items-start gap-4">
+<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h4 class="font-semibold text-ocean-deep dark:text-white" data-i18n="partners.form.info1.title">48-Hour Response</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="partners.form.info1.desc">We review every application and get back to you within two business days.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div>
+<h4 class="font-semibold text-ocean-deep dark:text-white" data-i18n="partners.form.info2.title">Confidential</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="partners.form.info2.desc">Your business information is kept strictly confidential and used only for partnership evaluation.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-pink/10 text-accent-pink">
+<span class="material-symbols-outlined">diversity_3</span>
+</div>
+<div>
+<h4 class="font-semibold text-ocean-deep dark:text-white" data-i18n="partners.form.info3.title">No Exclusivity Required</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="partners.form.info3.desc">Our partnerships are flexible. Work with us alongside your existing channels and platforms.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<form class="rounded-2xl border border-slate-200 bg-background-light p-8 dark:border-slate-700 dark:bg-slate-900/50">
+<div class="space-y-5">
+<div>
+<label class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" for="company-name" data-i18n="partners.form.company">Company Name</label>
+<input id="company-name" type="text" required class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your company name" data-i18n-placeholder="partners.form.companyPlaceholder"/>
+</div>
+<div>
+<label class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" for="contact-name" data-i18n="partners.form.contact">Contact Name</label>
+<input id="contact-name" type="text" required class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Full name" data-i18n-placeholder="partners.form.contactPlaceholder"/>
+</div>
+<div>
+<label class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" for="email" data-i18n="partners.form.email">Email Address</label>
+<input id="email" type="email" required class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="you@company.com" data-i18n-placeholder="partners.form.emailPlaceholder"/>
+</div>
+<div>
+<label class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" for="partner-type" data-i18n="partners.form.type">Partner Type</label>
+<select id="partner-type" required class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+<option value="" disabled selected data-i18n="partners.form.typeDefault">Select partner type</option>
+<option value="property-manager" data-i18n="partners.form.typePM">Property Manager</option>
+<option value="real-estate-agency" data-i18n="partners.form.typeAgency">Real Estate Agency</option>
+<option value="service-provider" data-i18n="partners.form.typeService">Service Provider</option>
+<option value="other" data-i18n="partners.form.typeOther">Other</option>
+</select>
+</div>
+<div>
+<label class="mb-1.5 block text-sm font-semibold text-ocean-deep dark:text-slate-300" for="message" data-i18n="partners.form.message">Message</label>
+<textarea id="message" rows="4" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Tell us about your business and how you'd like to partner..." data-i18n-placeholder="partners.form.messagePlaceholder"></textarea>
+</div>
+<button type="submit" class="w-full cursor-pointer rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" data-i18n="partners.form.submit">Submit Application</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Existing Partners -->
+<section class="bg-background-light py-24 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-16 text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="partners.logos.title">Trusted By Leading Companies</h2>
+<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="partners.logos.subtitle">We are proud to work alongside top businesses across Baja California Sur.</p>
+</div>
+<div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
+<div class="flex h-24 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 dark:border-slate-700 dark:bg-slate-900/50">
+<span class="font-display text-sm font-bold text-slate-400" data-i18n="partners.logos.p1">Cabo Realty Group</span>
+</div>
+<div class="flex h-24 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 dark:border-slate-700 dark:bg-slate-900/50">
+<span class="font-display text-sm font-bold text-slate-400" data-i18n="partners.logos.p2">BCS Properties</span>
+</div>
+<div class="flex h-24 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 dark:border-slate-700 dark:bg-slate-900/50">
+<span class="font-display text-sm font-bold text-slate-400" data-i18n="partners.logos.p3">Pacific Clean Co.</span>
+</div>
+<div class="flex h-24 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 dark:border-slate-700 dark:bg-slate-900/50">
+<span class="font-display text-sm font-bold text-slate-400" data-i18n="partners.logos.p4">Baja Legal MX</span>
+</div>
+<div class="flex h-24 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 dark:border-slate-700 dark:bg-slate-900/50">
+<span class="font-display text-sm font-bold text-slate-400" data-i18n="partners.logos.p5">Marina Homes</span>
+</div>
+<div class="flex h-24 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 dark:border-slate-700 dark:bg-slate-900/50">
+<span class="font-display text-sm font-bold text-slate-400" data-i18n="partners.logos.p6">SunCoast Mgmt</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="mt-auto border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid gap-12 md:grid-cols-4">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-sm">beach_access</span>
+</div>
+<h2 class="font-display text-lg font-bold text-ocean-deep dark:text-white">Los Cabos Rental App</h2>
+</div>
+<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400" data-i18n="footer.desc">
+              The premier platform for long-term rentals in Baja California Sur. We bridge the gap between premium tenants and property owners.
+            </p>
+<div class="mt-8">
+<p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
+<form class="flex gap-2 max-w-sm">
+<input class="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your email" type="email" data-i18n-placeholder="placeholder.email"/>
+<button class="cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" type="submit" data-i18n="cta.joinWaitlist">Join Waitlist</button>
+</form>
+</div>
+</div>
+<div>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.quickLinks">Quick Links</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="rentals.html" data-i18n="footer.searchRentals">Search Rentals</a></li>
+<li><a class="hover:text-primary" href="index.html" data-i18n="footer.listPropertyLink">List Property</a></li>
+<li><a class="hover:text-primary" href="blog.html" data-i18n="footer.resources">Resources</a></li>
+<li><a class="hover:text-primary" href="terms.html" data-i18n="footer.termsOfService">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.destinations">Destinations</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="location.html">Cabo San Lucas</a></li>
+<li><a class="hover:text-primary" href="location.html">San Jose del Cabo</a></li>
+<li><a class="hover:text-primary" href="location.html">El Tezal</a></li>
+<li><a class="hover:text-primary" href="location.html">Cabo Pulmo</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500" data-i18n="footer.copyright">
+          &copy; 2025 Los Cabos Rental App. All rights reserved. Made for the Baja sun.
+        </div>
+</div>
+</footer>
+</div>
+<script src="js/i18n.js"></script>
+</body></html>

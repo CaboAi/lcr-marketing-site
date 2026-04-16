@@ -1,0 +1,396 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How It Works | Los Cabos Rental App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#D55E46",
+            "accent-sunset": "#D5B58F",
+            "accent-pink": "#E37A81",
+            "ocean-deep": "#3D3330",
+            "background-light": "#F5F0EB",
+            "background-dark": "#2A2220",
+          },
+          fontFamily: {
+            "display": ["Outfit", "Inter", "sans-serif"],
+            "sans": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .tab-btn.active-renter { border-color: #D55E46; color: #D55E46; background: rgba(213, 94, 70, 0.05); }
+    .tab-btn.active-landlord { border-color: #D5B58F; color: #D5B58F; background: rgba(213, 181, 143, 0.05); }
+    .tab-btn.active-agent { border-color: #E37A81; color: #E37A81; background: rgba(227, 122, 129, 0.05); }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-background-dark/80">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+<span class="material-symbols-outlined">beach_access</span>
+</div>
+<a href="index.html" class="font-display text-xl font-bold tracking-tight text-ocean-deep dark:text-white">Los Cabos Rental App</a>
+</div>
+<nav class="hidden space-x-8 md:flex">
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="renters.html" data-i18n="nav.renters">Renters</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="landlords.html" data-i18n="nav.landlords">Landlords</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="agents.html" data-i18n="nav.agents">Agents</a>
+<a class="cursor-pointer text-sm font-semibold text-primary border-b-2 border-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" href="how-it-works.html" data-i18n="nav.howItWorks">How it Works</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="location.html" data-i18n="nav.areas">Areas</a>
+</nav>
+<div class="flex items-center gap-4">
+<button id="lang-toggle" onclick="toggleLanguage()" class="cursor-pointer flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300" aria-label="Toggle language">
+<span class="material-symbols-outlined text-lg">language</span>
+<span class="lang-label">EN</span>
+</button>
+<a href="login.html" class="cursor-pointer hidden text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 lg:block" data-i18n="cta.login">Log in</a>
+<a href="signup.html" class="cursor-pointer rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-i18n="cta.getStarted">
+            Get Started
+          </a>
+</div>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-ocean-deep py-20 md:py-28">
+<div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80');"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-ocean-deep/80 to-ocean-deep/95"></div>
+<div class="relative mx-auto max-w-4xl px-6 text-center">
+<span class="mb-4 inline-block rounded-full bg-accent-sunset/20 px-4 py-1 text-xs font-bold uppercase tracking-widest text-accent-sunset" data-i18n="hiw.hero.badge">Step by Step</span>
+<h1 class="font-display text-4xl font-black leading-tight text-white md:text-6xl" data-i18n="hiw.hero.title">Simple. Transparent. Secure.</h1>
+<p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200/90" data-i18n="hiw.hero.subtitle">Whether you're renting, listing, or earning commissions — here's how it works.</p>
+</div>
+</section>
+
+<!-- Tabbed Sections -->
+<section class="bg-white py-20 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+
+<!-- Tab Navigation -->
+<div class="mb-16 flex flex-wrap justify-center gap-4">
+<a href="#renters-section" class="tab-btn active-renter flex items-center gap-2 rounded-full border-2 px-6 py-3 text-sm font-bold transition-all duration-200 hover:shadow-md">
+<span class="material-symbols-outlined text-lg">home_pin</span>
+<span data-i18n="hiw.tab.renters">For Renters</span>
+</a>
+<a href="#landlords-section" class="tab-btn active-landlord flex items-center gap-2 rounded-full border-2 px-6 py-3 text-sm font-bold transition-all duration-200 hover:shadow-md">
+<span class="material-symbols-outlined text-lg">real_estate_agent</span>
+<span data-i18n="hiw.tab.landlords">For Landlords</span>
+</a>
+<a href="#agents-section" class="tab-btn active-agent flex items-center gap-2 rounded-full border-2 px-6 py-3 text-sm font-bold transition-all duration-200 hover:shadow-md">
+<span class="material-symbols-outlined text-lg">groups</span>
+<span data-i18n="hiw.tab.agents">For Agents</span>
+</a>
+</div>
+
+<!-- For Renters -->
+<div id="renters-section" class="mb-24">
+<div class="mb-10 flex items-center gap-3">
+<div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">home_pin</span>
+</div>
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white" data-i18n="hiw.renters.heading">For Renters</h2>
+</div>
+<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+<!-- Step 1 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">1</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">travel_explore</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.renters.step1.title">Browse &amp; Discover</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.renters.step1.desc">Search verified listings by neighborhood, price, and amenities. Filter for pet-friendly, furnished, or ocean-view properties across Los Cabos.</p>
+</div>
+<!-- Step 2 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">2</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.renters.step2.title">Apply Online</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.renters.step2.desc">Submit your application with ID verification in under 10 minutes. Upload documents, provide references, and let our platform handle the rest.</p>
+</div>
+<!-- Step 3 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">3</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">draw</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.renters.step3.title">Sign Your Lease</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.renters.step3.desc">Review and e-sign your Mexican rental contract securely. All agreements are legally binding and stored digitally for your records.</p>
+</div>
+<!-- Step 4 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">4</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">vpn_key</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.renters.step4.title">Move In</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.renters.step4.desc">Get your keys, set up utilities, and start living in paradise. Manage rent payments and maintenance requests right from the app.</p>
+</div>
+</div>
+</div>
+
+<!-- For Landlords -->
+<div id="landlords-section" class="mb-24">
+<div class="mb-10 flex items-center gap-3">
+<div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined text-2xl">real_estate_agent</span>
+</div>
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white" data-i18n="hiw.landlords.heading">For Landlords</h2>
+</div>
+<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+<!-- Step 1 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-sunset text-lg font-black text-white">1</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">add_home_work</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.landlords.step1.title">List Your Property</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.landlords.step1.desc">Upload photos, set pricing, and describe your property in detail. Our listing wizard walks you through every step to maximize visibility.</p>
+</div>
+<!-- Step 2 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-sunset text-lg font-black text-white">2</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">person_search</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.landlords.step2.title">Screen Tenants</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.landlords.step2.desc">Our platform runs background checks and verifies income so you can rent with confidence. Review applicant profiles side by side.</p>
+</div>
+<!-- Step 3 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-sunset text-lg font-black text-white">3</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.landlords.step3.title">Sign &amp; Collect</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.landlords.step3.desc">Digital lease signing and automated monthly rent collection. No more chasing payments or dealing with cash transactions.</p>
+</div>
+<!-- Step 4 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-sunset text-lg font-black text-white">4</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">phone_iphone</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.landlords.step4.title">Manage Remotely</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.landlords.step4.desc">Handle maintenance requests and communications from anywhere in the world. Track income, expenses, and occupancy from your dashboard.</p>
+</div>
+</div>
+</div>
+
+<!-- For Agents -->
+<div id="agents-section" class="mb-16">
+<div class="mb-10 flex items-center gap-3">
+<div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-pink/10 text-accent-pink">
+<span class="material-symbols-outlined text-2xl">groups</span>
+</div>
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white" data-i18n="hiw.agents.heading">For Agents</h2>
+</div>
+<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+<!-- Step 1 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-pink text-lg font-black text-white">1</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent-pink/10 text-accent-pink">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.agents.step1.title">Register &amp; Get Verified</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.agents.step1.desc">Apply to join our agent network. Submit your credentials, local market knowledge, and pass our verification process.</p>
+</div>
+<!-- Step 2 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-pink text-lg font-black text-white">2</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent-pink/10 text-accent-pink">
+<span class="material-symbols-outlined">handshake</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.agents.step2.title">Connect Owners &amp; Renters</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.agents.step2.desc">Match landlords with qualified tenants using our smart matching tools. Access a growing database of properties and tenant profiles.</p>
+</div>
+<!-- Step 3 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-pink text-lg font-black text-white">3</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent-pink/10 text-accent-pink">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.agents.step3.title">Facilitate the Deal</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.agents.step3.desc">Manage showings, applications, and lease signing all from one dashboard. Keep all parties informed with automated status updates.</p>
+</div>
+<!-- Step 4 -->
+<div class="group relative rounded-2xl bg-background-light p-8 transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-pink text-lg font-black text-white">4</div>
+<div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent-pink/10 text-accent-pink">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<h4 class="font-display text-lg font-bold text-ocean-deep dark:text-white" data-i18n="hiw.agents.step4.title">Earn Your Commission</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="hiw.agents.step4.desc">Get paid 5-8% on every successful lease. Track your earnings, pending deals, and payout history in real time.</p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Comparison Table -->
+<section class="bg-background-light py-20 dark:bg-background-dark">
+<div class="mx-auto max-w-5xl px-6">
+<div class="mb-12 text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white" data-i18n="hiw.compare.title">Traditional Renting vs. Los Cabos Rental App</h2>
+<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="hiw.compare.subtitle">See why hundreds of renters and landlords are making the switch.</p>
+</div>
+<div class="overflow-hidden rounded-2xl bg-white shadow-xl dark:bg-slate-900/50">
+<table class="w-full">
+<thead>
+<tr class="border-b border-slate-200 dark:border-slate-700">
+<th class="px-6 py-5 text-left text-sm font-bold text-ocean-deep dark:text-white" data-i18n="hiw.compare.category">Category</th>
+<th class="px-6 py-5 text-center text-sm font-bold text-slate-500" data-i18n="hiw.compare.traditional">Traditional Way</th>
+<th class="px-6 py-5 text-center text-sm font-bold text-primary" data-i18n="hiw.compare.platform">Los Cabos Rental App</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="transition-colors hover:bg-background-light/50">
+<td class="px-6 py-4 text-sm font-semibold text-ocean-deep dark:text-white" data-i18n="hiw.compare.row1.label">Finding Listings</td>
+<td class="px-6 py-4 text-center text-sm text-slate-500">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-red-400 text-sm">close</span> <span data-i18n="hiw.compare.row1.old">WhatsApp groups, Facebook, word of mouth</span></span>
+</td>
+<td class="px-6 py-4 text-center text-sm text-slate-700 dark:text-slate-300">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-green-500 text-sm">check_circle</span> <span data-i18n="hiw.compare.row1.new">Verified, searchable listings with filters</span></span>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-background-light/50">
+<td class="px-6 py-4 text-sm font-semibold text-ocean-deep dark:text-white" data-i18n="hiw.compare.row2.label">Tenant Screening</td>
+<td class="px-6 py-4 text-center text-sm text-slate-500">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-red-400 text-sm">close</span> <span data-i18n="hiw.compare.row2.old">Trust and gut feeling</span></span>
+</td>
+<td class="px-6 py-4 text-center text-sm text-slate-700 dark:text-slate-300">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-green-500 text-sm">check_circle</span> <span data-i18n="hiw.compare.row2.new">Background checks &amp; income verification</span></span>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-background-light/50">
+<td class="px-6 py-4 text-sm font-semibold text-ocean-deep dark:text-white" data-i18n="hiw.compare.row3.label">Lease Signing</td>
+<td class="px-6 py-4 text-center text-sm text-slate-500">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-red-400 text-sm">close</span> <span data-i18n="hiw.compare.row3.old">Paper contracts, notary visits</span></span>
+</td>
+<td class="px-6 py-4 text-center text-sm text-slate-700 dark:text-slate-300">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-green-500 text-sm">check_circle</span> <span data-i18n="hiw.compare.row3.new">Digital e-signatures, legally binding</span></span>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-background-light/50">
+<td class="px-6 py-4 text-sm font-semibold text-ocean-deep dark:text-white" data-i18n="hiw.compare.row4.label">Rent Payments</td>
+<td class="px-6 py-4 text-center text-sm text-slate-500">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-red-400 text-sm">close</span> <span data-i18n="hiw.compare.row4.old">Cash, bank transfers, chasing tenants</span></span>
+</td>
+<td class="px-6 py-4 text-center text-sm text-slate-700 dark:text-slate-300">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-green-500 text-sm">check_circle</span> <span data-i18n="hiw.compare.row4.new">Automated monthly collection</span></span>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-background-light/50">
+<td class="px-6 py-4 text-sm font-semibold text-ocean-deep dark:text-white" data-i18n="hiw.compare.row5.label">Maintenance</td>
+<td class="px-6 py-4 text-center text-sm text-slate-500">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-red-400 text-sm">close</span> <span data-i18n="hiw.compare.row5.old">Phone calls, no tracking</span></span>
+</td>
+<td class="px-6 py-4 text-center text-sm text-slate-700 dark:text-slate-300">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-green-500 text-sm">check_circle</span> <span data-i18n="hiw.compare.row5.new">In-app requests with photo &amp; status tracking</span></span>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-background-light/50">
+<td class="px-6 py-4 text-sm font-semibold text-ocean-deep dark:text-white" data-i18n="hiw.compare.row6.label">Transparency</td>
+<td class="px-6 py-4 text-center text-sm text-slate-500">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-red-400 text-sm">close</span> <span data-i18n="hiw.compare.row6.old">Hidden fees, unclear terms</span></span>
+</td>
+<td class="px-6 py-4 text-center text-sm text-slate-700 dark:text-slate-300">
+<span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-green-500 text-sm">check_circle</span> <span data-i18n="hiw.compare.row6.new">Clear pricing, no hidden costs</span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- CTA / Waitlist Section -->
+<section class="bg-ocean-deep py-20">
+<div class="mx-auto max-w-3xl px-6 text-center">
+<span class="material-symbols-outlined mb-4 text-5xl text-accent-sunset">rocket_launch</span>
+<h2 class="font-display text-3xl font-bold text-white md:text-4xl" data-i18n="hiw.cta.title">Ready to Experience Better Renting?</h2>
+<p class="mx-auto mt-4 max-w-xl text-slate-300" data-i18n="hiw.cta.subtitle">Join hundreds of renters, landlords, and agents who are transforming the rental experience in Los Cabos.</p>
+<form class="mx-auto mt-10 flex max-w-md gap-3">
+<input class="flex-1 rounded-xl border border-slate-600 bg-white/10 px-5 py-3.5 text-sm text-white placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Your email address" type="email" data-i18n-placeholder="placeholder.email"/>
+<button class="cursor-pointer rounded-xl bg-primary px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" type="submit" data-i18n="cta.joinWaitlist">Join Waitlist</button>
+</form>
+<p class="mt-4 text-xs text-slate-500" data-i18n="hiw.cta.privacy">No spam. Unsubscribe anytime. We respect your inbox.</p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="mt-auto border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid gap-12 md:grid-cols-4">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-sm">beach_access</span>
+</div>
+<h2 class="font-display text-lg font-bold text-ocean-deep dark:text-white">Los Cabos Rental App</h2>
+</div>
+<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400" data-i18n="footer.desc">
+              The premier platform for long-term rentals in Baja California Sur. We bridge the gap between premium tenants and property owners.
+            </p>
+<div class="mt-8">
+<p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
+<form class="flex gap-2 max-w-sm">
+<input class="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your email" type="email" data-i18n-placeholder="placeholder.email"/>
+<button class="cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" type="submit" data-i18n="cta.joinWaitlist">Join Waitlist</button>
+</form>
+</div>
+</div>
+<div>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.quickLinks">Quick Links</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="rentals.html" data-i18n="footer.searchRentals">Search Rentals</a></li>
+<li><a class="hover:text-primary" href="landlords.html" data-i18n="footer.listPropertyLink">List Property</a></li>
+<li><a class="hover:text-primary" href="blog-index.html" data-i18n="footer.resources">Resources</a></li>
+<li><a class="hover:text-primary" href="terms.html" data-i18n="footer.termsOfService">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.destinations">Destinations</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="location.html">Cabo San Lucas</a></li>
+<li><a class="hover:text-primary" href="location.html">San Jose del Cabo</a></li>
+<li><a class="hover:text-primary" href="location.html">El Tezal</a></li>
+<li><a class="hover:text-primary" href="location.html">Cabo Pulmo</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500" data-i18n="footer.copyright">
+          &copy; 2025 Los Cabos Rental App. All rights reserved. Made for the Baja sun.
+        </div>
+</div>
+</footer>
+</div>
+<script src="js/i18n.js"></script>
+</body></html>

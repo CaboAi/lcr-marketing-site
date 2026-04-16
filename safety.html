@@ -1,0 +1,463 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rental Safety | Los Cabos Rental App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#D55E46",
+            "accent-sunset": "#D5B58F",
+            "accent-pink": "#E37A81",
+            "ocean-deep": "#3D3330",
+            "background-light": "#F5F0EB",
+            "background-dark": "#2A2220",
+          },
+          fontFamily: {
+            "display": ["Outfit", "Inter", "sans-serif"],
+            "sans": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-background-dark/80">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+<span class="material-symbols-outlined">beach_access</span>
+</div>
+<a href="index.html" class="font-display text-xl font-bold tracking-tight text-ocean-deep dark:text-white">Los Cabos Rental App</a>
+</div>
+<nav class="hidden space-x-8 md:flex">
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="renters.html" data-i18n="nav.renters">Renters</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="landlords.html" data-i18n="nav.landlords">Landlords</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="agents.html" data-i18n="nav.agents">Agents</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="how-it-works.html" data-i18n="nav.howItWorks">How it Works</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="location.html" data-i18n="nav.areas">Areas</a>
+</nav>
+<div class="flex items-center gap-4">
+<button id="lang-toggle" onclick="toggleLanguage()" class="cursor-pointer flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300" aria-label="Toggle language">
+<span class="material-symbols-outlined text-lg">language</span>
+<span class="lang-label">EN</span>
+</button>
+<button class="cursor-pointer hidden text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 lg:block" data-i18n="cta.login">Log in</button>
+<button class="cursor-pointer rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-i18n="cta.getStarted">
+            Get Started
+          </button>
+</div>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-ocean-deep via-ocean-deep/95 to-ocean-deep/90 py-20 md:py-28">
+<div class="mx-auto max-w-7xl px-6 text-center">
+<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm">
+<span class="material-symbols-outlined text-5xl text-accent-sunset" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<h1 class="font-display text-4xl font-bold text-white md:text-5xl" data-i18n="safety.hero.title">Your Safety is Our Priority</h1>
+<p class="mx-auto mt-6 max-w-2xl text-lg text-slate-300">We are committed to creating a trustworthy rental marketplace in Los Cabos. From identity verification to secure payments, every feature is designed to protect you.</p>
+</div>
+</section>
+
+<!-- How We Verify Section -->
+<section class="py-20 md:py-24">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-14 text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="safety.verify.title">How We Protect You</h2>
+<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">Our multi-layered verification system ensures that every user on the platform is who they say they are, and every property is accurately represented.</p>
+</div>
+<div class="grid gap-8 md:grid-cols-3">
+<!-- Identity Verification Card -->
+<div class="group rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h3 class="font-display text-xl font-bold text-ocean-deep dark:text-white">Identity Verification</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400">Every user undergoes identity verification before they can list a property or sign a lease. We verify government-issued IDs, cross-reference personal information, and use facial recognition technology to confirm that each user is a real person.</p>
+<ul class="mt-6 space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Government ID verification
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Facial recognition matching
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Background screening
+</li>
+</ul>
+</div>
+<!-- Property Verification Card -->
+<div class="group rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-sunset/10 text-accent-sunset transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl">home_work</span>
+</div>
+<h3 class="font-display text-xl font-bold text-ocean-deep dark:text-white">Property Verification</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400">We verify that every listed property is real and accurately represented. Our team cross-checks ownership records with the Registro Publico de la Propiedad, confirms property addresses, and reviews listing photographs for accuracy.</p>
+<ul class="mt-6 space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span> Ownership document review
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span> Address confirmation
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span> Photo authenticity checks
+</li>
+</ul>
+</div>
+<!-- Payment Protection Card -->
+<div class="group rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-pink/10 text-accent-pink transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl">lock</span>
+</div>
+<h3 class="font-display text-xl font-bold text-ocean-deep dark:text-white">Payment Protection</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400">All financial transactions on the platform are encrypted end-to-end and processed through PCI-DSS compliant payment providers. Security deposits are held in escrow until both parties confirm move-in, protecting renters and landlords alike.</p>
+<ul class="mt-6 space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span> End-to-end encryption
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span> Escrow deposit protection
+</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span> Fraud detection monitoring
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Safety Tips for Renters -->
+<section class="bg-white py-20 md:py-24 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-14">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="safety.renters.title">Safety Tips for Renters</h2>
+<p class="mt-4 max-w-2xl text-slate-600 dark:text-slate-400">Follow these guidelines to protect yourself and ensure a smooth rental experience in Los Cabos.</p>
+</div>
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+<!-- Tip 1 -->
+<div class="flex gap-4 rounded-xl bg-background-light p-6 dark:bg-slate-900/30">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Visit the Property in Person</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Always schedule an in-person visit before signing any rental agreement. Verify that the property matches the listing photos and description. If you are unable to visit, ask a trusted local contact or hire a relocation service to inspect on your behalf.</p>
+</div>
+</div>
+<!-- Tip 2 -->
+<div class="flex gap-4 rounded-xl bg-background-light p-6 dark:bg-slate-900/30">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">block</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Never Send Money Outside the Platform</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">All payments should be processed through Los Cabos Rental App. Never wire money, send cash, or use informal payment methods requested by a landlord outside the platform. If someone asks you to pay outside the system, report them immediately.</p>
+</div>
+</div>
+<!-- Tip 3 -->
+<div class="flex gap-4 rounded-xl bg-background-light p-6 dark:bg-slate-900/30">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Verify the Landlord's Identity</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Check that the landlord has a verified badge on their profile. Our verification system confirms their identity and property ownership. Be cautious of landlords who have not completed verification or who pressure you to make quick decisions.</p>
+</div>
+</div>
+<!-- Tip 4 -->
+<div class="flex gap-4 rounded-xl bg-background-light p-6 dark:bg-slate-900/30">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Read Your Lease Agreement Carefully</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Review every clause of the rental contract before signing. Pay attention to the lease duration, payment terms, deposit conditions, maintenance responsibilities, and early termination clauses. If the lease is in Spanish, request a certified translation or use our bilingual contract templates.</p>
+</div>
+</div>
+<!-- Tip 5 -->
+<div class="flex gap-4 rounded-xl bg-background-light p-6 dark:bg-slate-900/30">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">photo_camera</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Document the Property at Move-In</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Take detailed photographs and videos of every room, including any existing damage, on the day you move in. Use our in-app move-in checklist to record the condition of walls, floors, appliances, fixtures, and furniture. This protects your security deposit when you move out.</p>
+</div>
+</div>
+<!-- Tip 6 -->
+<div class="flex gap-4 rounded-xl bg-background-light p-6 dark:bg-slate-900/30">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">flag</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Report Suspicious Listings Immediately</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">If a listing seems too good to be true, it probably is. Watch for warning signs: unusually low prices, landlords who refuse video calls, pressure to pay immediately, or listings with stock photography. Use the "Report" button on any listing or contact our safety team directly.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Safety Tips for Landlords -->
+<section class="py-20 md:py-24">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-14">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="safety.landlords.title">Safety Tips for Landlords</h2>
+<p class="mt-4 max-w-2xl text-slate-600 dark:text-slate-400">Protect your property and ensure reliable tenancy with these best practices.</p>
+</div>
+<div class="grid gap-6 md:grid-cols-2">
+<!-- Landlord Tip 1 -->
+<div class="flex gap-4 rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">person_search</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Screen Tenants Thoroughly</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Use our built-in tenant screening tools to review rental applications, verify employment and income, and check references from previous landlords. A thorough screening process dramatically reduces the risk of payment issues or property damage.</p>
+</div>
+</div>
+<!-- Landlord Tip 2 -->
+<div class="flex gap-4 rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Use a Legally Binding Contract</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Always use a formal rental contract that complies with Mexican civil law. Our platform provides bilingual contract templates reviewed by local attorneys. Never rely on verbal agreements -- a written contract protects both you and your tenant in case of disputes.</p>
+</div>
+</div>
+<!-- Landlord Tip 3 -->
+<div class="flex gap-4 rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">inventory</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Create a Detailed Property Inventory</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Before the tenant moves in, document every item and the condition of the property with photos and a written inventory list. Have both parties sign the inventory. This serves as the baseline for security deposit deductions and prevents disputes at move-out.</p>
+</div>
+</div>
+<!-- Landlord Tip 4 -->
+<div class="flex gap-4 rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-sunset/10 text-accent-sunset">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div>
+<h4 class="font-display text-base font-bold text-ocean-deep dark:text-white">Maintain Adequate Insurance</h4>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Ensure your property is covered by appropriate insurance that includes rental liability. Consider requiring tenants to obtain renter's insurance as a lease condition. Proper coverage protects you from unexpected damages, natural disasters, and liability claims.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Emergency Contacts -->
+<section class="bg-ocean-deep py-20 md:py-24">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-14 text-center">
+<h2 class="font-display text-3xl font-bold text-white md:text-4xl" data-i18n="safety.emergency.title">Emergency Contacts in Los Cabos</h2>
+<p class="mx-auto mt-4 max-w-2xl text-slate-300">Keep these numbers saved in your phone. In an emergency, always call 911 first.</p>
+</div>
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+<!-- Police -->
+<div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined">local_police</span>
+</div>
+<h4 class="font-display text-lg font-bold text-white">Municipal Police</h4>
+<p class="mt-2 text-sm text-slate-300">Cabo San Lucas</p>
+<p class="mt-3 text-lg font-bold text-accent-sunset">624-143-3977</p>
+<p class="mt-1 text-sm text-slate-400">Emergency: 911</p>
+</div>
+<!-- Fire -->
+<div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined">fire_truck</span>
+</div>
+<h4 class="font-display text-lg font-bold text-white">Fire Department</h4>
+<p class="mt-2 text-sm text-slate-300">Bomberos de Los Cabos</p>
+<p class="mt-3 text-lg font-bold text-accent-sunset">624-143-0707</p>
+<p class="mt-1 text-sm text-slate-400">Emergency: 911</p>
+</div>
+<!-- Red Cross -->
+<div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined">emergency</span>
+</div>
+<h4 class="font-display text-lg font-bold text-white">Red Cross</h4>
+<p class="mt-2 text-sm text-slate-300">Cruz Roja Mexicana</p>
+<p class="mt-3 text-lg font-bold text-accent-sunset">624-143-3300</p>
+<p class="mt-1 text-sm text-slate-400">24-hour ambulance service</p>
+</div>
+<!-- US Consular Agency -->
+<div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<h4 class="font-display text-lg font-bold text-white">US Consular Agency</h4>
+<p class="mt-2 text-sm text-slate-300">Cabo San Lucas</p>
+<p class="mt-3 text-lg font-bold text-accent-sunset">624-143-3566</p>
+<p class="mt-1 text-sm text-slate-400">Mon-Fri 10am-1pm</p>
+</div>
+</div>
+<div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+<!-- Canadian Consulate -->
+<div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined">flag</span>
+</div>
+<h4 class="font-display text-lg font-bold text-white">Canadian Consulate</h4>
+<p class="mt-2 text-sm text-slate-300">Emergency Assistance</p>
+<p class="mt-3 text-lg font-bold text-accent-sunset">1-613-996-8885</p>
+<p class="mt-1 text-sm text-slate-400">24-hour emergency line</p>
+</div>
+<!-- Tourist Police -->
+<div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<h4 class="font-display text-lg font-bold text-white">Tourist Assistance</h4>
+<p class="mt-2 text-sm text-slate-300">SECTUR Hotline</p>
+<p class="mt-3 text-lg font-bold text-accent-sunset">078</p>
+<p class="mt-1 text-sm text-slate-400">Bilingual assistance 24/7</p>
+</div>
+<!-- Hospital -->
+<div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined">local_hospital</span>
+</div>
+<h4 class="font-display text-lg font-bold text-white">Hospital H+</h4>
+<p class="mt-2 text-sm text-slate-300">Private Hospital</p>
+<p class="mt-3 text-lg font-bold text-accent-sunset">624-104-9300</p>
+<p class="mt-1 text-sm text-slate-400">24-hour emergency room</p>
+</div>
+<!-- CFE Power -->
+<div class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<h4 class="font-display text-lg font-bold text-white">CFE (Power Outages)</h4>
+<p class="mt-2 text-sm text-slate-300">Report service issues</p>
+<p class="mt-3 text-lg font-bold text-accent-sunset">071</p>
+<p class="mt-1 text-sm text-slate-400">National power utility</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Report a Concern -->
+<section class="py-20 md:py-24">
+<div class="mx-auto max-w-3xl px-6">
+<div class="text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="safety.report.title">Report a Concern</h2>
+<p class="mx-auto mt-4 max-w-xl text-slate-600 dark:text-slate-400">If you have encountered a suspicious listing, experienced fraud, or feel unsafe, please let us know immediately. Our safety team reviews every report within 24 hours.</p>
+</div>
+<form class="mt-10 space-y-6 rounded-2xl bg-white p-8 shadow-sm dark:bg-slate-900/50">
+<div>
+<label for="report-email" class="block text-sm font-semibold text-ocean-deep dark:text-white">Your Email</label>
+<input id="report-email" type="email" required placeholder="you@example.com" class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white"/>
+</div>
+<div>
+<label for="report-type" class="block text-sm font-semibold text-ocean-deep dark:text-white">Type of Concern</label>
+<select id="report-type" class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+<option value="">Select a category</option>
+<option value="suspicious-listing">Suspicious Listing</option>
+<option value="fraud">Fraud or Scam</option>
+<option value="harassment">Harassment or Threats</option>
+<option value="property-misrepresentation">Property Misrepresentation</option>
+<option value="payment-issue">Payment Issue</option>
+<option value="safety-concern">Personal Safety Concern</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div>
+<label for="report-description" class="block text-sm font-semibold text-ocean-deep dark:text-white">Description</label>
+<textarea id="report-description" rows="5" required placeholder="Please describe the issue in detail. Include any relevant listing URLs, usernames, dates, or screenshots that can help us investigate." class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white"></textarea>
+</div>
+<div>
+<label for="report-file" class="block text-sm font-semibold text-ocean-deep dark:text-white">Attach Evidence (optional)</label>
+<input id="report-file" type="file" accept="image/*,.pdf" class="mt-2 w-full text-sm text-slate-500 file:mr-4 file:rounded-lg file:border-0 file:bg-primary/10 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-primary/20"/>
+</div>
+<button type="submit" class="cursor-pointer w-full rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+Submit Report
+</button>
+<p class="text-center text-xs text-slate-500 dark:text-slate-400">All reports are confidential. We will never share your identity with the person you are reporting.</p>
+</form>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="mt-auto border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid gap-12 md:grid-cols-4">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-sm">beach_access</span>
+</div>
+<h2 class="font-display text-lg font-bold text-ocean-deep dark:text-white">Los Cabos Rental App</h2>
+</div>
+<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400" data-i18n="footer.desc">
+              The premier platform for long-term rentals in Baja California Sur. We bridge the gap between premium tenants and property owners.
+            </p>
+<div class="mt-8">
+<p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
+<form class="flex gap-2 max-w-sm">
+<input class="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your email" type="email" data-i18n-placeholder="placeholder.email"/>
+<button class="cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" type="submit" data-i18n="cta.joinWaitlist">Join Waitlist</button>
+</form>
+</div>
+</div>
+<div>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.quickLinks">Quick Links</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="index.html" data-i18n="footer.searchRentals">Search Rentals</a></li>
+<li><a class="hover:text-primary" href="index.html" data-i18n="footer.listPropertyLink">List Property</a></li>
+<li><a class="hover:text-primary" href="index.html" data-i18n="footer.resources">Resources</a></li>
+<li><a class="hover:text-primary" href="terms.html" data-i18n="footer.termsOfService">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.destinations">Destinations</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="location.html">Cabo San Lucas</a></li>
+<li><a class="hover:text-primary" href="location.html">San Jose del Cabo</a></li>
+<li><a class="hover:text-primary" href="location.html">El Tezal</a></li>
+<li><a class="hover:text-primary" href="location.html">Cabo Pulmo</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500" data-i18n="footer.copyright">
+          &copy; 2025 Los Cabos Rental App. All rights reserved. Made for the Baja sun.
+        </div>
+</div>
+</footer>
+</div>
+<script src="js/i18n.js"></script>
+</body></html>
