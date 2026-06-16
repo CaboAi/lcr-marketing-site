@@ -112,6 +112,16 @@
       es: "La plataforma premier para rentas a largo plazo en Baja California Sur. Conectamos inquilinos premium con propietarios."
     },
     "footer.waitlistLabel": { en: "App coming soon. Join the waitlist:", es: "App disponible pronto. Unete a la lista:" },
+
+    // Waitlist section
+    "waitlist.title": { en: "Be the first to know", es: "Se el primero en saber" },
+    "waitlist.subtitle": { en: "Join the waitlist and get early access to the premier long-term rental platform in Los Cabos. Select your role below.", es: "Unete a la lista y obtén acceso anticipado a la plataforma de rentas a largo plazo en Los Cabos. Selecciona tu rol." },
+    "waitlist.role.renter": { en: "Renter", es: "Inquilino" },
+    "waitlist.role.renter.desc": { en: "Looking for a home", es: "Buscando un hogar" },
+    "waitlist.role.landlord": { en: "Landlord", es: "Propietario" },
+    "waitlist.role.landlord.desc": { en: "Listing a property", es: "Publicando una propiedad" },
+    "waitlist.role.agent": { en: "Agent", es: "Agente" },
+    "waitlist.role.agent.desc": { en: "Managing listings", es: "Administrando listados" },
     "footer.quickLinks": { en: "Quick Links", es: "Enlaces Rapidos" },
     "footer.searchRentals": { en: "Search Rentals", es: "Buscar Rentas" },
     "footer.listPropertyLink": { en: "List Property", es: "Publicar Propiedad" },
