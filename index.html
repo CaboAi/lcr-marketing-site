@@ -1,384 +1,813 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Los Cabos Rental App - Long-Term Rentals in Paradise</title>
-<meta property="og:title" content="Los Cabos Rental App - Long-Term Rentals in Paradise"/>
+<title>Los Cabos Rental App — Long-Term Rentals in Paradise</title>
+<meta property="og:title" content="Los Cabos Rental App — Long-Term Rentals in Paradise"/>
 <meta property="og:description" content="Find your perfect long-term rental in Baja California Sur. Join the waitlist for the premier rental platform connecting renters, landlords, and agents in Los Cabos."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://loscabosrentalapp.com/"/>
 <meta property="og:image" content="https://loscabosrentalapp.com/images/og-default.jpg"/>
 <meta property="og:site_name" content="Los Cabos Rental App"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Los Cabos Rental App - Long-Term Rentals in Paradise"/>
+<meta name="twitter:title" content="Los Cabos Rental App — Long-Term Rentals in Paradise"/>
 <meta name="twitter:description" content="Find your perfect long-term rental in Baja California Sur. Join the waitlist for the premier rental platform."/>
 <meta name="twitter:image" content="https://loscabosrentalapp.com/images/og-default.jpg"/>
 <meta name="description" content="The premier platform for long-term rentals across the Los Cabos region. Join the waitlist for early access."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <script id="tailwind-config">
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            "rausch": "#ff385c",
-            "rausch-dark": "#e00b41",
-            "ink": "#222222",
-            "ink-soft": "#3f3f3f",
-            "muted": "#6a6a6a",
-            "line": "#dddddd",
-            "surface": "#f7f7f7",
-            "chip": "#f2f2f2",
-          },
-          fontFamily: {
-            "sans": ["Inter", "Circular", "-apple-system", "system-ui", "sans-serif"]
-          },
-          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.25rem", "3xl": "2rem", "full": "9999px"},
-          boxShadow: {
-            "airbnb": "rgba(0,0,0,0.02) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 6px, rgba(0,0,0,0.1) 0px 4px 8px",
-            "airbnb-hover": "rgba(0,0,0,0.08) 0px 4px 12px",
-          },
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          rausch: "#e8384f",
+          "rausch-dark": "#c82e42",
+          ink: "#1a1a1a",
+          "ink-soft": "#383838",
+          muted: "#717171",
+          line: "#e4e4e4",
+          surface: "#f8f8f8",
+          chip: "#f2f2f2",
+        },
+        fontFamily: {
+          sans: ["Outfit", "-apple-system", "system-ui", "sans-serif"],
+        },
+        borderRadius: {
+          DEFAULT: "0.375rem",
+          lg: "0.625rem",
+          xl: "1rem",
+          "2xl": "1.5rem",
+          "3xl": "2.5rem",
+          full: "9999px",
+        },
+        boxShadow: {
+          soft: "0 1px 2px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06)",
+          lift: "0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+          strong: "0 20px 56px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)",
         },
       },
-    }
-  </script>
+    },
+  };
+</script>
 <style>
-    html { scroll-behavior: smooth; }
-    body { -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; }
-    h1, h2, h3, h4 { letter-spacing: -0.02em; }
-    .role-card { transition: all 0.2s ease; }
-    .role-card.selected { border-color: #222222; background-color: #f7f7f7; }
-    .role-card:hover { border-color: #222222; }
-    .pill { transition: background-color 0.15s ease, color 0.15s ease; }
-    .pill:hover { background-color: #222222; color: #ffffff; }
-    .btn-primary { background-color: #ff385c; transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease; }
-    .btn-primary:hover { background-color: #e00b41; box-shadow: rgba(0,0,0,0.08) 0px 4px 12px; }
-    .btn-primary:active { transform: scale(0.97); }
-    .btn-dark { background-color: #222222; transition: background-color 0.15s ease, transform 0.1s ease; }
-    .btn-dark:hover { background-color: #000000; }
-    .btn-dark:active { transform: scale(0.97); }
-    .card { background: #ffffff; border-radius: 20px; box-shadow: rgba(0,0,0,0.02) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 6px, rgba(0,0,0,0.1) 0px 4px 8px; transition: box-shadow 0.2s ease, transform 0.2s ease; }
-    .card:hover { box-shadow: rgba(0,0,0,0.04) 0px 0px 0px 1px, rgba(0,0,0,0.08) 0px 6px 16px, rgba(0,0,0,0.12) 0px 8px 24px; transform: translateY(-2px); }
-  </style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+  /* ── Typography ── */
+  .display { letter-spacing: -0.045em; line-height: 0.92; }
+  .heading  { letter-spacing: -0.025em; }
+
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible  { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: 0.06s; }
+  .reveal-d2 { transition-delay: 0.13s; }
+  .reveal-d3 { transition-delay: 0.20s; }
+  .reveal-d4 { transition-delay: 0.28s; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    position: relative; overflow: hidden;
+    background: #e8384f; color: white; font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .btn-primary::after {
+    content: ''; position: absolute; inset: 0;
+    background: #c82e42;
+    transform: translateX(-101%);
+    transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary:hover { box-shadow: 0 6px 24px rgba(232,56,79,0.30); }
+  .btn-primary:active { transform: scale(0.97) translateY(1px); }
+  .btn-primary > * { position: relative; z-index: 1; }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center;
+    font-weight: 600; color: #1a1a1a;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .btn-ghost:hover { background: #f2f2f2; }
+  .btn-ghost:active { transform: scale(0.97); }
+
+  /* ── Image zoom ── */
+  .img-zoom { overflow: hidden; }
+  .img-zoom img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); display: block; }
+  .img-zoom:hover img { transform: scale(1.04); }
+
+  /* ── Pills ── */
+  .loc-pill {
+    cursor: pointer; font-weight: 600;
+    border: 1.5px solid #e4e4e4; background: white; color: #1a1a1a;
+    transition: all 0.18s cubic-bezier(0.16,1,0.3,1);
+  }
+  .loc-pill:hover {
+    background: #1a1a1a; border-color: #1a1a1a; color: white;
+    transform: translateY(-1px);
+  }
+
+  /* ── Role cards ── */
+  .role-card {
+    cursor: pointer;
+    border: 1.5px solid #e4e4e4;
+    transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .role-card.selected { border-color: #e8384f; background: #fff5f6; }
+  .role-card.selected .role-icon { color: #e8384f; }
+  .role-card.selected .role-label { color: #1a1a1a; }
+  .role-card.selected .role-desc  { color: #717171; }
+  .role-card:hover:not(.selected) { border-color: #1a1a1a; }
+
+  /* Dark form inputs */
+  .dark-input {
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.14);
+    color: white;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .dark-input:focus {
+    background: rgba(255,255,255,0.11);
+    border-color: rgba(255,255,255,0.32);
+    outline: none;
+  }
+  .dark-input::placeholder { color: rgba(255,255,255,0.42); }
+
+  .dark-role-card {
+    cursor: pointer;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.2s ease;
+  }
+  .dark-role-card:hover { border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.08); }
+  .dark-role-card.selected { border-color: #e8384f; background: rgba(232,56,79,0.12); }
+
+  /* ── Float animation (hero cards) ── */
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-7px); }
+  }
+  .float { animation: gentle-float 4s ease-in-out infinite; }
+  .float-delayed { animation: gentle-float 4s ease-in-out 2s infinite; }
+
+  /* ── Live dot pulse ── */
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+    100% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  }
+  .live-dot-green { animation: pulse-ring 2.2s ease-out infinite; }
+
+  /* ── Badge dot ── */
+  @keyframes badge-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.45; }
+  }
+  .badge-dot { animation: badge-pulse 2s ease-in-out infinite; }
+
+  /* ── Feature visual backgrounds ── */
+  .panel-renter   { background: linear-gradient(135deg, #fff5f0 0%, #fef9f0 100%); }
+  .panel-landlord { background: linear-gradient(135deg, #f0f5ff 0%, #f5f0ff 100%); }
+  .panel-agent    { background: linear-gradient(135deg, #f0fff8 0%, #f0f8ff 100%); }
+
+  /* ── Mobile nav ── */
+  #mobile-menu {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+  }
+  #mobile-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+</style>
 </head>
+
 <body class="bg-white font-sans text-ink">
-<div class="relative flex min-h-screen flex-col">
-<!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-line bg-white/95 backdrop-blur-md">
-<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-<a href="/" class="flex items-center gap-2">
-<div class="flex h-9 w-9 items-center justify-center rounded-full bg-rausch text-white">
-<span class="material-symbols-outlined text-lg">beach_access</span>
-</div>
-<h1 class="text-lg font-bold tracking-tight text-ink">Los Cabos Rental</h1>
-</a>
-<nav class="hidden space-x-8 md:flex">
-<a class="cursor-pointer text-sm font-semibold text-ink hover:text-rausch transition-colors" href="#benefits">Benefits</a>
-<a class="cursor-pointer text-sm font-semibold text-ink hover:text-rausch transition-colors" href="#how-it-works" data-i18n="nav.howItWorks">How it Works</a>
-<a class="cursor-pointer text-sm font-semibold text-ink hover:text-rausch transition-colors" href="#locations" data-i18n="nav.areas">Areas</a>
-</nav>
-<div class="flex items-center gap-3">
-<button id="mobile-menu-btn" class="md:hidden flex items-center justify-center text-ink hover:text-rausch" aria-label="Toggle menu" aria-expanded="false">
-<span class="material-symbols-outlined text-2xl">menu</span>
-</button>
-<button id="lang-toggle" onclick="toggleLanguage()" class="cursor-pointer flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-sm font-semibold text-ink transition-colors hover:bg-chip" aria-label="Toggle language">
-<span class="material-symbols-outlined text-base">language</span>
-<span class="lang-label">EN</span>
-</button>
-<a href="#waitlist" class="btn-primary hidden sm:inline-flex cursor-pointer items-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white" data-i18n="cta.joinWaitlist">
-            Join Waitlist
-          </a>
-</div>
-</div>
+<div style="min-height:100dvh;" class="flex flex-col">
+
+<!-- ══ NAVIGATION ══ -->
+<header class="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-[14px]">
+    <a href="/" class="flex items-center gap-2.5">
+      <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-white">
+        <span class="material-symbols-outlined" style="font-size:15px;">beach_access</span>
+      </div>
+      <span class="heading text-[15px] font-semibold text-ink">Los Cabos Rental</span>
+    </a>
+
+    <nav class="hidden items-center gap-7 md:flex">
+      <a href="#benefits"      class="text-[13px] font-semibold text-muted transition-colors hover:text-ink">Benefits</a>
+      <a href="#how-it-works"  class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.howItWorks">How it Works</a>
+      <a href="#locations"     class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.areas">Areas</a>
+    </nav>
+
+    <div class="flex items-center gap-2.5">
+      <button id="mobile-menu-btn" class="flex h-9 w-9 items-center justify-center rounded-lg text-ink hover:bg-chip md:hidden" aria-label="Toggle menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <button onclick="toggleLanguage()" class="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[13px] font-semibold text-ink transition-all hover:bg-chip" aria-label="Toggle language">
+        <span class="material-symbols-outlined" style="font-size:15px;">language</span>
+        <span class="lang-label">EN</span>
+      </button>
+      <a href="#waitlist" class="btn-primary hidden rounded-xl px-5 py-2.5 text-[13px] sm:inline-flex" data-i18n="cta.joinWaitlist">
+        <span>Join Waitlist</span>
+      </a>
+    </div>
+  </div>
 </header>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden fixed top-[69px] left-0 right-0 z-40 bg-white border-b border-line shadow-airbnb">
-<nav class="flex flex-col px-6 py-4 space-y-1">
-<a class="text-base font-semibold text-ink hover:text-rausch py-3" href="#benefits">Benefits</a>
-<a class="text-base font-semibold text-ink hover:text-rausch py-3" href="#how-it-works">How it Works</a>
-<a class="text-base font-semibold text-ink hover:text-rausch py-3" href="#locations">Areas</a>
-<a class="btn-primary mt-3 block rounded-lg px-5 py-3 text-center text-base font-semibold text-white" href="#waitlist">Join Waitlist</a>
-</nav>
+<div id="mobile-menu" class="fixed left-0 right-0 top-[61px] z-40 border-b border-line bg-white shadow-soft md:hidden">
+  <nav class="flex flex-col px-6 py-3">
+    <a href="#benefits"     class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch">Benefits</a>
+    <a href="#how-it-works" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch">How it Works</a>
+    <a href="#locations"    class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch">Areas</a>
+    <a href="#waitlist" class="btn-primary mb-2 mt-4 rounded-xl px-5 py-3 text-sm"><span>Join Waitlist</span></a>
+  </nav>
 </div>
 
-<!-- Hero Section -->
+
+<!-- ══ HERO ══ -->
 <section class="relative w-full overflow-hidden bg-white">
-<div class="mx-auto max-w-7xl px-6 pt-10 pb-16 lg:pt-16 lg:pb-24">
-<div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
-<!-- Left: Text Content -->
-<div>
-<span class="inline-block rounded-full bg-chip px-3 py-1 text-xs font-semibold text-ink" data-i18n="hero.badge">Luxury Long-Term Living</span>
-<h1 class="mt-6 text-5xl font-bold leading-[1.05] text-ink md:text-6xl">
-            <span data-i18n="hero.title">Your long-term home in</span> <span class="text-rausch" data-i18n="hero.titleHighlight">paradise</span> <span data-i18n="hero.titleEnd">awaits.</span>
-          </h1>
-<p class="mt-6 max-w-xl text-lg leading-relaxed text-muted" data-i18n="hero.subtitle">
-            The premium rental platform for curated long-term stays across the Los Cabos region, from San José del Cabo to Cabo San Lucas.
-          </p>
-<div class="mt-8 flex flex-wrap gap-3">
-<a href="#waitlist" class="btn-primary inline-flex items-center rounded-lg px-6 py-3 text-base font-semibold text-white" data-i18n="cta.joinWaitlist">Join Waitlist</a>
-<a href="#how-it-works" class="inline-flex items-center rounded-lg border border-line bg-white px-6 py-3 text-base font-semibold text-ink transition-colors hover:bg-chip">How it works</a>
-</div>
-<div class="mt-10 flex items-center gap-6 text-sm text-muted">
-<div class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-ink">verified</span> Verified listings</div>
-<div class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-ink">draw</span> Digital leases</div>
-<div class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-ink">payments</span> Secure payments</div>
-</div>
-</div>
-<!-- Right: Hero Image with floating card -->
-<div class="relative">
-<div class="overflow-hidden rounded-3xl shadow-airbnb">
-<img src="https://images.unsplash.com/photo-1535392432937-a27c36ec07b5?w=1400&q=80" alt="El Arco landmark and beach in Cabo San Lucas at golden hour" class="h-[420px] w-full object-cover md:h-[520px]"/>
-</div>
-<!-- Floating stat card -->
-<div class="absolute -bottom-6 -left-4 hidden sm:block card p-5">
-<div class="flex items-center gap-3">
-<div class="flex h-12 w-12 items-center justify-center rounded-full bg-rausch/10 text-rausch">
-<span class="material-symbols-outlined">trending_up</span>
-</div>
-<div>
-<p class="text-sm text-muted">Growing waitlist</p>
-<p class="text-lg font-bold text-ink">Be an early member</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+  <!-- Decorative rings (top-right, pointer-events none) -->
+  <div class="pointer-events-none absolute -right-48 -top-20 h-[600px] w-[600px] rounded-full border border-line/50" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute -right-28 top-4 h-[380px] w-[380px] rounded-full border border-line/35" aria-hidden="true"></div>
 
-<!-- Value Proposition / Benefits -->
-<section id="benefits" class="bg-surface py-24">
-<div class="mx-auto max-w-7xl px-6">
-<div class="mb-14 max-w-2xl">
-<span class="inline-block rounded-full bg-chip px-3 py-1 text-xs font-semibold text-ink">Built for Baja</span>
-<h2 class="mt-4 text-4xl font-bold text-ink md:text-5xl" data-i18n="value.title">Tailored for the Baja lifestyle</h2>
-<p class="mt-4 text-lg text-muted" data-i18n="value.subtitle">Exclusive solutions for renters, property owners, and agents in the most desirable peninsula in Mexico.</p>
-</div>
-<div class="grid gap-6 md:grid-cols-3">
-<!-- Renters Card -->
-<div class="card p-8 cursor-pointer group">
-<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-rausch/10 text-rausch transition-transform group-hover:scale-110">
-<span class="material-symbols-outlined">home_pin</span>
-</div>
-<h3 class="text-xl font-semibold text-ink" data-i18n="value.renters.title">For renters</h3>
-<p class="mt-3 text-muted" data-i18n="value.renters.desc">Find vetted, high-end long-term stays. Verified listings, digital lease agreements, and transparent communication with property owners.</p>
-<ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-ink">
-<span class="material-symbols-outlined text-base text-rausch">check_circle</span> <span data-i18n="value.renters.feature1">Verified luxury listings</span>
-              </li>
-<li class="flex items-center gap-2 text-sm text-ink">
-<span class="material-symbols-outlined text-base text-rausch">check_circle</span> <span data-i18n="value.renters.feature2">Secure digital contracts</span>
-              </li>
-</ul>
-</div>
-<!-- Landlords Card -->
-<div class="card p-8 cursor-pointer group">
-<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-rausch/10 text-rausch transition-transform group-hover:scale-110">
-<span class="material-symbols-outlined">real_estate_agent</span>
-</div>
-<h3 class="text-xl font-semibold text-ink" data-i18n="value.landlords.title">For landlords</h3>
-<p class="mt-3 text-muted" data-i18n="value.landlords.desc">Maximize your investment with high-quality, long-term tenants. Collect rent online, sign digital leases, and communicate effortlessly.</p>
-<ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-ink">
-<span class="material-symbols-outlined text-base text-rausch">check_circle</span> <span data-i18n="value.landlords.feature1">Online rent collection</span>
-              </li>
-<li class="flex items-center gap-2 text-sm text-ink">
-<span class="material-symbols-outlined text-base text-rausch">check_circle</span> <span data-i18n="value.landlords.feature2">Digital lease agreements</span>
-              </li>
-</ul>
-</div>
-<!-- Agents Card -->
-<div class="card p-8 cursor-pointer group">
-<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-rausch/10 text-rausch transition-transform group-hover:scale-110">
-<span class="material-symbols-outlined">groups</span>
-</div>
-<h3 class="text-xl font-semibold text-ink" data-i18n="value.agents.title">For agents</h3>
-<p class="mt-3 text-muted" data-i18n="value.agents.desc">Grow your rental business by connecting landlords with qualified tenants. Manage listings on behalf of property owners and build your client base.</p>
-<ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-ink">
-<span class="material-symbols-outlined text-base text-rausch">check_circle</span> <span data-i18n="value.agents.feature1">Manage listings for owners</span>
-              </li>
-<li class="flex items-center gap-2 text-sm text-ink">
-<span class="material-symbols-outlined text-base text-rausch">check_circle</span> <span data-i18n="value.agents.feature2">Connect landlords with tenants</span>
-              </li>
-</ul>
-</div>
-</div>
-</div>
-</section>
+  <div class="mx-auto max-w-7xl px-6 pb-20 pt-14 lg:pb-28 lg:pt-20">
+    <div class="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
 
-<!-- How it Works -->
-<section id="how-it-works" class="bg-white py-24">
-<div class="mx-auto max-w-7xl px-6">
-<div class="mb-14 max-w-2xl">
-<span class="inline-block rounded-full bg-chip px-3 py-1 text-xs font-semibold text-ink">How it works</span>
-<h2 class="mt-4 text-4xl font-bold text-ink md:text-5xl" data-i18n="howItWorks.title">Three steps to paradise</h2>
-</div>
-<div class="grid gap-10 md:grid-cols-3">
-<div>
-<div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">1</div>
-<h4 class="text-xl font-semibold text-ink" data-i18n="howItWorks.step1.title">Discover &amp; apply</h4>
-<p class="mt-3 text-muted" data-i18n="howItWorks.step1.desc">Browse exclusive long-term listings across the Los Cabos region. Submit your digital application in minutes.</p>
-</div>
-<div>
-<div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">2</div>
-<h4 class="text-xl font-semibold text-ink" data-i18n="howItWorks.step2.title">Review &amp; sign</h4>
-<p class="mt-3 text-muted" data-i18n="howItWorks.step2.desc">Review your lease details and sign your legally binding Mexican rental contract digitally from anywhere.</p>
-</div>
-<div>
-<div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">3</div>
-<h4 class="text-xl font-semibold text-ink" data-i18n="howItWorks.step3.title">Move in &amp; enjoy</h4>
-<p class="mt-3 text-muted" data-i18n="howItWorks.step3.desc">Get your keys and start your life in paradise. Manage payments and maintenance through our mobile app.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Map/Areas Section -->
-<section id="locations" class="bg-surface py-24">
-<div class="mx-auto max-w-7xl px-6">
-<div class="grid gap-12 lg:grid-cols-2 items-center">
-<div class="max-w-md">
-<span class="inline-block rounded-full bg-chip px-3 py-1 text-xs font-semibold text-ink">Top Areas</span>
-<h2 class="mt-4 text-4xl font-bold text-ink md:text-5xl" data-i18n="areas.title">Explore top locations</h2>
-<p class="mt-4 text-lg text-muted" data-i18n="areas.subtitle">From the beaches of Cabo San Lucas to the art district of San José del Cabo, discover the neighborhood that fits your lifestyle across the Los Cabos region.</p>
-<div class="mt-8 flex flex-wrap gap-2">
-<span class="pill cursor-pointer rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink">Cabo San Lucas</span>
-<span class="pill cursor-pointer rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink">San José del Cabo</span>
-<span class="pill cursor-pointer rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink">The Corridor</span>
-<span class="pill cursor-pointer rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink">El Tezal</span>
-<span class="pill cursor-pointer rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink">Pedregal</span>
-<span class="pill cursor-pointer rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink">Palmilla</span>
-<span class="pill cursor-pointer rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink">Pacific Side</span>
-</div>
-</div>
-<div class="overflow-hidden rounded-3xl shadow-airbnb" data-location="Los Cabos">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115566.24!2d-109.95!3d22.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86af4911a2583f05%3A0x1e7b4a8f01a1c3a5!2sCabo%20San%20Lucas%2C%20B.C.S.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1" class="w-full h-[420px] border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Waitlist Signup Section -->
-<section id="waitlist" class="bg-white py-24">
-<div class="mx-auto max-w-4xl px-6">
-<div class="card p-8 md:p-14 text-center">
-<span class="inline-block rounded-full bg-rausch/10 px-3 py-1 text-xs font-semibold text-rausch">Coming Soon</span>
-<h2 class="mt-4 text-4xl font-bold text-ink md:text-5xl">Be the first to know</h2>
-<p class="mx-auto mt-4 max-w-xl text-lg text-muted">Join the waitlist and get early access to the premier long-term rental platform in Los Cabos. Select your role below.</p>
-
-<!-- Role Selection -->
-<div class="mt-10 grid gap-3 sm:grid-cols-3">
-<label class="role-card selected cursor-pointer rounded-2xl border border-line bg-white p-5 text-center">
-<input type="radio" name="waitlist-role" value="renter" class="sr-only" checked/>
-<span class="material-symbols-outlined text-2xl text-ink">home_pin</span>
-<p class="mt-2 text-base font-semibold text-ink">Renter</p>
-<p class="mt-1 text-sm text-muted">Looking for a home</p>
-</label>
-<label class="role-card cursor-pointer rounded-2xl border border-line bg-white p-5 text-center">
-<input type="radio" name="waitlist-role" value="landlord" class="sr-only"/>
-<span class="material-symbols-outlined text-2xl text-ink">real_estate_agent</span>
-<p class="mt-2 text-base font-semibold text-ink">Landlord</p>
-<p class="mt-1 text-sm text-muted">Listing a property</p>
-</label>
-<label class="role-card cursor-pointer rounded-2xl border border-line bg-white p-5 text-center">
-<input type="radio" name="waitlist-role" value="agent" class="sr-only"/>
-<span class="material-symbols-outlined text-2xl text-ink">groups</span>
-<p class="mt-2 text-base font-semibold text-ink">Agent</p>
-<p class="mt-1 text-sm text-muted">Managing listings</p>
-</label>
-</div>
-
-<!-- Email Form -->
-<form data-waitlist class="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
-<input type="email" required placeholder="Enter your email" class="flex-1 rounded-lg border border-line bg-white px-5 py-3 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10" data-i18n-placeholder="placeholder.enterEmail"/>
-<button type="submit" class="btn-primary cursor-pointer rounded-lg px-6 py-3 text-sm font-semibold text-white">Join Waitlist</button>
-</form>
-<p class="mt-4 text-center text-xs text-muted">Free. No spam. Unsubscribe anytime.</p>
-</div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer class="mt-auto border-t border-line bg-white py-16">
-<div class="mx-auto max-w-7xl px-6">
-<div class="grid gap-12 md:grid-cols-4">
-<div class="col-span-1 md:col-span-2">
-<div class="flex items-center gap-2">
-<div class="flex h-8 w-8 items-center justify-center rounded-full bg-rausch text-white">
-<span class="material-symbols-outlined text-sm">beach_access</span>
-</div>
-<h2 class="text-lg font-bold text-ink">Los Cabos Rental</h2>
-</div>
-<p class="mt-4 max-w-xs text-sm text-muted" data-i18n="footer.desc">
-              The premier platform for long-term rentals in Baja California Sur. We bridge the gap between premium tenants and property owners.
-            </p>
-<div class="mt-8">
-<p class="mb-3 text-sm font-semibold text-ink" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
-<form data-waitlist class="flex gap-2 max-w-sm">
-<input type="hidden" name="role" value="renter"/>
-<input class="flex-1 rounded-lg border border-line bg-white px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10" placeholder="Your email" type="email" data-i18n-placeholder="placeholder.email"/>
-<button class="btn-primary cursor-pointer rounded-lg px-5 py-2.5 text-sm font-semibold text-white" type="submit" data-i18n="cta.joinWaitlist">Join Waitlist</button>
-</form>
-</div>
-</div>
-<div>
-<h5 class="mb-4 text-xs font-bold uppercase tracking-wider text-ink" data-i18n="footer.quickLinks">Company</h5>
-<ul class="space-y-2 text-sm text-muted">
-<li><a class="hover:text-ink transition-colors" href="about.html">About</a></li>
-<li><a class="hover:text-ink transition-colors" href="contact.html">Contact</a></li>
-</ul>
-</div>
-<div>
-<h5 class="mb-4 text-xs font-bold uppercase tracking-wider text-ink">Legal</h5>
-<ul class="space-y-2 text-sm text-muted">
-<li><a class="hover:text-ink transition-colors" href="terms.html">Terms of Service</a></li>
-<li><a class="hover:text-ink transition-colors" href="privacy.html">Privacy Policy</a></li>
-</ul>
-</div>
-</div>
-<div class="mt-14 border-t border-line pt-8 text-center text-xs text-muted" data-i18n="footer.copyright">
-          &copy; 2026 Los Cabos Rental App. All rights reserved. Made for the Baja sun.
+      <!-- Left: Text -->
+      <div>
+        <!-- Live badge -->
+        <div class="reveal inline-flex items-center gap-2 rounded-full border border-rausch/20 bg-rausch/6 px-3.5 py-1.5">
+          <span class="badge-dot inline-block h-1.5 w-1.5 rounded-full bg-rausch"></span>
+          <span class="text-[12px] font-bold text-rausch" data-i18n="hero.badge">Luxury Long-Term Living</span>
         </div>
+
+        <!-- Headline -->
+        <h1 class="display reveal reveal-d1 mt-6 text-[60px] font-extrabold text-ink md:text-[74px] lg:text-[84px]">
+          <span data-i18n="hero.title">Your long-term<br>home in</span>
+          <span class="text-rausch" data-i18n="hero.titleHighlight"> paradise</span>
+          <span data-i18n="hero.titleEnd"> awaits.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="reveal reveal-d2 mt-6 max-w-lg text-[17px] leading-relaxed text-muted" data-i18n="hero.subtitle">
+          The premium rental platform for curated long-term stays across the Los Cabos region, from San José del Cabo to Cabo San Lucas.
+        </p>
+
+        <!-- CTAs -->
+        <div class="reveal reveal-d3 mt-9 flex flex-wrap gap-3">
+          <a href="#waitlist" class="btn-primary gap-2 rounded-xl px-7 py-3.5 text-[15px]" data-i18n="cta.joinWaitlist">
+            <span>Join Waitlist</span>
+          </a>
+          <a href="#how-it-works" class="btn-ghost gap-2 rounded-xl border border-line px-7 py-3.5 text-[15px]">
+            How it works
+            <span class="material-symbols-outlined text-[18px] text-muted">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Trust signals -->
+        <div class="reveal reveal-d4 mt-10 flex flex-wrap gap-5">
+          <div class="flex items-center gap-2 text-sm text-muted">
+            <span class="material-symbols-outlined text-[17px] text-ink" style="font-variation-settings:'FILL' 1;">verified</span>
+            Verified listings
+          </div>
+          <div class="flex items-center gap-2 text-sm text-muted">
+            <span class="material-symbols-outlined text-[17px] text-ink" style="font-variation-settings:'FILL' 1;">draw</span>
+            Digital leases
+          </div>
+          <div class="flex items-center gap-2 text-sm text-muted">
+            <span class="material-symbols-outlined text-[17px] text-ink" style="font-variation-settings:'FILL' 1;">payments</span>
+            Secure payments
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Image + floating cards -->
+      <div class="reveal reveal-d1 relative">
+        <!-- Soft glow behind image -->
+        <div class="absolute inset-6 -z-10 rounded-3xl bg-rausch/6 blur-3xl" aria-hidden="true"></div>
+
+        <div class="img-zoom rounded-3xl shadow-strong">
+          <img
+            src="https://images.unsplash.com/photo-1535392432937-a27c36ec07b5?w=1200&q=85"
+            alt="El Arco landmark and beach in Cabo San Lucas at golden hour"
+            class="h-[440px] w-full object-cover md:h-[540px]"
+          />
+        </div>
+
+        <!-- Float card — bottom-left -->
+        <div class="float absolute -bottom-5 -left-5 hidden sm:flex items-center gap-3.5 rounded-2xl bg-white px-5 py-4 shadow-strong">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-50">
+            <span class="live-dot-green inline-block h-2.5 w-2.5 rounded-full bg-green-500"></span>
+          </div>
+          <div>
+            <p class="text-[11px] font-semibold text-muted">Waitlist open</p>
+            <p class="text-[13px] font-bold text-ink">Join free — early access</p>
+          </div>
+        </div>
+
+        <!-- Float card — top-right -->
+        <div class="float-delayed absolute -right-4 top-8 hidden lg:flex items-center gap-2.5 rounded-2xl bg-white px-4 py-3 shadow-lift">
+          <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10">
+            <span class="material-symbols-outlined text-[15px] text-rausch" style="font-variation-settings:'FILL' 1;">location_on</span>
+          </div>
+          <div>
+            <p class="text-[10px] font-semibold text-muted">Covering all of</p>
+            <p class="text-[12px] font-bold text-ink">Los Cabos</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STATS BAR ══ -->
+<div class="border-y border-line bg-surface">
+  <div class="mx-auto max-w-7xl px-6 py-8">
+    <dl class="grid grid-cols-2 gap-6 md:grid-cols-4">
+      <div class="reveal">
+        <dt class="text-[11px] font-bold uppercase tracking-widest text-muted">Neighborhoods</dt>
+        <dd class="heading mt-1.5 text-3xl font-extrabold text-ink">7+</dd>
+      </div>
+      <div class="reveal reveal-d1">
+        <dt class="text-[11px] font-bold uppercase tracking-widest text-muted">Platform launch</dt>
+        <dd class="heading mt-1.5 text-3xl font-extrabold text-ink">2026</dd>
+      </div>
+      <div class="reveal reveal-d2">
+        <dt class="text-[11px] font-bold uppercase tracking-widest text-muted">Rental type</dt>
+        <dd class="heading mt-1.5 text-3xl font-extrabold text-ink">Long-term</dd>
+      </div>
+      <div class="reveal reveal-d3">
+        <dt class="text-[11px] font-bold uppercase tracking-widest text-muted">Waitlist cost</dt>
+        <dd class="heading mt-1.5 text-3xl font-extrabold text-rausch">Free</dd>
+      </div>
+    </dl>
+  </div>
 </div>
+
+
+<!-- ══ BENEFITS ══ -->
+<section id="benefits" class="bg-white py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6">
+
+    <!-- Header -->
+    <div class="reveal mb-16 max-w-2xl">
+      <span class="text-[11px] font-bold uppercase tracking-widest text-rausch">Built for Baja</span>
+      <h2 class="heading mt-3 text-4xl font-extrabold text-ink md:text-5xl" data-i18n="value.title">Tailored for the Baja lifestyle</h2>
+      <p class="mt-4 text-lg leading-relaxed text-muted" data-i18n="value.subtitle">
+        Exclusive solutions for renters, property owners, and agents in the most desirable peninsula in Mexico.
+      </p>
+    </div>
+
+    <!-- Zigzag feature rows -->
+    <div class="divide-y divide-line">
+
+      <!-- ① Renters -->
+      <div class="reveal grid items-center gap-12 py-16 lg:grid-cols-2 lg:gap-20">
+        <!-- Text -->
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-muted">01</span>
+          <h3 class="heading mt-3 text-3xl font-bold text-ink md:text-4xl" data-i18n="value.renters.title">For renters</h3>
+          <p class="mt-4 max-w-md leading-relaxed text-muted" data-i18n="value.renters.desc">
+            Find vetted, high-end long-term stays. Verified listings, digital lease agreements, and transparent communication with property owners.
+          </p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10">
+                <span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;">check</span>
+              </span>
+              <span class="text-sm text-ink" data-i18n="value.renters.feature1">Verified luxury listings</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10">
+                <span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;">check</span>
+              </span>
+              <span class="text-sm text-ink" data-i18n="value.renters.feature2">Secure digital contracts</span>
+            </li>
+          </ul>
+          <a href="renters.html" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-rausch">
+            Learn more <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+        <!-- Visual panel (right on desktop, above on mobile) -->
+        <div class="order-first lg:order-last">
+          <div class="panel-renter relative overflow-hidden rounded-3xl p-8" style="aspect-ratio:4/3;">
+            <!-- Listing card mockup -->
+            <div class="rounded-2xl bg-white p-4 shadow-soft">
+              <div class="mb-4 h-32 rounded-xl" style="background: linear-gradient(135deg, #ffe8e2 0%, #fff3e0 100%);"></div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="mb-1.5 h-2.5 w-28 rounded bg-line"></div>
+                  <div class="h-3.5 w-20 rounded bg-ink/10"></div>
+                </div>
+                <span class="text-sm font-bold text-rausch">$2,400<span class="text-[11px] font-normal text-muted">/mo</span></span>
+              </div>
+              <div class="mt-3 flex gap-1.5">
+                <span class="rounded-full bg-chip px-2.5 py-1 text-[10px] font-semibold text-muted">3 bed</span>
+                <span class="rounded-full bg-chip px-2.5 py-1 text-[10px] font-semibold text-muted">2 bath</span>
+                <span class="rounded-full bg-rausch/10 px-2.5 py-1 text-[10px] font-semibold text-rausch">Verified</span>
+              </div>
+            </div>
+            <!-- Mini confirmation pill -->
+            <div class="absolute -bottom-2 -right-2 flex items-center gap-2 rounded-2xl bg-white px-3.5 py-2.5 shadow-lift">
+              <span class="material-symbols-outlined text-[16px] text-green-600" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <div>
+                <div class="text-[10px] font-semibold text-ink">Lease signed</div>
+                <div class="text-[9px] text-muted">Digitally via app</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ② Landlords -->
+      <div class="reveal grid items-center gap-12 py-16 lg:grid-cols-2 lg:gap-20">
+        <!-- Visual panel (LEFT on desktop) -->
+        <div>
+          <div class="panel-landlord relative overflow-hidden rounded-3xl p-8" style="aspect-ratio:4/3;">
+            <div class="rounded-2xl bg-white p-5 shadow-soft">
+              <div class="mb-4 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] font-bold uppercase tracking-widest text-muted">Monthly Income</div>
+                  <div class="heading mt-0.5 text-2xl font-extrabold text-ink">$4,800</div>
+                </div>
+                <div class="flex items-center gap-1 rounded-full bg-green-50 px-2.5 py-1 text-[11px] font-semibold text-green-700">
+                  <span class="material-symbols-outlined text-[12px]" style="font-variation-settings:'FILL' 1;">trending_up</span>
+                  +12%
+                </div>
+              </div>
+              <!-- Minimal bar chart -->
+              <div class="flex h-12 items-end gap-1.5">
+                <div class="flex-1 rounded-sm bg-line"             style="height:42%;"></div>
+                <div class="flex-1 rounded-sm bg-line"             style="height:66%;"></div>
+                <div class="flex-1 rounded-sm bg-rausch/20"        style="height:54%;"></div>
+                <div class="flex-1 rounded-sm bg-line"             style="height:79%;"></div>
+                <div class="flex-1 rounded-sm bg-rausch"           style="height:100%;"></div>
+                <div class="flex-1 rounded-sm bg-rausch/40"        style="height:88%;"></div>
+              </div>
+            </div>
+            <div class="mt-3 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-soft">
+              <span class="material-symbols-outlined text-ink" style="font-variation-settings:'FILL' 1;">payments</span>
+              <div class="flex-1">
+                <div class="text-[11px] font-semibold text-ink">Rent collected</div>
+                <div class="text-[10px] text-muted">Direct deposit active</div>
+              </div>
+              <span class="live-dot-green inline-block h-2 w-2 rounded-full bg-green-500"></span>
+            </div>
+          </div>
+        </div>
+        <!-- Text (RIGHT) -->
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-muted">02</span>
+          <h3 class="heading mt-3 text-3xl font-bold text-ink md:text-4xl" data-i18n="value.landlords.title">For landlords</h3>
+          <p class="mt-4 max-w-md leading-relaxed text-muted" data-i18n="value.landlords.desc">
+            Maximize your investment with high-quality, long-term tenants. Collect rent online, sign digital leases, and communicate effortlessly.
+          </p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10">
+                <span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;">check</span>
+              </span>
+              <span class="text-sm text-ink" data-i18n="value.landlords.feature1">Online rent collection</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10">
+                <span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;">check</span>
+              </span>
+              <span class="text-sm text-ink" data-i18n="value.landlords.feature2">Digital lease agreements</span>
+            </li>
+          </ul>
+          <a href="landlords.html" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-rausch">
+            Learn more <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ③ Agents -->
+      <div class="reveal grid items-center gap-12 py-16 lg:grid-cols-2 lg:gap-20">
+        <!-- Text -->
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-muted">03</span>
+          <h3 class="heading mt-3 text-3xl font-bold text-ink md:text-4xl" data-i18n="value.agents.title">For agents</h3>
+          <p class="mt-4 max-w-md leading-relaxed text-muted" data-i18n="value.agents.desc">
+            Grow your rental business by connecting landlords with qualified tenants. Manage listings on behalf of property owners and build your client base.
+          </p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10">
+                <span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;">check</span>
+              </span>
+              <span class="text-sm text-ink" data-i18n="value.agents.feature1">Manage listings for owners</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10">
+                <span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;">check</span>
+              </span>
+              <span class="text-sm text-ink" data-i18n="value.agents.feature2">Connect landlords with tenants</span>
+            </li>
+          </ul>
+          <a href="agents.html" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-rausch">
+            Learn more <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+        <!-- Visual panel -->
+        <div class="order-first lg:order-last">
+          <div class="panel-agent relative overflow-hidden rounded-3xl p-8" style="aspect-ratio:4/3;">
+            <div class="rounded-2xl bg-white p-4 shadow-soft">
+              <div class="mb-3 text-[10px] font-bold uppercase tracking-wider text-muted">Active Listings</div>
+              <!-- Listing row 1 -->
+              <div class="mb-2 flex items-center gap-3 rounded-xl bg-surface p-2.5">
+                <div class="h-9 w-9 flex-shrink-0 rounded-lg" style="background:linear-gradient(135deg,#ffe8e2,#fff3e0);"></div>
+                <div class="flex-1 min-w-0">
+                  <div class="truncate text-[11px] font-semibold text-ink">Villa Pedregal</div>
+                  <div class="text-[10px] text-muted">3 applicants</div>
+                </div>
+                <span class="rounded-full bg-green-50 px-2 py-0.5 text-[9px] font-semibold text-green-700">Active</span>
+              </div>
+              <!-- Listing row 2 -->
+              <div class="mb-2 flex items-center gap-3 rounded-xl bg-surface p-2.5">
+                <div class="h-9 w-9 flex-shrink-0 rounded-lg" style="background:linear-gradient(135deg,#e8f0ff,#f0e8ff);"></div>
+                <div class="flex-1 min-w-0">
+                  <div class="truncate text-[11px] font-semibold text-ink">Casa Palmilla</div>
+                  <div class="text-[10px] text-muted">1 applicant</div>
+                </div>
+                <span class="rounded-full bg-amber-50 px-2 py-0.5 text-[9px] font-semibold text-amber-700">Review</span>
+              </div>
+              <!-- Listing row 3 -->
+              <div class="flex items-center gap-3 rounded-xl bg-surface p-2.5">
+                <div class="h-9 w-9 flex-shrink-0 rounded-lg" style="background:linear-gradient(135deg,#e8ffef,#e8f7ff);"></div>
+                <div class="flex-1 min-w-0">
+                  <div class="truncate text-[11px] font-semibold text-ink">Corridor Suite</div>
+                  <div class="text-[10px] text-muted">New listing</div>
+                </div>
+                <span class="rounded-full bg-blue-50 px-2 py-0.5 text-[9px] font-semibold text-blue-700">Draft</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ HOW IT WORKS ══ -->
+<section id="how-it-works" class="bg-surface py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="reveal mb-16 max-w-2xl">
+      <span class="text-[11px] font-bold uppercase tracking-widest text-rausch">How it works</span>
+      <h2 class="heading mt-3 text-4xl font-extrabold text-ink md:text-5xl" data-i18n="howItWorks.title">Three steps to paradise</h2>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <!-- Step 1 -->
+      <div class="reveal">
+        <div class="mb-6 flex items-center gap-4">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">1</div>
+          <div class="h-px flex-1 bg-line md:hidden"></div>
+        </div>
+        <h4 class="heading text-xl font-bold text-ink" data-i18n="howItWorks.step1.title">Discover &amp; apply</h4>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="howItWorks.step1.desc">Browse exclusive long-term listings across the Los Cabos region. Submit your digital application in minutes.</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="reveal reveal-d1">
+        <div class="mb-6 flex items-center gap-4">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-sm font-bold text-white">2</div>
+          <div class="h-px flex-1 bg-line md:hidden"></div>
+        </div>
+        <h4 class="heading text-xl font-bold text-ink" data-i18n="howItWorks.step2.title">Review &amp; sign</h4>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="howItWorks.step2.desc">Review your lease details and sign your legally binding Mexican rental contract digitally from anywhere.</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="reveal reveal-d2">
+        <div class="mb-6 flex items-center gap-4">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">3</div>
+        </div>
+        <h4 class="heading text-xl font-bold text-ink" data-i18n="howItWorks.step3.title">Move in &amp; enjoy</h4>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="howItWorks.step3.desc">Get your keys and start your life in paradise. Manage payments and maintenance through our mobile app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ AREAS / MAP ══ -->
+<section id="locations" class="bg-white py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+      <!-- Text + pills -->
+      <div class="reveal max-w-md">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-rausch">Top Areas</span>
+        <h2 class="heading mt-3 text-4xl font-extrabold text-ink md:text-5xl" data-i18n="areas.title">Explore top locations</h2>
+        <p class="mt-4 text-lg leading-relaxed text-muted" data-i18n="areas.subtitle">
+          From the beaches of Cabo San Lucas to the art district of San José del Cabo, discover the neighborhood that fits your lifestyle.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="loc-pill rounded-full px-4 py-2 text-sm">Cabo San Lucas</span>
+          <span class="loc-pill rounded-full px-4 py-2 text-sm">San José del Cabo</span>
+          <span class="loc-pill rounded-full px-4 py-2 text-sm">The Corridor</span>
+          <span class="loc-pill rounded-full px-4 py-2 text-sm">El Tezal</span>
+          <span class="loc-pill rounded-full px-4 py-2 text-sm">Pedregal</span>
+          <span class="loc-pill rounded-full px-4 py-2 text-sm">Palmilla</span>
+          <span class="loc-pill rounded-full px-4 py-2 text-sm">Pacific Side</span>
+        </div>
+      </div>
+      <!-- Map -->
+      <div class="reveal reveal-d1 img-zoom rounded-3xl shadow-strong" data-location="Los Cabos">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115566.24!2d-109.95!3d22.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86af4911a2583f05%3A0x1e7b4a8f01a1c3a5!2sCabo%20San%20Lucas%2C%20B.C.S.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1"
+          class="h-[420px] w-full border-0 block"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map of Los Cabos region"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ WAITLIST (dark full-bleed) ══ -->
+<section id="waitlist" class="bg-ink py-24 lg:py-32">
+  <div class="mx-auto max-w-4xl px-6 text-center">
+    <div class="reveal">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-rausch/40 bg-rausch/12 px-3.5 py-1.5 text-[12px] font-bold text-rausch">
+        <span class="badge-dot inline-block h-1.5 w-1.5 rounded-full bg-rausch"></span>
+        Coming Soon
+      </span>
+      <h2 class="display mt-6 text-4xl font-extrabold text-white md:text-5xl lg:text-6xl">Be the first to know</h2>
+      <p class="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-white/60">
+        Join the waitlist and get early access to the premier long-term rental platform in Los Cabos. Select your role below.
+      </p>
+    </div>
+
+    <!-- Role selection -->
+    <div class="reveal reveal-d1 mt-10 grid gap-3 sm:grid-cols-3">
+      <label class="dark-role-card selected rounded-2xl p-5 text-center">
+        <input type="radio" name="waitlist-role" value="renter" class="sr-only" checked/>
+        <span class="material-symbols-outlined text-2xl text-white/70 role-icon">home_pin</span>
+        <p class="role-label mt-2 text-base font-semibold text-white">Renter</p>
+        <p class="role-desc mt-1 text-sm text-white/50">Looking for a home</p>
+      </label>
+      <label class="dark-role-card rounded-2xl p-5 text-center">
+        <input type="radio" name="waitlist-role" value="landlord" class="sr-only"/>
+        <span class="material-symbols-outlined text-2xl text-white/70 role-icon">real_estate_agent</span>
+        <p class="role-label mt-2 text-base font-semibold text-white">Landlord</p>
+        <p class="role-desc mt-1 text-sm text-white/50">Listing a property</p>
+      </label>
+      <label class="dark-role-card rounded-2xl p-5 text-center">
+        <input type="radio" name="waitlist-role" value="agent" class="sr-only"/>
+        <span class="material-symbols-outlined text-2xl text-white/70 role-icon">groups</span>
+        <p class="role-label mt-2 text-base font-semibold text-white">Agent</p>
+        <p class="role-desc mt-1 text-sm text-white/50">Managing listings</p>
+      </label>
+    </div>
+
+    <!-- Email form -->
+    <form data-waitlist class="reveal reveal-d2 mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
+      <input
+        type="email"
+        required
+        placeholder="Enter your email"
+        class="dark-input flex-1 rounded-xl px-5 py-3.5 text-sm font-medium"
+        data-i18n-placeholder="placeholder.enterEmail"
+      />
+      <button type="submit" class="btn-primary rounded-xl px-6 py-3.5 text-sm">
+        <span data-i18n="cta.joinWaitlist">Join Waitlist</span>
+      </button>
+    </form>
+    <p class="reveal reveal-d3 mt-4 text-center text-xs text-white/35">Free. No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="mt-auto border-t border-line bg-white py-14">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid gap-10 md:grid-cols-4">
+      <!-- Brand + footer form -->
+      <div class="col-span-1 md:col-span-2">
+        <div class="flex items-center gap-2.5">
+          <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-white">
+            <span class="material-symbols-outlined" style="font-size:14px;">beach_access</span>
+          </div>
+          <span class="heading text-[15px] font-semibold text-ink">Los Cabos Rental</span>
+        </div>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted" data-i18n="footer.desc">
+          The premier platform for long-term rentals in Baja California Sur. We bridge the gap between premium tenants and property owners.
+        </p>
+        <div class="mt-8">
+          <p class="mb-3 text-sm font-semibold text-ink" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
+          <form data-waitlist class="flex max-w-sm gap-2">
+            <input type="hidden" name="role" value="renter"/>
+            <input
+              type="email"
+              class="flex-1 rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10"
+              placeholder="Your email"
+              data-i18n-placeholder="placeholder.email"
+            />
+            <button type="submit" class="btn-primary rounded-xl px-5 py-2.5 text-sm">
+              <span data-i18n="cta.joinWaitlist">Join</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <h5 class="mb-4 text-[11px] font-bold uppercase tracking-widest text-ink" data-i18n="footer.quickLinks">Company</h5>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="about.html"   class="transition-colors hover:text-ink">About</a></li>
+          <li><a href="contact.html" class="transition-colors hover:text-ink">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="mb-4 text-[11px] font-bold uppercase tracking-widest text-ink">Legal</h5>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="terms.html"   class="transition-colors hover:text-ink">Terms of Service</a></li>
+          <li><a href="privacy.html" class="transition-colors hover:text-ink">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-line pt-8 text-center text-xs text-muted" data-i18n="footer.copyright">
+      &copy; 2026 Los Cabos Rental App. All rights reserved. Made for the Baja sun.
+    </div>
+  </div>
 </footer>
-</div>
+
+</div><!-- end min-h-dvh -->
+
+<!-- ══ SCRIPTS ══ -->
 <script defer src="/_vercel/insights/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/waitlist.js"></script>
-<script>
-// Role card selection — scoped per parent container
-document.querySelectorAll('.role-card').forEach(function(card) {
-  card.addEventListener('click', function() {
-    var container = card.closest('.grid');
-    if (container) {
-      container.querySelectorAll('.role-card').forEach(function(c) { c.classList.remove('selected'); });
-    }
-    card.classList.add('selected');
-  });
-});
 
-// Connect lower waitlist section role selection to its form
-var mainWaitlistForm = document.querySelector('#waitlist form[data-waitlist]');
-if (mainWaitlistForm) {
-  mainWaitlistForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var selectedRole = document.querySelector('#waitlist input[name="waitlist-role"]:checked');
-    var roleInput = mainWaitlistForm.querySelector('input[name="role"]');
-    if (!roleInput) {
-      roleInput = document.createElement('input');
-      roleInput.type = 'hidden';
-      roleInput.name = 'role';
-      mainWaitlistForm.appendChild(roleInput);
-    }
-    roleInput.value = selectedRole ? selectedRole.value : 'renter';
-    window.handleWaitlistSubmit(e);
+<script>
+  // ── Scroll reveal via Intersection Observer ──
+  (function () {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      observer.observe(el);
+    });
+  })();
+
+  // ── Role card selection (scoped per container) ──
+  document.querySelectorAll('.role-card, .dark-role-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var container = card.closest('.grid');
+      if (container) {
+        container.querySelectorAll('.role-card, .dark-role-card').forEach(function (c) {
+          c.classList.remove('selected');
+        });
+      }
+      card.classList.add('selected');
+    });
   });
-}
+
+  // ── Attach role to main waitlist form ──
+  var mainWaitlistForm = document.querySelector('#waitlist form[data-waitlist]');
+  if (mainWaitlistForm) {
+    mainWaitlistForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var selectedRole = document.querySelector('#waitlist input[name="waitlist-role"]:checked');
+      var roleInput = mainWaitlistForm.querySelector('input[name="role"]');
+      if (!roleInput) {
+        roleInput = document.createElement('input');
+        roleInput.type = 'hidden';
+        roleInput.name = 'role';
+        mainWaitlistForm.appendChild(roleInput);
+      }
+      roleInput.value = selectedRole ? selectedRole.value : 'renter';
+      window.handleWaitlistSubmit(e);
+    });
+  }
 </script>
 <script src="js/i18n.js"></script>
 <script src="js/mobile-nav.js"></script>
-</body></html>
+</body>
+</html>
