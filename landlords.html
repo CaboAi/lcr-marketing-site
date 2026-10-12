@@ -5,16 +5,16 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>For Landlords | Los Cabos Rental App</title>
 <meta property="og:title" content="For Landlords | Los Cabos Rental App"/>
-<meta property="og:description" content="List your property, collect rent digitally, and manage tenants through the premier rental platform in Baja California Sur."/>
+<meta property="og:description" content="Post your long-term rental once, keep every inquiry in one place and send a bilingual lease to sign. Free to join the waitlist."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://loscabosrentalapp.com/landlords.html"/>
-<meta property="og:image" content="https://loscabosrentalapp.com/images/og-default.jpg"/>
+<meta property="og:url" content="https://lcr-marketing-site.vercel.app/landlords.html"/>
+<meta property="og:image" content="https://lcr-marketing-site.vercel.app/images/og-default.jpg"/>
 <meta property="og:site_name" content="Los Cabos Rental App"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="For Landlords | Los Cabos Rental App"/>
-<meta name="twitter:description" content="List your property, collect rent digitally, and manage tenants through the premier rental platform in Baja California Sur."/>
-<meta name="twitter:image" content="https://loscabosrentalapp.com/images/og-default.jpg"/>
-<meta name="description" content="Maximize your property's potential in Los Cabos. Property listings, digital lease agreements, rent collection, and tenant communication for landlords."/>
+<meta name="twitter:description" content="Post your long-term rental once, keep every inquiry in one place and send a bilingual lease to sign. Free to join the waitlist."/>
+<meta name="twitter:image" content="https://lcr-marketing-site.vercel.app/images/og-default.jpg"/>
+<meta name="description" content="Post your long-term rental once, keep every inquiry in one place and send a bilingual lease to sign. Free to join the waitlist."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -71,8 +71,8 @@
 <a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="renters.html" data-i18n="nav.renters">Renters</a>
 <a class="cursor-pointer text-sm font-semibold text-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" href="landlords.html" data-i18n="nav.landlords">Landlords</a>
 <a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="agents.html" data-i18n="nav.agents">Agents</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="about.html">About</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="blog-index.html">Blog</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="about.html" data-i18n="nav.about">About</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
 </nav>
 <div class="flex items-center gap-4">
 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary" aria-label="Toggle menu" aria-expanded="false">
@@ -90,295 +90,131 @@
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden fixed top-[73px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg dark:bg-background-dark/95 dark:border-slate-800">
 <nav class="flex flex-col px-6 py-4 space-y-3">
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="renters.html">Renters</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="landlords.html">Landlords</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="agents.html">Agents</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="about.html">About</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="blog-index.html">Blog</a>
-<a class="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90" href="#waitlist-cta">Join Waitlist</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="renters.html" data-i18n="nav.renters">Renters</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="landlords.html" data-i18n="nav.landlords">Landlords</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="agents.html" data-i18n="nav.agents">Agents</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="about.html" data-i18n="nav.about">About</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+<a class="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90" href="#waitlist-cta" data-i18n="cta.joinWaitlist">Join Waitlist</a>
 </nav>
 </div>
 
 <!-- Hero Section -->
-<section class="relative h-[70vh] w-full overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80');">
-<div class="absolute inset-0 bg-gradient-to-r from-ocean-deep/90 via-ocean-deep/60 to-ocean-deep/30"></div>
-</div>
-<div class="relative mx-auto flex h-full max-w-7xl items-center px-6">
-<div class="glass-effect max-w-2xl rounded-2xl p-8 md:p-12">
-<span class="mb-4 inline-block rounded-full bg-accent-sunset/20 px-4 py-1 text-xs font-bold uppercase tracking-widest text-accent-sunset" data-i18n="landlords.hero.badge">For Property Owners</span>
-<h1 class="font-display text-4xl font-black leading-tight text-white md:text-5xl lg:text-6xl" data-i18n-html="landlords.hero.title">
-Maximize Your Property's <span class="text-accent-sunset">Potential</span>
-</h1>
-<p class="mt-6 text-lg text-slate-100/90" data-i18n="landlords.hero.subtitle">
-Attract quality long-term tenants, automate rent collection, and manage your properties from anywhere. The smart way to be a landlord in Los Cabos.
-</p>
+<section class="relative w-full overflow-hidden bg-ocean-deep">
+<div class="absolute inset-0 bg-gradient-to-br from-ocean-deep via-ocean-deep to-primary/40" aria-hidden="true"></div>
+<div class="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+<div class="max-w-3xl">
+<span class="mb-4 inline-block rounded-full bg-accent-sunset/20 px-4 py-1 text-xs font-bold uppercase tracking-widest text-accent-sunset" data-i18n="landlords.hero.badge">For landlords</span>
+<h1 class="font-display text-4xl font-black leading-tight text-white md:text-5xl lg:text-6xl" data-i18n="landlords.hero.title">Rent out your place without the Facebook back-and-forth.</h1>
+<p class="mt-6 max-w-2xl text-lg text-slate-100/90" data-i18n="landlords.hero.subtitle">Post your listing, answer every inquiry in one place, and send a bilingual lease to sign, all from your phone.</p>
 <div class="mt-10 flex flex-wrap gap-4">
-<a href="#waitlist-cta" class="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-<span class="material-symbols-outlined">add_home</span>
-<span data-i18n="landlords.hero.cta">List Your Property</span>
+<a href="#waitlist-cta" class="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-deep">
+<span class="material-symbols-outlined" aria-hidden="true">notifications_active</span>
+<span class="" data-i18n="cta.joinTheWaitlist">Join the waitlist</span>
 </a>
-<a href="contact.html" class="glass-effect flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2" data-i18n="landlords.hero.ctaSecondary">
-Schedule a Demo
+<a href="#how" class="flex items-center gap-2 rounded-xl border border-white/30 px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
+<span class="" data-i18n="cta.seeHow">See how it works</span>
 </a>
 </div>
 </div>
 </div>
 </section>
 
-<!-- Benefits Grid -->
+<!-- Features -->
 <section class="bg-background-light py-24 dark:bg-background-dark">
 <div class="mx-auto max-w-7xl px-6">
 <div class="mb-16 text-center">
-<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="landlords.benefits.title">Tools Built for Landlords</h2>
-<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="landlords.benefits.subtitle">Everything you need to manage your rental property professionally and profitably.</p>
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="landlords.features.title">What you can do in the app</h2>
 </div>
 <div class="grid gap-8 md:grid-cols-3">
-<!-- Tenant Screening -->
-<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
-<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-<span class="material-symbols-outlined text-3xl">description</span>
-</div>
-<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.benefits.screening.title">Digital Applications</h3>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.benefits.screening.desc">Receive and review renter applications digitally. View applicant details and choose the right tenant for your property.</p>
+<div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">add_home</span></div>
+<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.features.f1.title">One listing with the details</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.features.f1.desc">Add photos, the rent in pesos, bedrooms, move-in date and amenities like pet-friendly or furnished.</p>
 <ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.benefits.screening.feature1">Online application forms</span>
-</li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.benefits.screening.feature2">Applicant profile review</span>
-</li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.benefits.screening.feature3">Direct communication with applicants</span>
-</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f1.b1">Photos and details in one place</span></li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f1.b2">Rent shown in MXN</span></li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f1.b3">Pet-friendly and furnished tags</span></li>
 </ul>
 </div>
-<!-- Automated Payments -->
-<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
-<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-sunset/10 text-accent-sunset transition-transform group-hover:scale-110">
-<span class="material-symbols-outlined text-3xl">payments</span>
-</div>
-<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.benefits.payments.title">Rent Collection</h3>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.benefits.payments.desc">Collect rent payments online with ease. Tenants can pay securely through the platform with multiple payment methods.</p>
+<div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">view_kanban</span></div>
+<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.features.f2.title">Every inquiry in one list</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.features.f2.desc">Renters message you inside the app. Move each one from Interested to Viewing, Lease sent and Deposit paid, so you always know where things stand.</p>
 <ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span> <span data-i18n="landlords.benefits.payments.feature1">Online rent payments</span>
-</li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span> <span data-i18n="landlords.benefits.payments.feature2">Multiple payment methods</span>
-</li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-accent-sunset text-sm">check_circle</span> <span data-i18n="landlords.benefits.payments.feature3">Digital payment receipts</span>
-</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f2.b1">In-app chat</span></li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f2.b2">Lead pipeline</span></li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f2.b3">Notifications</span></li>
 </ul>
 </div>
-<!-- Property Management Tools -->
-<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
-<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-pink/10 text-accent-pink transition-transform group-hover:scale-110">
-<span class="material-symbols-outlined text-3xl">chat</span>
-</div>
-<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.benefits.management.title">Tenant Communication</h3>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.benefits.management.desc">Stay connected with your tenants through in-app messaging. Manage lease details and property updates from one place.</p>
+<div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-slate-900/50">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">contract</span></div>
+<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.features.f3.title">A lease ready to sign</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.features.f3.desc">Send a lease drafted for Baja California Sur, in Spanish and English. The renter signs on their phone and you can download a PDF copy.</p>
 <ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span> <span data-i18n="landlords.benefits.management.feature1">In-app messaging</span>
-</li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span> <span data-i18n="landlords.benefits.management.feature2">Lease management</span>
-</li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-accent-pink text-sm">check_circle</span> <span data-i18n="landlords.benefits.management.feature3">Listing updates &amp; edits</span>
-</li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f3.b1">Bilingual lease</span></li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f3.b2">Signed on the phone</span></li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="landlords.features.f3.b3">PDF copy to download</span></li>
 </ul>
 </div>
 </div>
 </div>
 </section>
 
-<!-- How It Works for Landlords -->
-<section class="bg-white py-24 dark:bg-background-dark">
+<!-- How It Works -->
+<section id="how" class="bg-white py-24 dark:bg-background-dark">
 <div class="mx-auto max-w-7xl px-6">
 <div class="mb-16 text-center">
-<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="landlords.howItWorks.title">How It Works for Landlords</h2>
-<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="landlords.howItWorks.subtitle">Three simple steps to start earning more from your property.</p>
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="roles.howTitle">How it works</h2>
 </div>
 <div class="grid gap-12 md:grid-cols-3">
-<div class="relative text-center">
-<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-<span class="material-symbols-outlined text-4xl text-primary">add_home_work</span>
-</div>
-<div class="mb-4 text-6xl font-black text-slate-100 dark:text-slate-800">01</div>
-<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.howItWorks.step1.title">List Your Property</h4>
-<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="landlords.howItWorks.step1.desc">Create a listing in minutes. Upload photos, set your price, and define lease terms. Our team helps you optimize your listing for maximum visibility.</p>
-</div>
-<div class="relative text-center">
-<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-accent-sunset/10">
-<span class="material-symbols-outlined text-4xl text-accent-sunset">how_to_reg</span>
-</div>
-<div class="mb-4 text-6xl font-black text-slate-100 dark:text-slate-800">02</div>
-<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.howItWorks.step2.title">Screen &amp; Select</h4>
-<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="landlords.howItWorks.step2.desc">Review tenant applications and choose the right fit for your property. Communicate directly with applicants through the platform.</p>
-</div>
-<div class="relative text-center">
-<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-accent-pink/10">
-<span class="material-symbols-outlined text-4xl text-accent-pink">trending_up</span>
-</div>
-<div class="mb-4 text-6xl font-black text-slate-100 dark:text-slate-800">03</div>
-<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.howItWorks.step3.title">Earn &amp; Manage</h4>
-<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="landlords.howItWorks.step3.desc">Collect rent online, communicate with tenants, and manage your lease agreements. Everything you need from one dashboard.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Stats / Social Proof Section -->
-<section class="bg-ocean-deep py-20">
-<div class="mx-auto max-w-7xl px-6">
 <div class="text-center">
-<h2 class="font-display text-3xl font-bold text-white md:text-4xl" data-i18n="landlords.stats.title">Be Among the First</h2>
-<p class="mx-auto mt-4 max-w-2xl text-lg text-slate-300" data-i18n="landlords.stats.subtitle">Join hundreds of property owners already on the waitlist. Get early access and three months free on any plan.</p>
-<a href="#waitlist-cta" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent-sunset px-8 py-4 text-base font-bold text-ocean-deep shadow-xl transition-all duration-200 hover:bg-accent-sunset/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-sunset focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-deep" data-i18n="cta.joinWaitlist">Join the Waitlist</a>
+<div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">1</div>
+<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.steps.s1.title">Post your listing</h4>
+<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="landlords.steps.s1.desc">Add photos, rent and availability.</p>
+</div>
+<div class="text-center">
+<div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">2</div>
+<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.steps.s2.title">Answer inquiries</h4>
+<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="landlords.steps.s2.desc">Chat with renters and schedule viewings from one list.</p>
+</div>
+<div class="text-center">
+<div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">3</div>
+<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.steps.s3.title">Sign the lease</h4>
+<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="landlords.steps.s3.desc">Send the bilingual lease and see when the deposit is paid.</p>
+</div>
 </div>
 </div>
 </section>
 
-<!-- Pricing Preview -->
+<!-- FAQ Section -->
 <section class="bg-background-light py-24 dark:bg-background-dark">
-<div class="mx-auto max-w-7xl px-6">
-<div class="mb-16 text-center">
-<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="landlords.pricing.title">Simple, Transparent Pricing</h2>
-<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="landlords.pricing.subtitle">Choose the plan that fits your portfolio. No hidden fees, no long-term contracts.</p>
+<div class="mx-auto max-w-3xl px-6">
+<div class="mb-12 text-center">
+<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="roles.faqTitle">Questions</h2>
 </div>
-<div class="grid gap-8 md:grid-cols-3">
-<!-- Basic -->
-<div class="rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
-<h3 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.pricing.basic.name">Basic</h3>
-<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="landlords.pricing.basic.desc">Perfect for individual property owners just getting started.</p>
-<div class="mt-6">
-<span class="font-display text-4xl font-black text-ocean-deep dark:text-white" data-i18n="landlords.pricing.basic.price">Free</span>
-</div>
-<ul class="mt-8 space-y-4">
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.basic.feature1">1 property listing</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.basic.feature2">Digital lease agreements</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.basic.feature3">In-app messaging</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.basic.feature4">Online rent collection</span>
-</li>
-</ul>
-<a href="#waitlist-cta" class="mt-8 block w-full rounded-xl border-2 border-primary py-3 text-center text-sm font-bold text-primary transition-all duration-200 hover:bg-primary hover:text-white" data-i18n="landlords.pricing.basic.cta">Get Started Free</a>
-</div>
-<!-- Professional -->
-<div class="relative rounded-2xl bg-white p-8 shadow-xl ring-2 ring-primary dark:bg-slate-900/50">
-<div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-white" data-i18n="landlords.pricing.pro.badge">Most Popular</div>
-<h3 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.pricing.pro.name">Professional</h3>
-<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="landlords.pricing.pro.desc">For serious landlords managing multiple properties.</p>
-<div class="mt-6">
-<span class="font-display text-4xl font-black text-ocean-deep dark:text-white">$49</span>
-<span class="text-sm text-slate-500" data-i18n="landlords.pricing.pro.period">/month</span>
-</div>
-<ul class="mt-8 space-y-4">
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.pro.feature1">Up to 10 property listings</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.pro.feature2">Digital lease agreements</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.pro.feature3">In-app messaging</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.pro.feature4">Online rent collection</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.pro.feature5">Priority listing placement</span>
-</li>
-</ul>
-<a href="#waitlist-cta" class="mt-8 block w-full rounded-xl bg-primary py-3 text-center text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" data-i18n="landlords.pricing.pro.cta">Start Free Trial</a>
-</div>
-<!-- Premium -->
-<div class="rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-900/50">
-<h3 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="landlords.pricing.premium.name">Premium</h3>
-<p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n="landlords.pricing.premium.desc">Everything you need for a portfolio of any size, plus dedicated support.</p>
-<div class="mt-6">
-<span class="font-display text-4xl font-black text-ocean-deep dark:text-white">$99</span>
-<span class="text-sm text-slate-500" data-i18n="landlords.pricing.premium.period">/month</span>
-</div>
-<ul class="mt-8 space-y-4">
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.premium.feature1">Unlimited property listings</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.premium.feature2">Digital lease agreements</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.premium.feature3">In-app messaging</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.premium.feature4">Online rent collection</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.premium.feature5">Priority listing placement</span>
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span> <span data-i18n="landlords.pricing.premium.feature6">Dedicated account manager</span>
-</li>
-</ul>
-<a href="#waitlist-cta" class="mt-8 block w-full rounded-xl border-2 border-primary py-3 text-center text-sm font-bold text-primary transition-all duration-200 hover:bg-primary hover:text-white" data-i18n="landlords.pricing.premium.cta">Contact Sales</a>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Testimonials -->
-<section class="bg-white py-24 dark:bg-background-dark">
-<div class="mx-auto max-w-7xl px-6">
-<div class="mb-16 text-center">
-<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="landlords.testimonials.title">Trusted by Property Owners</h2>
-<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400" data-i18n="landlords.testimonials.subtitle">Hear from landlords who are earning more and worrying less.</p>
-</div>
-<div class="grid gap-8 md:grid-cols-2">
-<!-- Testimonial 1 -->
-<div class="rounded-2xl bg-background-light p-8 dark:bg-slate-900/50">
-<div class="mb-6 flex items-center gap-1">
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400" data-i18n="landlords.testimonials.review1.text">"I own three condos in Cabo and managing them from San Diego used to be a nightmare. Now everything is automated -- rent collection, maintenance requests, tenant communication. I have not had a late payment in over eight months."</p>
-<div class="mt-6 flex items-center gap-4">
-<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&h=96&fit=crop&crop=face&q=80" alt="Richard Alvarez" class="h-12 w-12 rounded-full object-cover"/>
-<div>
-<p class="font-display font-bold text-ocean-deep dark:text-white" data-i18n="landlords.testimonials.review1.name">Richard Alvarez</p>
-<p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="landlords.testimonials.review1.location">3 properties in Cabo San Lucas</p>
-</div>
-</div>
-</div>
-<!-- Testimonial 2 -->
-<div class="rounded-2xl bg-background-light p-8 dark:bg-slate-900/50">
-<div class="mb-6 flex items-center gap-1">
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-<span class="material-symbols-outlined text-accent-sunset" style="font-variation-settings: 'FILL' 1">star</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400" data-i18n="landlords.testimonials.review2.text">"The tenant screening feature alone is worth it. I used to worry about who was living in my property, but now every tenant goes through a thorough verification process. My rental income is up 20% since switching to this platform."</p>
-<div class="mt-6 flex items-center gap-4">
-<img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=face&q=80" alt="Patricia Moreno" class="h-12 w-12 rounded-full object-cover"/>
-<div>
-<p class="font-display font-bold text-ocean-deep dark:text-white" data-i18n="landlords.testimonials.review2.name">Patricia Moreno</p>
-<p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="landlords.testimonials.review2.location">Villa owner in San Jose del Cabo</p>
-</div>
-</div>
-</div>
+<div class="space-y-4">
+<details class="group rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-ocean-deep dark:text-white">
+<span class="" data-i18n="landlords.faq.q1">What does it cost?</span>
+<span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+</summary>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.faq.a1">Joining the waitlist is free and nobody is charged for signing up. We'll announce pricing before launch.</p>
+</details>
+<details class="group rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-ocean-deep dark:text-white">
+<span class="" data-i18n="landlords.faq.q2">How do I get paid?</span>
+<span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+</summary>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.faq.a2">Monthly rent is arranged directly between you and your tenant. We'll explain how the deposit reaches you before launch.</p>
+</details>
+<details class="group rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-ocean-deep dark:text-white">
+<span class="" data-i18n="landlords.faq.q3">Which areas will it cover?</span>
+<span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+</summary>
+<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="landlords.faq.a3">Cabo San Lucas, San José del Cabo, the Corridor and El Tezal at launch.</p>
+</details>
 </div>
 </div>
 </section>
@@ -386,13 +222,15 @@ Schedule a Demo
 <!-- CTA Section -->
 <section id="waitlist-cta" class="bg-primary py-20">
 <div class="mx-auto max-w-7xl px-6 text-center">
-<h2 class="font-display text-3xl font-bold text-white md:text-4xl" data-i18n="landlords.cta.title">Start Earning More From Your Property</h2>
-<p class="mx-auto mt-4 max-w-xl text-lg text-white/80" data-i18n="landlords.cta.subtitle">Join the waitlist and be among the first landlords to access the platform. Early members receive three months free on any plan.</p>
-<form data-waitlist class="mx-auto mt-8 flex max-w-md gap-3">
+<h2 class="font-display text-3xl font-bold text-white md:text-4xl" data-i18n="landlords.cta.title">Get ready to list</h2>
+<p class="mx-auto mt-4 max-w-xl text-lg text-white/80" data-i18n="landlords.cta.subtitle">Join the waitlist as a landlord. We'll email you when you can start listing.</p>
+<form data-waitlist class="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
 <input type="hidden" name="role" value="landlord"/>
-<input type="email" required placeholder="Enter your email" class="flex-1 rounded-lg border-0 bg-white/20 px-5 py-3.5 text-sm text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50" data-i18n-placeholder="landlords.cta.emailPlaceholder"/>
+<label for="cta-email" class="sr-only" data-i18n="placeholder.enterEmail">Enter your email</label>
+<input id="cta-email" type="email" required autocomplete="email" placeholder="Enter your email" class="flex-1 rounded-lg border-0 bg-white/20 px-5 py-3.5 text-sm text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-white/50" data-i18n-placeholder="placeholder.enterEmail"/>
 <button type="submit" class="cursor-pointer rounded-lg bg-white px-6 py-3.5 text-sm font-bold text-primary shadow-lg transition-all duration-200 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary" data-i18n="cta.joinWaitlist">Join Waitlist</button>
 </form>
+<p class="mt-4 text-xs text-white/70" data-i18n="waitlist.fineprint">Free. No spam. Unsubscribe anytime.</p>
 </div>
 </section>
 
@@ -408,7 +246,7 @@ Schedule a Demo
 <h2 class="font-display text-lg font-bold text-ocean-deep dark:text-white">Los Cabos Rental App</h2>
 </div>
 <p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400" data-i18n="footer.desc">
-The premier platform for long-term rentals in Baja California Sur. We bridge the gap between premium tenants and property owners.
+A long-term rental app for Los Cabos, in English and Spanish. Coming soon.
 </p>
 <div class="mt-8">
 <p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
@@ -422,22 +260,22 @@ The premier platform for long-term rentals in Baja California Sur. We bridge the
 <div>
 <h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.quickLinks">Quick Links</h5>
 <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-<li><a class="hover:text-primary" href="index.html">Home</a></li>
-<li><a class="hover:text-primary" href="about.html">About</a></li>
-<li><a class="hover:text-primary" href="blog-index.html">Blog</a></li>
-<li><a class="hover:text-primary" href="contact.html">Contact</a></li>
+<li><a class="hover:text-primary" href="index.html" data-i18n="nav.home">Home</a></li>
+<li><a class="hover:text-primary" href="about.html" data-i18n="nav.about">About</a></li>
+<li><a class="hover:text-primary" href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
+<li><a class="hover:text-primary" href="contact.html" data-i18n="nav.contact">Contact</a></li>
 </ul>
 </div>
 <div>
-<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white">Legal</h5>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.legal">Legal</h5>
 <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-<li><a class="hover:text-primary" href="terms.html">Terms of Service</a></li>
-<li><a class="hover:text-primary" href="privacy.html">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="terms.html" data-i18n="footer.termsOfService">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="privacy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
 </ul>
 </div>
 </div>
 <div class="mt-16 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500" data-i18n="footer.copyright">
-&copy; 2026 Los Cabos Rental App. All rights reserved. Made for the Baja sun.
+&copy; 2026 Los Cabos Rental App. All rights reserved.
 </div>
 </div>
 </footer>

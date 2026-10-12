@@ -5,6 +5,23 @@
   var SUPABASE_URL = "https://hbefkjibsxclwfoapsxj.supabase.co";
   var SUPABASE_ANON_KEY = "sb_publishable_Aid53grO86f2Df0BpHL46g_5mH26Alp";
 
+  var MESSAGES = {
+    en: {
+      missingEmail: "Please enter your email address.",
+      joining: "Joining...",
+      success: "You're on the list! We'll email you when we launch.",
+      duplicate: "You're already on the waitlist.",
+      error: "Something went wrong. Please try again in a moment."
+    },
+    es: {
+      missingEmail: "Por favor ingresa tu correo electrónico.",
+      joining: "Registrando...",
+      success: "Ya estás en la lista. Te escribiremos cuando lancemos.",
+      duplicate: "Ya estás en la lista de espera.",
+      error: "Algo salió mal. Intenta de nuevo en un momento."
+    }
+  };
+
   var supabaseClient = null;
 
   function getClient() {
@@ -14,81 +31,83 @@
     return supabaseClient;
   }
 
+  function t(key) {
+    var lang = document.documentElement.lang === "es" ? "es" : "en";
+    return MESSAGES[lang][key];
+  }
+
+  function getRole(form) {
+    var group = form.getAttribute("data-role-group");
+    var picked = group
+      ? document.querySelector('input[name="' + group + '"]:checked')
+      : form.querySelector('input[name="role"]:checked');
+    if (picked) return picked.value;
+    var field = form.querySelector('[name="role"]');
+    return field && field.value ? field.value : "renter";
+  }
+
   function showMessage(form, message, isError) {
-    var existing = form.querySelector(".waitlist-msg");
+    var existing = form.parentNode.querySelector(".waitlist-msg");
     if (existing) existing.remove();
 
     var msg = document.createElement("p");
-    msg.className = "waitlist-msg mt-3 text-sm font-semibold " + (isError ? "text-red-500" : "text-green-600");
+    msg.className = "waitlist-msg mt-3 w-full text-sm font-semibold " + (isError ? "text-red-500" : "text-green-600");
+    msg.setAttribute("role", isError ? "alert" : "status");
     msg.textContent = message;
-    form.appendChild(msg);
-
-    if (!isError) {
-      setTimeout(function () {
-        if (msg.parentNode) msg.remove();
-      }, 5000);
-    }
+    form.insertAdjacentElement("afterend", msg);
   }
 
   function handleWaitlistSubmit(e) {
     e.preventDefault();
     var form = e.target;
     var emailInput = form.querySelector('input[type="email"]');
-    var roleInput = form.querySelector('input[name="role"]:checked') || form.querySelector('select[name="role"]');
     var submitBtn = form.querySelector('button[type="submit"]');
-
     var email = emailInput ? emailInput.value.trim() : "";
-    var role = roleInput ? roleInput.value : "renter";
 
     if (!email) {
-      showMessage(form, "Please enter your email address.", true);
+      showMessage(form, t("missingEmail"), true);
       return;
     }
 
     var client = getClient();
     if (!client) {
-      showMessage(form, "Thank you! We'll be in touch soon.", false);
-      if (emailInput) emailInput.value = "";
+      showMessage(form, t("error"), true);
       return;
     }
 
+    var originalLabel = submitBtn ? submitBtn.innerHTML : "";
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = "Joining...";
+      submitBtn.textContent = t("joining");
     }
 
     client
       .from("waitlist")
-      .insert([{ email: email, role: role }])
+      .insert([{ email: email, role: getRole(form) }])
       .then(function (result) {
-        if (result.error) {
-          if (result.error.code === "23505") {
-            showMessage(form, "You're already on the waitlist!", false);
-          } else {
-            showMessage(form, "Something went wrong. Please try again.", true);
-          }
-        } else {
-          showMessage(form, "You're on the list! We'll notify you when we launch.", false);
+        if (!result.error) {
+          showMessage(form, t("success"), false);
           if (emailInput) emailInput.value = "";
+        } else if (result.error.code === "23505") {
+          showMessage(form, t("duplicate"), false);
+        } else {
+          showMessage(form, t("error"), true);
         }
       })
       .catch(function () {
-        showMessage(form, "Something went wrong. Please try again.", true);
+        showMessage(form, t("error"), true);
       })
       .finally(function () {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = "Join Waitlist";
+          submitBtn.innerHTML = originalLabel;
         }
       });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    var forms = document.querySelectorAll("form[data-waitlist]");
-    forms.forEach(function (form) {
+    document.querySelectorAll("form[data-waitlist]").forEach(function (form) {
       form.addEventListener("submit", handleWaitlistSubmit);
     });
   });
-
-  window.handleWaitlistSubmit = handleWaitlistSubmit;
 })();
