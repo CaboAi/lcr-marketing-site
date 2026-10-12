@@ -186,7 +186,7 @@
     </nav>
 
     <div class="flex items-center gap-2.5">
-      <button id="mobile-menu-btn" class="flex h-9 w-9 items-center justify-center rounded-lg text-ink hover:bg-chip md:hidden" aria-label="Toggle menu" aria-expanded="false">
+      <button id="mobile-menu-btn" class="flex h-9 w-9 items-center justify-center rounded-lg text-ink hover:bg-chip md:hidden" aria-label="Toggle menu" data-i18n-aria="nav.toggleMenu" aria-expanded="false">
         <span class="material-symbols-outlined">menu</span>
       </button>
       <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[13px] font-semibold text-ink transition-all hover:bg-chip" aria-label="Cambiar a español / Switch to English">
@@ -272,6 +272,21 @@
 <script>
 const form = document.getElementById('contact-form');
 const successDiv = document.getElementById('contact-success');
+const MESSAGES = {
+  en: {
+    sending: 'Sending...',
+    error: 'Something went wrong. Please try again.',
+    network: 'Network error. Please check your connection and try again.'
+  },
+  es: {
+    sending: 'Enviando...',
+    error: 'Algo salió mal. Intenta de nuevo.',
+    network: 'Error de conexión. Revisa tu internet e intenta de nuevo.'
+  }
+};
+function t(key) {
+  return MESSAGES[document.documentElement.lang === 'es' ? 'es' : 'en'][key];
+}
 if (new URLSearchParams(window.location.search).has('sent')) {
   form.style.display = 'none';
   successDiv.classList.remove('hidden');
@@ -279,8 +294,9 @@ if (new URLSearchParams(window.location.search).has('sent')) {
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
+  const originalLabel = btn.innerHTML;
   btn.disabled = true;
-  btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...';
+  btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> ' + t('sending');
   try {
     const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -294,13 +310,13 @@ form.addEventListener('submit', async function(e) {
       form.reset();
     } else {
       btn.disabled = false;
-      btn.innerHTML = '<span class="material-symbols-outlined">send</span><span>Send Message</span>';
-      alert('Something went wrong. Please try again.');
+      btn.innerHTML = originalLabel;
+      alert(t('error'));
     }
   } catch (err) {
     btn.disabled = false;
-    btn.innerHTML = '<span class="material-symbols-outlined">send</span><span>Send Message</span>';
-    alert('Network error. Please check your connection and try again.');
+    btn.innerHTML = originalLabel;
+    alert(t('network'));
   }
 });
 </script>
