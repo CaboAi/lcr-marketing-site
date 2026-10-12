@@ -295,7 +295,7 @@
     "stats.areas": { en: "Launch areas", es: "Zonas al lanzar" },
     "stats.cost": { en: "Waitlist", es: "Lista de espera" },
     "stats.costValue": { en: "Free", es: "Gratis" },
-    "stats.launch": { en: "Launch", es: "Lanzamiento" },
+    "stats.launch": { en: "Launch Date", es: "Fecha de lanzamiento" },
     "stats.launchValue": { en: "Coming soon", es: "Muy pronto" },
     "stats.type": { en: "Rental type", es: "Tipo de renta" },
     "stats.typeValue": { en: "Long-term", es: "Largo plazo" },
