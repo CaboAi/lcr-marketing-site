@@ -4,77 +4,280 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Page Not Found | Los Cabos Rental App</title>
-<meta name="description" content="The page you're looking for doesn't exist. Return to the Los Cabos Rental App homepage."/>
-<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<meta name="description" content="The page you are looking for does not exist. Return to the Los Cabos Rental App homepage."/>
+<meta name="robots" content="noindex"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "primary": "#D55E46",
-        "accent-sunset": "#D5B58F",
-        "accent-pink": "#E37A81",
-        "ocean-deep": "#3D3330",
-        "background-light": "#F5F0EB",
-        "background-dark": "#2A2220",
-      },
-      fontFamily: {
-        "display": ["Outfit", "Inter", "sans-serif"],
-        "sans": ["Inter", "sans-serif"]
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          rausch: "#e8384f",
+          "rausch-dark": "#c82e42",
+          ink: "#1a1a1a",
+          "ink-soft": "#383838",
+          muted: "#717171",
+          line: "#e4e4e4",
+          surface: "#f8f8f8",
+          chip: "#f2f2f2",
+        },
+        fontFamily: {
+          sans: ["Outfit", "-apple-system", "system-ui", "sans-serif"],
+        },
+        borderRadius: {
+          DEFAULT: "0.375rem",
+          lg: "0.625rem",
+          xl: "1rem",
+          "2xl": "1.5rem",
+          "3xl": "2.5rem",
+          full: "9999px",
+        },
+        boxShadow: {
+          soft: "0 1px 2px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06)",
+          lift: "0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+          strong: "0 20px 56px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)",
+        },
       },
     },
-  },
-}
+  };
 </script>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
-<div class="flex min-h-screen flex-col">
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
-<!-- Header -->
-<header class="border-b border-slate-200 bg-background-light/80 px-6 py-4 backdrop-blur-md dark:border-slate-800 dark:bg-background-dark/80">
-<div class="mx-auto flex max-w-7xl items-center justify-between">
-<a href="index.html" class="flex items-center gap-3 text-primary">
-<div class="size-8">
-<span class="material-symbols-outlined text-4xl">holiday_village</span>
-</div>
-<h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">Los Cabos Rental App</h2>
-</a>
-<a href="index.html" class="rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary/90">
-Go Home
-</a>
-</div>
+  /* ── Typography ── */
+  .display { letter-spacing: -0.045em; line-height: 0.95; }
+  .heading  { letter-spacing: -0.025em; }
+
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible  { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: 0.06s; }
+  .reveal-d2 { transition-delay: 0.13s; }
+  .reveal-d3 { transition-delay: 0.20s; }
+  .reveal-d4 { transition-delay: 0.28s; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    position: relative; overflow: hidden;
+    background: #e8384f; color: white; font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .btn-primary::after {
+    content: ''; position: absolute; inset: 0;
+    background: #c82e42;
+    transform: translateX(-101%);
+    transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary:hover { box-shadow: 0 6px 24px rgba(232,56,79,0.30); }
+  .btn-primary:active { transform: scale(0.97) translateY(1px); }
+  .btn-primary > * { position: relative; z-index: 1; }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center;
+    font-weight: 600; color: #1a1a1a;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .btn-ghost:hover { background: #f2f2f2; }
+  .btn-ghost:active { transform: scale(0.97); }
+
+  /* ── Pills ── */
+  .loc-pill {
+    font-weight: 600;
+    border: 1.5px solid #e4e4e4; background: white; color: #1a1a1a;
+  }
+
+  /* Dark form inputs */
+  .dark-input {
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.14);
+    color: white;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .dark-input:focus {
+    background: rgba(255,255,255,0.11);
+    border-color: rgba(255,255,255,0.32);
+    outline: none;
+  }
+  .dark-input::placeholder { color: rgba(255,255,255,0.42); }
+
+  .dark-role-card {
+    cursor: pointer;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.2s ease;
+  }
+  .dark-role-card:hover { border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.08); }
+  .dark-role-card:has(input:checked) { border-color: #e8384f; background: rgba(232,56,79,0.12); }
+  .dark-role-card:has(input:focus-visible) { outline: 2px solid white; outline-offset: 2px; }
+
+  /* ── Float animation (hero cards) ── */
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-7px); }
+  }
+  .float { animation: gentle-float 4s ease-in-out infinite; }
+  .float-delayed { animation: gentle-float 4s ease-in-out 2s infinite; }
+
+  /* ── Live dot pulse ── */
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+    100% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  }
+  .live-dot-green { animation: pulse-ring 2.2s ease-out infinite; }
+
+  /* ── Badge dot ── */
+  @keyframes badge-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.45; }
+  }
+  .badge-dot { animation: badge-pulse 2s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .float, .float-delayed, .live-dot-green, .badge-dot { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── Feature visual backgrounds ── */
+  .panel-renter   { background: linear-gradient(135deg, #fff5f0 0%, #fef9f0 100%); }
+  .panel-landlord { background: linear-gradient(135deg, #f0f5ff 0%, #f5f0ff 100%); }
+  .panel-agent    { background: linear-gradient(135deg, #f0fff8 0%, #f0f8ff 100%); }
+</style>
+</head>
+
+<body class="bg-white font-sans text-ink">
+<div style="min-height:100dvh;" class="flex flex-col">
+
+<!-- ══ NAVIGATION ══ -->
+<header class="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-[14px]">
+    <a href="/" class="flex items-center gap-2.5">
+      <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-white">
+        <span class="material-symbols-outlined" style="font-size:15px;">beach_access</span>
+      </div>
+      <span class="heading text-[15px] font-semibold text-ink">Los Cabos Rental</span>
+    </a>
+
+    <nav class="hidden items-center gap-7 md:flex">
+      <a href="renters.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.renters">Renters</a>
+      <a href="landlords.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.landlords">Landlords</a>
+      <a href="agents.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.agents">Agents</a>
+      <a href="about.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.about">About</a>
+      <a href="index.html#faq" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.faq">FAQ</a>
+    </nav>
+
+    <div class="flex items-center gap-2.5">
+      <button id="mobile-menu-btn" class="flex h-9 w-9 items-center justify-center rounded-lg text-ink hover:bg-chip md:hidden" aria-label="Toggle menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[13px] font-semibold text-ink transition-all hover:bg-chip" aria-label="Cambiar a español / Switch to English">
+        <span class="material-symbols-outlined" style="font-size:15px;">language</span>
+        <span class="lang-label">EN</span>
+      </button>
+      <a href="index.html#waitlist" class="btn-primary hidden rounded-xl px-5 py-2.5 text-[13px] sm:inline-flex">
+        <span data-i18n="cta.joinWaitlist">Join Waitlist</span>
+      </a>
+    </div>
+  </div>
 </header>
 
-<!-- Content -->
-<main class="flex flex-1 items-center justify-center px-6">
-<div class="text-center">
-<span class="material-symbols-outlined text-8xl text-primary/30">explore_off</span>
-<h1 class="mt-6 font-display text-5xl font-bold text-ocean-deep dark:text-white">404</h1>
-<p class="mt-3 text-xl text-slate-600 dark:text-slate-400">Page not found</p>
-<p class="mt-2 max-w-md text-sm text-slate-500 dark:text-slate-500">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
-<div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-<a href="index.html" class="flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary/90">
-<span class="material-symbols-outlined text-lg">home</span>
-Back to Home
-</a>
-<a href="contact.html" class="flex items-center gap-2 rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-all hover:border-primary hover:text-primary dark:border-slate-700 dark:text-slate-300">
-<span class="material-symbols-outlined text-lg">mail</span>
-Contact Us
-</a>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed left-0 right-0 top-[61px] z-40 border-b border-line bg-white shadow-soft md:hidden">
+  <nav class="flex flex-col px-6 py-3">
+    <a href="renters.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.renters">Renters</a>
+    <a href="landlords.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.landlords">Landlords</a>
+    <a href="agents.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.agents">Agents</a>
+    <a href="about.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.about">About</a>
+    <a href="index.html#faq" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.faq">FAQ</a>
+    <a href="index.html#waitlist" class="btn-primary mb-2 mt-4 rounded-xl px-5 py-3 text-sm"><span data-i18n="cta.joinWaitlist">Join Waitlist</span></a>
+  </nav>
 </div>
-</div>
+
+<main class="flex flex-1 items-center bg-white py-24 lg:py-32">
+  <div class="mx-auto max-w-3xl px-6 text-center">
+    <p class="display text-[96px] font-extrabold text-rausch sm:text-[128px]">404</p>
+    <h1 class="heading mt-2 text-3xl font-extrabold text-ink md:text-4xl" data-i18n="notfound.title">Page not found</h1>
+    <p class="mx-auto mt-4 max-w-md text-[17px] leading-relaxed text-muted" data-i18n="notfound.text">The page you are looking for does not exist or has moved.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-3">
+      <a href="index.html" class="btn-primary gap-2 rounded-xl px-7 py-3.5 text-[15px]"><span data-i18n="notfound.home">Back to home</span></a>
+      <a href="contact.html" class="btn-ghost gap-2 rounded-xl border border-line px-7 py-3.5 text-[15px]"><span data-i18n="nav.contact">Contact</span></a>
+    </div>
+  </div>
 </main>
 
-<!-- Footer -->
-<footer class="border-t border-slate-200 px-6 py-6 text-center text-xs text-slate-500 dark:border-slate-800">
-&copy; 2026 Los Cabos Rental App. All rights reserved.
+<!-- ══ FOOTER ══ -->
+<footer class="mt-auto border-t border-line bg-white py-14">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div class="col-span-1 md:col-span-2">
+        <div class="flex items-center gap-2.5">
+          <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-white">
+            <span class="material-symbols-outlined" style="font-size:14px;">beach_access</span>
+          </div>
+          <span class="heading text-[15px] font-semibold text-ink">Los Cabos Rental</span>
+        </div>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted" data-i18n="footer.desc">
+          A long-term rental app for Los Cabos, in English and Spanish. Coming soon.
+        </p>
+        <div class="mt-8">
+          <p class="mb-3 text-sm font-semibold text-ink" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
+          <form data-waitlist class="flex max-w-sm gap-2">
+            <input type="hidden" name="role" value="renter"/>
+            <label for="footer-email" class="sr-only" data-i18n="placeholder.email">Your email</label>
+            <input
+              id="footer-email"
+              type="email"
+              required
+              autocomplete="email"
+              class="flex-1 rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10"
+              placeholder="Your email"
+              data-i18n-placeholder="placeholder.email"
+            />
+            <button type="submit" class="btn-primary rounded-xl px-5 py-2.5 text-sm">
+              <span data-i18n="cta.join">Join</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <h5 class="mb-4 text-[11px] font-bold uppercase tracking-widest text-ink" data-i18n="footer.company">Company</h5>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="about.html"   class="transition-colors hover:text-ink" data-i18n="nav.about">About</a></li>
+          <li><a href="contact.html" class="transition-colors hover:text-ink" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="mb-4 text-[11px] font-bold uppercase tracking-widest text-ink" data-i18n="footer.legal">Legal</h5>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="terms.html"   class="transition-colors hover:text-ink" data-i18n="footer.termsOfService">Terms of Service</a></li>
+          <li><a href="privacy.html" class="transition-colors hover:text-ink" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-line pt-8 text-center text-xs text-muted" data-i18n="footer.copyright">
+      &copy; 2026 Los Cabos Rental App. All rights reserved.
+    </div>
+  </div>
 </footer>
 
 </div>
 <script defer src="/_vercel/insights/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/waitlist.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/mobile-nav.js"></script>
 </body>
 </html>
