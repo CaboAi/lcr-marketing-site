@@ -6,13 +6,13 @@
 <meta property="og:title" content="Terms of Service | Los Cabos Rental App"/>
 <meta property="og:description" content="Terms of Service for Los Cabos Rental App. Read our terms governing the use of our rental platform."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://loscabosrentalapp.com/terms.html"/>
-<meta property="og:image" content="https://loscabosrentalapp.com/images/og-default.jpg"/>
+<meta property="og:url" content="https://lcr-marketing-site.vercel.app/terms.html"/>
+<meta property="og:image" content="https://lcr-marketing-site.vercel.app/images/og-default.jpg"/>
 <meta property="og:site_name" content="Los Cabos Rental App"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Terms of Service | Los Cabos Rental App"/>
 <meta name="twitter:description" content="Terms of Service for Los Cabos Rental App."/>
-<meta name="twitter:image" content="https://loscabosrentalapp.com/images/og-default.jpg"/>
+<meta name="twitter:image" content="https://lcr-marketing-site.vercel.app/images/og-default.jpg"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -66,9 +66,9 @@
 <a href="index.html" class="font-display text-xl font-bold tracking-tight text-ocean-deep dark:text-white">Los Cabos Rental App</a>
 </div>
 <nav class="hidden space-x-8 md:flex">
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="about.html">About</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="blog-index.html">Blog</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="contact.html">Contact</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="about.html" data-i18n="nav.about">About</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="contact.html" data-i18n="nav.contact">Contact</a>
 </nav>
 <div class="flex items-center gap-4">
 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary" aria-label="Toggle menu" aria-expanded="false">
@@ -87,10 +87,10 @@
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden fixed top-[73px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg dark:bg-background-dark/95 dark:border-slate-800">
 <nav class="flex flex-col px-6 py-4 space-y-3">
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="about.html">About</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="blog-index.html">Blog</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="contact.html">Contact</a>
-<a class="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90" href="index.html#waitlist">Join Waitlist</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="about.html" data-i18n="nav.about">About</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="contact.html" data-i18n="nav.contact">Contact</a>
+<a class="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90" href="index.html#waitlist" data-i18n="cta.joinWaitlist">Join Waitlist</a>
 </nav>
 </div>
 
@@ -130,7 +130,7 @@
 <section id="acceptance">
 <h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="terms.s1.title">1. Acceptance of Terms</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
-<p>By creating an account, browsing listings, or otherwise accessing the Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and our <a href="privacy.html" class="text-primary hover:underline">Privacy Policy</a>, which is incorporated herein by reference.</p>
+<p>By creating an account, browsing listings, or otherwise accessing the Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and our <a href="privacy.html" class="text-primary hover:underline" data-i18n="footer.privacyPolicy">Privacy Policy</a>, which is incorporated herein by reference.</p>
 <p>You represent that you are at least 18 years of age and have the legal capacity to enter into binding agreements. If you are using the Platform on behalf of a business entity, you represent and warrant that you have the authority to bind that entity to these Terms.</p>
 <p>We may update these Terms from time to time. Your continued use of the Platform after any changes constitutes acceptance of the revised Terms. We will notify registered users of material changes via email or through the Platform.</p>
 </div>
@@ -302,7 +302,8 @@
 <div class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
 <p class="font-semibold text-ocean-deep dark:text-white">Los Cabos Rental App</p>
 <ul class="mt-3 space-y-2 text-sm">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">email</span> legal@loscabosrentalapp.com</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">mail</span> <a class="hover:underline" href="contact.html">Contact form</a></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">phone</span> <a class="hover:underline" href="tel:+526245030036">+52 624 503 0036</a></li>
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">location_on</span> Cabo San Lucas, Baja California Sur, Mexico</li>
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">schedule</span> Response within 5 business days</li>
 </ul>
@@ -326,37 +327,37 @@
 </div>
 <h2 class="font-display text-lg font-bold text-ocean-deep dark:text-white">Los Cabos Rental App</h2>
 </div>
-<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400">
-The premier platform for long-term rentals in Baja California Sur. We bridge the gap between premium tenants and property owners.
+<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400" data-i18n="footer.desc">
+A long-term rental app for Los Cabos, in English and Spanish. Coming soon.
 </p>
 <div class="mt-8">
-<p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300">App coming soon. Join the waitlist:</p>
+<p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
 <form data-waitlist class="flex gap-2 max-w-sm">
 <input type="hidden" name="role" value="renter"/>
 <input class="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your email" type="email"/>
-<button class="cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" type="submit">Join Waitlist</button>
+<button class="cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" type="submit" data-i18n="cta.joinWaitlist">Join Waitlist</button>
 </form>
 </div>
 </div>
 <div>
-<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white">Quick Links</h5>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.quickLinks">Quick Links</h5>
 <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-<li><a class="hover:text-primary" href="index.html">Home</a></li>
-<li><a class="hover:text-primary" href="about.html">About</a></li>
-<li><a class="hover:text-primary" href="blog-index.html">Blog</a></li>
-<li><a class="hover:text-primary" href="contact.html">Contact</a></li>
+<li><a class="hover:text-primary" href="index.html" data-i18n="nav.home">Home</a></li>
+<li><a class="hover:text-primary" href="about.html" data-i18n="nav.about">About</a></li>
+<li><a class="hover:text-primary" href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
+<li><a class="hover:text-primary" href="contact.html" data-i18n="nav.contact">Contact</a></li>
 </ul>
 </div>
 <div>
-<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white">Legal</h5>
+<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.legal">Legal</h5>
 <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-<li><a class="hover:text-primary" href="terms.html">Terms of Service</a></li>
-<li><a class="hover:text-primary" href="privacy.html">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="terms.html" data-i18n="footer.termsOfService">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="privacy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
 </ul>
 </div>
 </div>
 <div class="mt-16 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500">
-&copy; 2026 Los Cabos Rental App. All rights reserved. Made for the Baja sun.
+&copy; 2026 Los Cabos Rental App. All rights reserved.
 </div>
 </div>
 </footer>

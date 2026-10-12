@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:page(blog|blog-index|careers|help|how-it-works|location|login|partners|relocation|rentals|safety|signup)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/:page(blog|blog-index|careers|help|how-it-works|location|login|partners|relocation|rentals|safety|signup).html",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
