@@ -17,108 +17,223 @@
 <meta name="twitter:description" content="Privacy notice (aviso de privacidad) for the Los Cabos Rental App website."/>
 <meta name="twitter:image" content="https://lcr-marketing-site.vercel.app/images/og-image.jpg"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#D55E46",
-            "accent-sunset": "#D5B58F",
-            "accent-pink": "#E37A81",
-            "ocean-deep": "#3D3330",
-            "background-light": "#F5F0EB",
-            "background-dark": "#2A2220",
-          },
-          fontFamily: {
-            "display": ["Outfit", "Inter", "sans-serif"],
-            "sans": ["Inter", "sans-serif"]
-          },
-          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          rausch: "#e8384f",
+          "rausch-dark": "#c82e42",
+          ink: "#1a1a1a",
+          "ink-soft": "#383838",
+          muted: "#717171",
+          line: "#e4e4e4",
+          surface: "#f8f8f8",
+          chip: "#f2f2f2",
+        },
+        fontFamily: {
+          sans: ["Outfit", "-apple-system", "system-ui", "sans-serif"],
+        },
+        borderRadius: {
+          DEFAULT: "0.375rem",
+          lg: "0.625rem",
+          xl: "1rem",
+          "2xl": "1.5rem",
+          "3xl": "2.5rem",
+          full: "9999px",
+        },
+        boxShadow: {
+          soft: "0 1px 2px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06)",
+          lift: "0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+          strong: "0 20px 56px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)",
         },
       },
-    }
-  </script>
+    },
+  };
+</script>
 <style>
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-  </style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+  /* ── Typography ── */
+  .display { letter-spacing: -0.045em; line-height: 0.95; }
+  .heading  { letter-spacing: -0.025em; }
+
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible  { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: 0.06s; }
+  .reveal-d2 { transition-delay: 0.13s; }
+  .reveal-d3 { transition-delay: 0.20s; }
+  .reveal-d4 { transition-delay: 0.28s; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    position: relative; overflow: hidden;
+    background: #e8384f; color: white; font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .btn-primary::after {
+    content: ''; position: absolute; inset: 0;
+    background: #c82e42;
+    transform: translateX(-101%);
+    transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary:hover { box-shadow: 0 6px 24px rgba(232,56,79,0.30); }
+  .btn-primary:active { transform: scale(0.97) translateY(1px); }
+  .btn-primary > * { position: relative; z-index: 1; }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center;
+    font-weight: 600; color: #1a1a1a;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .btn-ghost:hover { background: #f2f2f2; }
+  .btn-ghost:active { transform: scale(0.97); }
+
+  /* ── Pills ── */
+  .loc-pill {
+    font-weight: 600;
+    border: 1.5px solid #e4e4e4; background: white; color: #1a1a1a;
+  }
+
+  /* Dark form inputs */
+  .dark-input {
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.14);
+    color: white;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .dark-input:focus {
+    background: rgba(255,255,255,0.11);
+    border-color: rgba(255,255,255,0.32);
+    outline: none;
+  }
+  .dark-input::placeholder { color: rgba(255,255,255,0.42); }
+
+  .dark-role-card {
+    cursor: pointer;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.2s ease;
+  }
+  .dark-role-card:hover { border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.08); }
+  .dark-role-card:has(input:checked) { border-color: #e8384f; background: rgba(232,56,79,0.12); }
+  .dark-role-card:has(input:focus-visible) { outline: 2px solid white; outline-offset: 2px; }
+
+  /* ── Float animation (hero cards) ── */
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-7px); }
+  }
+  .float { animation: gentle-float 4s ease-in-out infinite; }
+  .float-delayed { animation: gentle-float 4s ease-in-out 2s infinite; }
+
+  /* ── Live dot pulse ── */
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+    100% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  }
+  .live-dot-green { animation: pulse-ring 2.2s ease-out infinite; }
+
+  /* ── Badge dot ── */
+  @keyframes badge-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.45; }
+  }
+  .badge-dot { animation: badge-pulse 2s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .float, .float-delayed, .live-dot-green, .badge-dot { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── Feature visual backgrounds ── */
+  .panel-renter   { background: linear-gradient(135deg, #fff5f0 0%, #fef9f0 100%); }
+  .panel-landlord { background: linear-gradient(135deg, #f0f5ff 0%, #f5f0ff 100%); }
+  .panel-agent    { background: linear-gradient(135deg, #f0fff8 0%, #f0f8ff 100%); }
+</style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100">
-<div class="relative flex min-h-screen flex-col">
-<!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-background-dark/80">
-<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-<div class="flex items-center gap-2">
-<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
-<span class="material-symbols-outlined">beach_access</span>
-</div>
-<a href="index.html" class="font-display text-xl font-bold tracking-tight text-ocean-deep dark:text-white">Los Cabos Rental App</a>
-</div>
-<nav class="hidden space-x-8 md:flex">
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="about.html" data-i18n="nav.about">About</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="contact.html" data-i18n="nav.contact">Contact</a>
-</nav>
-<div class="flex items-center gap-4">
-<button id="mobile-menu-btn" class="md:hidden flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary" aria-label="Toggle menu" aria-expanded="false">
-<span class="material-symbols-outlined text-2xl">menu</span>
-</button>
-<button id="lang-toggle" onclick="toggleLanguage()" class="cursor-pointer flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300" aria-label="Toggle language">
-<span class="material-symbols-outlined text-lg">language</span>
-<span class="lang-label">EN</span>
-</button>
-<a href="index.html#waitlist" class="cursor-pointer rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-i18n="cta.joinWaitlist">
-            Join Waitlist
-          </a>
-</div>
-</div>
+<body class="bg-white font-sans text-ink">
+<div style="min-height:100dvh;" class="flex flex-col">
+
+<!-- ══ NAVIGATION ══ -->
+<header class="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-[14px]">
+    <a href="/" class="flex items-center gap-2.5">
+      <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-white">
+        <span class="material-symbols-outlined" style="font-size:15px;">beach_access</span>
+      </div>
+      <span class="heading text-[15px] font-semibold text-ink">Los Cabos Rental</span>
+    </a>
+
+    <nav class="hidden items-center gap-7 md:flex">
+      <a href="renters.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.renters">Renters</a>
+      <a href="landlords.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.landlords">Landlords</a>
+      <a href="agents.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.agents">Agents</a>
+      <a href="about.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.about">About</a>
+      <a href="index.html#faq" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.faq">FAQ</a>
+    </nav>
+
+    <div class="flex items-center gap-2.5">
+      <button id="mobile-menu-btn" class="flex h-9 w-9 items-center justify-center rounded-lg text-ink hover:bg-chip md:hidden" aria-label="Toggle menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[13px] font-semibold text-ink transition-all hover:bg-chip" aria-label="Cambiar a español / Switch to English">
+        <span class="material-symbols-outlined" style="font-size:15px;">language</span>
+        <span class="lang-label">EN</span>
+      </button>
+      <a href="index.html#waitlist" class="btn-primary hidden rounded-xl px-5 py-2.5 text-[13px] sm:inline-flex">
+        <span data-i18n="cta.joinWaitlist">Join Waitlist</span>
+      </a>
+    </div>
+  </div>
 </header>
+
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden fixed top-[73px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg dark:bg-background-dark/95 dark:border-slate-800">
-<nav class="flex flex-col px-6 py-4 space-y-3">
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="about.html" data-i18n="nav.about">About</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="contact.html" data-i18n="nav.contact">Contact</a>
-<a class="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90" href="index.html#waitlist" data-i18n="cta.joinWaitlist">Join Waitlist</a>
-</nav>
+<div id="mobile-menu" class="hidden fixed left-0 right-0 top-[61px] z-40 border-b border-line bg-white shadow-soft md:hidden">
+  <nav class="flex flex-col px-6 py-3">
+    <a href="renters.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.renters">Renters</a>
+    <a href="landlords.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.landlords">Landlords</a>
+    <a href="agents.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.agents">Agents</a>
+    <a href="about.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.about">About</a>
+    <a href="index.html#faq" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.faq">FAQ</a>
+    <a href="index.html#waitlist" class="btn-primary mb-2 mt-4 rounded-xl px-5 py-3 text-sm"><span data-i18n="cta.joinWaitlist">Join Waitlist</span></a>
+  </nav>
 </div>
 
 <!-- Privacy Notice Content -->
 <main class="flex-1 py-16 md:py-24">
 <div class="mx-auto max-w-3xl px-6">
 
-<h1 class="font-display text-4xl font-bold text-ocean-deep dark:text-white md:text-5xl" data-i18n="privacy.title">Privacy Notice</h1>
-<p class="mt-4 text-sm text-slate-500 dark:text-slate-400" data-i18n="privacy.updated">Last updated: October 11, 2026</p>
+<h1 class="heading text-4xl font-bold text-ink md:text-5xl" data-i18n="privacy.title">Privacy Notice</h1>
+<p class="mt-4 text-sm text-muted" data-i18n="privacy.updated">Last updated: October 11, 2026</p>
 
-<div class="mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+<div class="mt-8 rounded-2xl border border-rausch/20 bg-rausch/5 p-6 text-sm leading-relaxed text-muted">
 <p data-i18n="privacy.prelaunch">Los Cabos Rental App is not live yet. This notice covers only this website: the waitlist, the contact form and basic site analytics. Before the app opens, and before we collect any other data, we will publish an updated notice.</p>
 </div>
 
-<div class="mt-12 space-y-10 text-slate-700 dark:text-slate-300">
+<div class="mt-12 space-y-10 text-muted">
 
 <section id="controller">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s1.title">1. Who is responsible for your data</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s1.title">1. Who is responsible for your data</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <p data-i18n-html="privacy.s1.p1">Mario Polanco, operating as "Los Cabos Rental App" in Los Cabos, Baja California Sur, Mexico, is responsible for your personal data under Mexico's Federal Law on the Protection of Personal Data Held by Private Parties (LFPDPPP).</p>
 </div>
 </section>
 
 <section id="data">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s2.title">2. What we collect</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s2.title">2. What we collect</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <ul class="ml-6 list-disc space-y-2">
 <li data-i18n-html="privacy.s2.waitlist"><strong>Waitlist:</strong> your email address, the role you choose (renter, landlord or agent) and the date you signed up.</li>
@@ -130,7 +245,7 @@
 </section>
 
 <section id="purposes">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s3.title">3. Why we use it</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s3.title">3. Why we use it</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <ul class="ml-6 list-disc space-y-2">
 <li data-i18n-html="privacy.s3.waitlist"><strong>Waitlist:</strong> to email you when the app opens.</li>
@@ -142,7 +257,7 @@
 </section>
 
 <section id="sharing">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s4.title">4. Who we share it with</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s4.title">4. Who we share it with</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <p data-i18n="privacy.s4.p1">We use these service providers to run the site. They handle data only on our behalf:</p>
 <ul class="ml-6 list-disc space-y-2">
@@ -156,52 +271,52 @@
 </section>
 
 <section id="arco">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s5.title">5. Your rights (ARCO)</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s5.title">5. Your rights (ARCO)</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <p data-i18n="privacy.s5.p1">You can ask to access, rectify or cancel (delete) your personal data, or oppose its use. You can also withdraw your consent or ask to be taken off the waitlist at any time.</p>
-<p data-i18n-html="privacy.s5.p2">To make a request, use our <a class="text-primary hover:underline" href="contact.html">contact form</a>, email <a class="text-primary hover:underline" href="mailto:hola@caborentalapp.com">hola@caborentalapp.com</a>, or call <a class="text-primary hover:underline" href="tel:+526245030036">+52 624 503 0036</a>. Please include your name, the email address you used with us, and what you are asking for. If you want something corrected, tell us the correct information.</p>
+<p data-i18n-html="privacy.s5.p2">To make a request, use our <a class="text-rausch hover:underline" href="contact.html">contact form</a>, email <a class="text-rausch hover:underline" href="mailto:hola@caborentalapp.com">hola@caborentalapp.com</a>, or call <a class="text-rausch hover:underline" href="tel:+526245030036">+52 624 503 0036</a>. Please include your name, the email address you used with us, and what you are asking for. If you want something corrected, tell us the correct information.</p>
 <p data-i18n="privacy.s5.p3">We may ask you to confirm that you control the email address. We will reply within 20 business days. If your request is valid, we will carry it out within 15 business days after replying.</p>
 </div>
 </section>
 
 <section id="cookies">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s6.title">6. Cookies and local storage</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s6.title">6. Cookies and local storage</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <p data-i18n="privacy.s6.p1">We do not use cookies for tracking or advertising. The site saves your language choice (English or Spanish) in your browser's local storage so it remembers it next time. You can clear it in your browser settings.</p>
 </div>
 </section>
 
 <section id="retention">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s7.title">7. How long we keep it</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s7.title">7. How long we keep it</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <p data-i18n="privacy.s7.p1">We keep waitlist entries until the app opens and we have let you know, or until you ask us to remove you, whichever comes first. We keep contact messages for as long as we need them to answer you and follow up. After that, we delete the data.</p>
 </div>
 </section>
 
 <section id="minors">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s8.title">8. Minors</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s8.title">8. Minors</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <p data-i18n="privacy.s8.p1">This website is not meant for people under 18, and we do not knowingly collect their data. If you think a minor has given us their information, contact us and we will delete it.</p>
 </div>
 </section>
 
 <section id="changes">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s9.title">9. Changes to this notice</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s9.title">9. Changes to this notice</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
 <p data-i18n="privacy.s9.p1">If this notice changes, we will post the new version on this page and update the date at the top. If we ever want to use your data for a new purpose, we will ask for your consent first.</p>
 </div>
 </section>
 
 <section id="contact">
-<h2 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="privacy.s10.title">10. Contact and complaints</h2>
+<h2 class="heading text-2xl font-bold text-ink" data-i18n="privacy.s10.title">10. Contact and complaints</h2>
 <div class="mt-4 space-y-4 leading-relaxed">
-<div class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
-<p class="font-semibold text-ocean-deep dark:text-white">Los Cabos Rental App</p>
+<div class="rounded-xl bg-white p-6 shadow-soft">
+<p class="font-semibold text-ink">Los Cabos Rental App</p>
 <ul class="mt-3 space-y-2 text-sm">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">chat</span> <a class="hover:underline" href="contact.html" data-i18n="legal.contactForm">Contact form</a></li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">mail</span> <a class="hover:underline" href="mailto:hola@caborentalapp.com">hola@caborentalapp.com</a></li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">phone</span> <a class="hover:underline" href="tel:+526245030036">+52 624 503 0036</a></li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">location_on</span> Los Cabos, Baja California Sur, Mexico</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-rausch text-base">chat</span> <a class="hover:underline" href="contact.html" data-i18n="legal.contactForm">Contact form</a></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-rausch text-base">mail</span> <a class="hover:underline" href="mailto:hola@caborentalapp.com">hola@caborentalapp.com</a></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-rausch text-base">phone</span> <a class="hover:underline" href="tel:+526245030036">+52 624 503 0036</a></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-rausch text-base">location_on</span> Los Cabos, Baja California Sur, Mexico</li>
 </ul>
 </div>
 <p data-i18n="privacy.s10.p1">If you believe your data protection rights have been violated, you can file a complaint with the Mexican authority in charge of personal data protection. Since 2025, that is the Secretaría Anticorrupción y Buen Gobierno, which took over this role from INAI.</p>
@@ -212,50 +327,63 @@
 </div>
 </main>
 
-<!-- Footer -->
-<footer class="mt-auto border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-background-dark">
-<div class="mx-auto max-w-7xl px-6">
-<div class="grid gap-12 md:grid-cols-4">
-<div class="col-span-1 md:col-span-2">
-<div class="flex items-center gap-2">
-<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-<span class="material-symbols-outlined text-sm">beach_access</span>
-</div>
-<h2 class="font-display text-lg font-bold text-ocean-deep dark:text-white">Los Cabos Rental App</h2>
-</div>
-<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400" data-i18n="footer.desc">
-A long-term rental app for Los Cabos, in English and Spanish. Coming soon.
-</p>
-<div class="mt-8">
-<p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
-<form data-waitlist class="flex gap-2 max-w-sm">
-<input type="hidden" name="role" value="renter"/>
-<input class="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your email" type="email" data-i18n-placeholder="placeholder.email"/>
-<button class="cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" type="submit" data-i18n="cta.joinWaitlist">Join Waitlist</button>
-</form>
-</div>
-</div>
-<div>
-<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.quickLinks">Quick Links</h5>
-<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-<li><a class="hover:text-primary" href="index.html" data-i18n="nav.home">Home</a></li>
-<li><a class="hover:text-primary" href="about.html" data-i18n="nav.about">About</a></li>
-<li><a class="hover:text-primary" href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
-<li><a class="hover:text-primary" href="contact.html" data-i18n="nav.contact">Contact</a></li>
-</ul>
-</div>
-<div>
-<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.legal">Legal</h5>
-<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-<li><a class="hover:text-primary" href="terms.html" data-i18n="footer.termsOfService">Terms of Service</a></li>
-<li><a class="hover:text-primary" href="privacy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
-</ul>
-</div>
-</div>
-<div class="mt-16 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500" data-i18n="footer.copyright">
-&copy; 2026 Los Cabos Rental App. All rights reserved.
-</div>
-</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="mt-auto border-t border-line bg-white py-14">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div class="col-span-1 md:col-span-2">
+        <div class="flex items-center gap-2.5">
+          <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-white">
+            <span class="material-symbols-outlined" style="font-size:14px;">beach_access</span>
+          </div>
+          <span class="heading text-[15px] font-semibold text-ink">Los Cabos Rental</span>
+        </div>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted" data-i18n="footer.desc">
+          A long-term rental app for Los Cabos, in English and Spanish. Coming soon.
+        </p>
+        <div class="mt-8">
+          <p class="mb-3 text-sm font-semibold text-ink" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
+          <form data-waitlist class="flex max-w-sm gap-2">
+            <input type="hidden" name="role" value="renter"/>
+            <label for="footer-email" class="sr-only" data-i18n="placeholder.email">Your email</label>
+            <input
+              id="footer-email"
+              type="email"
+              required
+              autocomplete="email"
+              class="flex-1 rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10"
+              placeholder="Your email"
+              data-i18n-placeholder="placeholder.email"
+            />
+            <button type="submit" class="btn-primary rounded-xl px-5 py-2.5 text-sm">
+              <span data-i18n="cta.join">Join</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <h5 class="mb-4 text-[11px] font-bold uppercase tracking-widest text-ink" data-i18n="footer.company">Company</h5>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="about.html"   class="transition-colors hover:text-ink" data-i18n="nav.about">About</a></li>
+          <li><a href="contact.html" class="transition-colors hover:text-ink" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="mb-4 text-[11px] font-bold uppercase tracking-widest text-ink" data-i18n="footer.legal">Legal</h5>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="terms.html"   class="transition-colors hover:text-ink" data-i18n="footer.termsOfService">Terms of Service</a></li>
+          <li><a href="privacy.html" class="transition-colors hover:text-ink" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-line pt-8 text-center text-xs text-muted" data-i18n="footer.copyright">
+      &copy; 2026 Los Cabos Rental App. All rights reserved.
+    </div>
+  </div>
 </footer>
 </div>
 <script defer src="/_vercel/insights/script.js"></script>

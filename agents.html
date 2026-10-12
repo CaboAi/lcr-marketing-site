@@ -19,268 +19,392 @@
 <meta name="twitter:image" content="https://lcr-marketing-site.vercel.app/images/og-image.jpg"/>
 <meta name="description" content="List long-term rentals, chat with renters, move every lead to a signed lease and track commissions in one app. Free to join the waitlist."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#D55E46",
-            "accent-sunset": "#D5B58F",
-            "accent-pink": "#E37A81",
-            "ocean-deep": "#3D3330",
-            "background-light": "#F5F0EB",
-            "background-dark": "#2A2220",
-          },
-          fontFamily: {
-            "display": ["Outfit", "Inter", "sans-serif"],
-            "sans": ["Inter", "sans-serif"]
-          },
-          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          rausch: "#e8384f",
+          "rausch-dark": "#c82e42",
+          ink: "#1a1a1a",
+          "ink-soft": "#383838",
+          muted: "#717171",
+          line: "#e4e4e4",
+          surface: "#f8f8f8",
+          chip: "#f2f2f2",
+        },
+        fontFamily: {
+          sans: ["Outfit", "-apple-system", "system-ui", "sans-serif"],
+        },
+        borderRadius: {
+          DEFAULT: "0.375rem",
+          lg: "0.625rem",
+          xl: "1rem",
+          "2xl": "1.5rem",
+          "3xl": "2.5rem",
+          full: "9999px",
+        },
+        boxShadow: {
+          soft: "0 1px 2px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06)",
+          lift: "0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+          strong: "0 20px 56px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)",
         },
       },
-    }
-  </script>
+    },
+  };
+</script>
 <style>
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-  </style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+  /* ── Typography ── */
+  .display { letter-spacing: -0.045em; line-height: 0.95; }
+  .heading  { letter-spacing: -0.025em; }
+
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible  { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: 0.06s; }
+  .reveal-d2 { transition-delay: 0.13s; }
+  .reveal-d3 { transition-delay: 0.20s; }
+  .reveal-d4 { transition-delay: 0.28s; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    position: relative; overflow: hidden;
+    background: #e8384f; color: white; font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .btn-primary::after {
+    content: ''; position: absolute; inset: 0;
+    background: #c82e42;
+    transform: translateX(-101%);
+    transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary:hover { box-shadow: 0 6px 24px rgba(232,56,79,0.30); }
+  .btn-primary:active { transform: scale(0.97) translateY(1px); }
+  .btn-primary > * { position: relative; z-index: 1; }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center;
+    font-weight: 600; color: #1a1a1a;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .btn-ghost:hover { background: #f2f2f2; }
+  .btn-ghost:active { transform: scale(0.97); }
+
+  /* ── Pills ── */
+  .loc-pill {
+    font-weight: 600;
+    border: 1.5px solid #e4e4e4; background: white; color: #1a1a1a;
+  }
+
+  /* Dark form inputs */
+  .dark-input {
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.14);
+    color: white;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .dark-input:focus {
+    background: rgba(255,255,255,0.11);
+    border-color: rgba(255,255,255,0.32);
+    outline: none;
+  }
+  .dark-input::placeholder { color: rgba(255,255,255,0.42); }
+
+  .dark-role-card {
+    cursor: pointer;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.2s ease;
+  }
+  .dark-role-card:hover { border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.08); }
+  .dark-role-card:has(input:checked) { border-color: #e8384f; background: rgba(232,56,79,0.12); }
+  .dark-role-card:has(input:focus-visible) { outline: 2px solid white; outline-offset: 2px; }
+
+  /* ── Float animation (hero cards) ── */
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-7px); }
+  }
+  .float { animation: gentle-float 4s ease-in-out infinite; }
+  .float-delayed { animation: gentle-float 4s ease-in-out 2s infinite; }
+
+  /* ── Live dot pulse ── */
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+    100% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  }
+  .live-dot-green { animation: pulse-ring 2.2s ease-out infinite; }
+
+  /* ── Badge dot ── */
+  @keyframes badge-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.45; }
+  }
+  .badge-dot { animation: badge-pulse 2s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .float, .float-delayed, .live-dot-green, .badge-dot { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── Feature visual backgrounds ── */
+  .panel-renter   { background: linear-gradient(135deg, #fff5f0 0%, #fef9f0 100%); }
+  .panel-landlord { background: linear-gradient(135deg, #f0f5ff 0%, #f5f0ff 100%); }
+  .panel-agent    { background: linear-gradient(135deg, #f0fff8 0%, #f0f8ff 100%); }
+</style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100" style="scroll-behavior: smooth;">
-<div class="relative flex min-h-screen flex-col">
-<!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-background-dark/80">
-<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-<a href="index.html" class="flex items-center gap-2">
-<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
-<span class="material-symbols-outlined">beach_access</span>
-</div>
-<h1 class="font-display text-xl font-bold tracking-tight text-ocean-deep dark:text-white">Los Cabos Rental App</h1>
-</a>
-<nav class="hidden space-x-8 md:flex">
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="renters.html" data-i18n="nav.renters">Renters</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="landlords.html" data-i18n="nav.landlords">Landlords</a>
-<a class="cursor-pointer text-sm font-semibold text-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" href="agents.html" data-i18n="nav.agents">Agents</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="about.html" data-i18n="nav.about">About</a>
-<a class="cursor-pointer text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300 dark:hover:text-primary" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-</nav>
-<div class="flex items-center gap-4">
-<button id="mobile-menu-btn" class="md:hidden flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary" aria-label="Toggle menu" aria-expanded="false">
-<span class="material-symbols-outlined text-2xl">menu</span>
-</button>
-<button id="lang-toggle" onclick="toggleLanguage()" class="cursor-pointer flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-slate-300" aria-label="Toggle language">
-<span class="material-symbols-outlined text-lg">language</span>
-<span class="lang-label">EN</span>
-</button>
-<a href="#waitlist-cta" class="cursor-pointer rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-i18n="cta.joinWaitlist">Join Waitlist</a>
-</div>
-</div>
+<body class="bg-white font-sans text-ink">
+<div style="min-height:100dvh;" class="flex flex-col">
+
+<!-- ══ NAVIGATION ══ -->
+<header class="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-[14px]">
+    <a href="/" class="flex items-center gap-2.5">
+      <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-white">
+        <span class="material-symbols-outlined" style="font-size:15px;">beach_access</span>
+      </div>
+      <span class="heading text-[15px] font-semibold text-ink">Los Cabos Rental</span>
+    </a>
+
+    <nav class="hidden items-center gap-7 md:flex">
+      <a href="renters.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.renters">Renters</a>
+      <a href="landlords.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.landlords">Landlords</a>
+      <a href="agents.html" aria-current="page" class="text-[13px] font-semibold text-ink" data-i18n="nav.agents">Agents</a>
+      <a href="about.html" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.about">About</a>
+      <a href="index.html#faq" class="text-[13px] font-semibold text-muted transition-colors hover:text-ink" data-i18n="nav.faq">FAQ</a>
+    </nav>
+
+    <div class="flex items-center gap-2.5">
+      <button id="mobile-menu-btn" class="flex h-9 w-9 items-center justify-center rounded-lg text-ink hover:bg-chip md:hidden" aria-label="Toggle menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[13px] font-semibold text-ink transition-all hover:bg-chip" aria-label="Cambiar a español / Switch to English">
+        <span class="material-symbols-outlined" style="font-size:15px;">language</span>
+        <span class="lang-label">EN</span>
+      </button>
+      <a href="#waitlist-cta" class="btn-primary hidden rounded-xl px-5 py-2.5 text-[13px] sm:inline-flex">
+        <span data-i18n="cta.joinWaitlist">Join Waitlist</span>
+      </a>
+    </div>
+  </div>
 </header>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden fixed top-[73px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg dark:bg-background-dark/95 dark:border-slate-800">
-<nav class="flex flex-col px-6 py-4 space-y-3">
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="renters.html" data-i18n="nav.renters">Renters</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="landlords.html" data-i18n="nav.landlords">Landlords</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="agents.html" data-i18n="nav.agents">Agents</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="about.html" data-i18n="nav.about">About</a>
-<a class="text-sm font-semibold text-slate-700 hover:text-primary py-2 dark:text-slate-300" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-<a class="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90" href="#waitlist-cta" data-i18n="cta.joinWaitlist">Join Waitlist</a>
-</nav>
+<div id="mobile-menu" class="hidden fixed left-0 right-0 top-[61px] z-40 border-b border-line bg-white shadow-soft md:hidden">
+  <nav class="flex flex-col px-6 py-3">
+    <a href="renters.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.renters">Renters</a>
+    <a href="landlords.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.landlords">Landlords</a>
+    <a href="agents.html" aria-current="page" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.agents">Agents</a>
+    <a href="about.html" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.about">About</a>
+    <a href="index.html#faq" class="border-b border-line py-3 text-sm font-semibold text-ink transition-colors hover:text-rausch" data-i18n="nav.faq">FAQ</a>
+    <a href="#waitlist-cta" class="btn-primary mb-2 mt-4 rounded-xl px-5 py-3 text-sm"><span data-i18n="cta.joinWaitlist">Join Waitlist</span></a>
+  </nav>
 </div>
 
 <!-- Hero Section -->
-<section class="relative w-full overflow-hidden bg-ocean-deep">
-<div class="absolute inset-0 bg-gradient-to-br from-ocean-deep via-ocean-deep to-primary/40" aria-hidden="true"></div>
-<div class="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-<div class="max-w-3xl">
-<span class="mb-4 inline-block rounded-full bg-accent-sunset/20 px-4 py-1 text-xs font-bold uppercase tracking-widest text-accent-sunset" data-i18n="agents.hero.badge">For agents</span>
-<h1 class="font-display text-4xl font-black leading-tight text-white md:text-5xl lg:text-6xl" data-i18n="agents.hero.title">Your rental leads, out of WhatsApp and into one pipeline.</h1>
-<p class="mt-6 max-w-2xl text-lg text-slate-100/90" data-i18n="agents.hero.subtitle">List rentals, chat with renters, move every lead to a signed lease and keep a record of your commissions.</p>
-<div class="mt-10 flex flex-wrap gap-4">
-<a href="#waitlist-cta" class="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-deep">
-<span class="material-symbols-outlined" aria-hidden="true">notifications_active</span>
-<span class="" data-i18n="cta.joinTheWaitlist">Join the waitlist</span>
-</a>
-<a href="#how" class="flex items-center gap-2 rounded-xl border border-white/30 px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
-<span class="" data-i18n="cta.seeHow">See how it works</span>
-</a>
-</div>
-</div>
-</div>
+<section class="relative w-full overflow-hidden bg-white">
+  <div class="pointer-events-none absolute -right-48 -top-20 h-[600px] w-[600px] rounded-full border border-line/50" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute -right-28 top-4 h-[380px] w-[380px] rounded-full border border-line/35" aria-hidden="true"></div>
+  <div class="relative mx-auto max-w-7xl px-6 pb-20 pt-14 lg:pb-28 lg:pt-20">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 rounded-full border border-rausch/20 bg-rausch/6 px-3.5 py-1.5">
+        <span class="badge-dot inline-block h-1.5 w-1.5 rounded-full bg-rausch"></span>
+        <span class="text-[12px] font-bold text-rausch" data-i18n="agents.hero.badge">For agents</span>
+      </div>
+      <h1 class="display mt-6 text-[44px] font-extrabold text-ink sm:text-[56px] lg:text-[64px]" data-i18n="agents.hero.title">Your rental leads, out of WhatsApp and into one pipeline.</h1>
+      <p class="mt-6 max-w-2xl text-[17px] leading-relaxed text-muted" data-i18n="agents.hero.subtitle">List rentals, chat with renters, move every lead to a signed lease and keep a record of your commissions.</p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#waitlist-cta" class="btn-primary gap-2 rounded-xl px-7 py-3.5 text-[15px]"><span class="" data-i18n="cta.joinTheWaitlist">Join the waitlist</span></a>
+        <a href="#how" class="btn-ghost gap-2 rounded-xl border border-line px-7 py-3.5 text-[15px]"><span class="" data-i18n="cta.seeHow">See how it works</span><span class="material-symbols-outlined text-[18px] text-muted" aria-hidden="true">arrow_forward</span></a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Features -->
-<section class="bg-background-light py-24 dark:bg-background-dark">
-<div class="mx-auto max-w-7xl px-6">
-<div class="mb-16 text-center">
-<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="agents.features.title">What you can do in the app</h2>
-</div>
-<div class="grid gap-8 md:grid-cols-3">
-<div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-slate-900/50">
-<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">home_work</span></div>
-<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="agents.features.f1.title">Your listings</h3>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="agents.features.f1.desc">Post long-term listings with photos, rent in pesos and availability.</p>
-<ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f1.b1">Photos and details</span></li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f1.b2">Rent in MXN</span></li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f1.b3">Pet-friendly and furnished tags</span></li>
-</ul>
-</div>
-<div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-slate-900/50">
-<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">view_kanban</span></div>
-<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="agents.features.f2.title">Lead pipeline</h3>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="agents.features.f2.desc">Every renter who messages you becomes a lead: Interested, Contacted, Viewing scheduled, Lease sent, Deposit paid.</p>
-<ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f2.b1">In-app chat</span></li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f2.b2">Five clear stages</span></li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f2.b3">Notifications</span></li>
-</ul>
-</div>
-<div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-slate-900/50">
-<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">request_quote</span></div>
-<h3 class="font-display text-2xl font-bold text-ocean-deep dark:text-white" data-i18n="agents.features.f3.title">Commissions</h3>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="agents.features.f3.desc">Keep a record of the commission on each lease, next to the deal it came from.</p>
-<ul class="mt-6 space-y-3">
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f3.b1">Commission per lease</span></li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f3.b2">Bilingual lease to send</span></li>
-<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">check_circle</span> <span class="" data-i18n="agents.features.f3.b3">App in English and Spanish</span></li>
-</ul>
-</div>
-</div>
-</div>
+<section class="bg-surface py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="mb-14 max-w-2xl">
+      <h2 class="heading text-4xl font-extrabold text-ink md:text-5xl" data-i18n="agents.features.title">What you can do in the app</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="rounded-3xl bg-white p-8 shadow-soft">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-rausch/10 text-rausch"><span class="material-symbols-outlined text-[24px]" aria-hidden="true">home_work</span></div>
+        <h3 class="heading mt-6 text-2xl font-bold text-ink" data-i18n="agents.features.f1.title">Your listings</h3>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.features.f1.desc">Post long-term listings with photos, rent in pesos and availability.</p>
+        <ul class="mt-6 space-y-3">
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f1.b1">Photos and details</span></li>
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f1.b2">Rent in MXN</span></li>
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f1.b3">Pet-friendly and furnished tags</span></li>
+        </ul>
+      </div>
+      <div class="rounded-3xl bg-white p-8 shadow-soft">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-rausch/10 text-rausch"><span class="material-symbols-outlined text-[24px]" aria-hidden="true">view_kanban</span></div>
+        <h3 class="heading mt-6 text-2xl font-bold text-ink" data-i18n="agents.features.f2.title">Lead pipeline</h3>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.features.f2.desc">Every renter who messages you becomes a lead: Interested, Contacted, Viewing scheduled, Lease sent, Deposit paid.</p>
+        <ul class="mt-6 space-y-3">
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f2.b1">In-app chat</span></li>
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f2.b2">Five clear stages</span></li>
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f2.b3">Notifications</span></li>
+        </ul>
+      </div>
+      <div class="rounded-3xl bg-white p-8 shadow-soft">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-rausch/10 text-rausch"><span class="material-symbols-outlined text-[24px]" aria-hidden="true">request_quote</span></div>
+        <h3 class="heading mt-6 text-2xl font-bold text-ink" data-i18n="agents.features.f3.title">Commissions</h3>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.features.f3.desc">Keep a record of the commission on each lease, next to the deal it came from.</p>
+        <ul class="mt-6 space-y-3">
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f3.b1">Commission per lease</span></li>
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f3.b2">Bilingual lease to send</span></li>
+        <li class="flex items-start gap-3"><span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-rausch/10"><span class="material-symbols-outlined text-[11px] text-rausch" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check</span></span><span class="text-sm text-ink" data-i18n="agents.features.f3.b3">App in English and Spanish</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- How It Works -->
-<section id="how" class="bg-white py-24 dark:bg-background-dark">
-<div class="mx-auto max-w-7xl px-6">
-<div class="mb-16 text-center">
-<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="roles.howTitle">How it works</h2>
-</div>
-<div class="grid gap-12 md:grid-cols-3">
-<div class="text-center">
-<div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">1</div>
-<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="agents.steps.s1.title">Create your profile</h4>
-<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="agents.steps.s1.desc">Sign up as an agent when the app opens.</p>
-</div>
-<div class="text-center">
-<div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">2</div>
-<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="agents.steps.s2.title">Post your listings</h4>
-<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="agents.steps.s2.desc">Add photos, rent and availability.</p>
-</div>
-<div class="text-center">
-<div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-black text-white">3</div>
-<h4 class="font-display text-xl font-bold text-ocean-deep dark:text-white" data-i18n="agents.steps.s3.title">Work your leads</h4>
-<p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="agents.steps.s3.desc">Chat, schedule viewings and send the lease from one pipeline.</p>
-</div>
-</div>
-</div>
+<section id="how" class="bg-white py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="mb-16 max-w-2xl">
+      <h2 class="heading text-4xl font-extrabold text-ink md:text-5xl" data-i18n="roles.howTitle">How it works</h2>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+      <div>
+        <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">1</div>
+        <h4 class="heading text-xl font-bold text-ink" data-i18n="agents.steps.s1.title">Create your profile</h4>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.steps.s1.desc">Sign up as an agent when the app opens.</p>
+      </div>
+      <div>
+        <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-rausch text-sm font-bold text-white">2</div>
+        <h4 class="heading text-xl font-bold text-ink" data-i18n="agents.steps.s2.title">Post your listings</h4>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.steps.s2.desc">Add photos, rent and availability.</p>
+      </div>
+      <div>
+        <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">3</div>
+        <h4 class="heading text-xl font-bold text-ink" data-i18n="agents.steps.s3.title">Work your leads</h4>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.steps.s3.desc">Chat, schedule viewings and send the lease from one pipeline.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FAQ Section -->
-<section class="bg-background-light py-24 dark:bg-background-dark">
-<div class="mx-auto max-w-3xl px-6">
-<div class="mb-12 text-center">
-<h2 class="font-display text-3xl font-bold text-ocean-deep dark:text-white md:text-4xl" data-i18n="roles.faqTitle">Questions</h2>
-</div>
-<div class="space-y-4">
-<details class="group rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
-<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-ocean-deep dark:text-white">
-<span class="" data-i18n="agents.faq.q1">What does it cost?</span>
-<span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
-</summary>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="agents.faq.a1">Joining the waitlist is free and nobody is charged for signing up. We'll announce pricing before launch.</p>
-</details>
-<details class="group rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
-<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-ocean-deep dark:text-white">
-<span class="" data-i18n="agents.faq.q2">Which areas will it cover?</span>
-<span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
-</summary>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="agents.faq.a2">Cabo San Lucas, San José del Cabo, the Corridor and El Tezal at launch.</p>
-</details>
-<details class="group rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900/50">
-<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-ocean-deep dark:text-white">
-<span class="" data-i18n="agents.faq.q3">Is the app in Spanish?</span>
-<span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
-</summary>
-<p class="mt-4 text-slate-600 dark:text-slate-400" data-i18n="agents.faq.a3">Yes. The app and the lease are in both English and Spanish.</p>
-</details>
-</div>
-</div>
+<section class="bg-surface py-24 lg:py-32">
+  <div class="mx-auto max-w-3xl px-6">
+    <div class="mb-12">
+      <h2 class="heading text-4xl font-extrabold text-ink md:text-5xl" data-i18n="roles.faqTitle">Questions</h2>
+    </div>
+    <div class="divide-y divide-line border-y border-line">
+      <details class="group py-6">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold text-ink">
+          <span class="" data-i18n="agents.faq.q1">What does it cost?</span>
+          <span class="material-symbols-outlined text-muted transition-transform group-open:rotate-45" aria-hidden="true">add</span>
+        </summary>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.faq.a1">Joining the waitlist is free and nobody is charged for signing up. We'll announce pricing before launch.</p>
+      </details>
+      <details class="group py-6">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold text-ink">
+          <span class="" data-i18n="agents.faq.q2">Which areas will it cover?</span>
+          <span class="material-symbols-outlined text-muted transition-transform group-open:rotate-45" aria-hidden="true">add</span>
+        </summary>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.faq.a2">Cabo San Lucas, San José del Cabo, the Corridor and El Tezal at launch.</p>
+      </details>
+      <details class="group py-6">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold text-ink">
+          <span class="" data-i18n="agents.faq.q3">Is the app in Spanish?</span>
+          <span class="material-symbols-outlined text-muted transition-transform group-open:rotate-45" aria-hidden="true">add</span>
+        </summary>
+        <p class="mt-3 leading-relaxed text-muted" data-i18n="agents.faq.a3">Yes. The app and the lease are in both English and Spanish.</p>
+      </details>
+    </div>
+  </div>
 </section>
 
 <!-- CTA Section -->
-<section id="waitlist-cta" class="bg-primary py-20">
-<div class="mx-auto max-w-7xl px-6 text-center">
-<h2 class="font-display text-3xl font-bold text-white md:text-4xl" data-i18n="agents.cta.title">Be ready on day one</h2>
-<p class="mx-auto mt-4 max-w-xl text-lg text-white/80" data-i18n="agents.cta.subtitle">Join the waitlist as an agent. We'll email you when you can start listing.</p>
-<form data-waitlist class="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
-<input type="hidden" name="role" value="agent"/>
-<label for="cta-email" class="sr-only" data-i18n="placeholder.enterEmail">Enter your email</label>
-<input id="cta-email" type="email" required autocomplete="email" placeholder="Enter your email" class="flex-1 rounded-lg border-0 bg-white/20 px-5 py-3.5 text-sm text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-white/50" data-i18n-placeholder="placeholder.enterEmail"/>
-<button type="submit" class="cursor-pointer rounded-lg bg-white px-6 py-3.5 text-sm font-bold text-primary shadow-lg transition-all duration-200 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary" data-i18n="cta.joinWaitlist">Join Waitlist</button>
-</form>
-<p class="mt-4 text-xs text-white/70" data-i18n="waitlist.fineprint">Free. No spam. Unsubscribe anytime.</p>
-</div>
+<section id="waitlist-cta" class="bg-ink py-24 lg:py-32">
+  <div class="mx-auto max-w-4xl px-6 text-center">
+    <h2 class="display text-4xl font-extrabold text-white md:text-5xl lg:text-6xl" data-i18n="agents.cta.title">Be ready on day one</h2>
+    <p class="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-white/60" data-i18n="agents.cta.subtitle">Join the waitlist as an agent. We'll email you when you can start listing.</p>
+    <form data-waitlist class="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row">
+      <input type="hidden" name="role" value="agent"/>
+      <label for="cta-email" class="sr-only" data-i18n="placeholder.enterEmail">Enter your email</label>
+      <input id="cta-email" type="email" required autocomplete="email" placeholder="Enter your email" class="dark-input flex-1 rounded-xl px-5 py-3.5 text-sm font-medium" data-i18n-placeholder="placeholder.enterEmail"/>
+      <button type="submit" class="btn-primary rounded-xl px-6 py-3.5 text-sm"><span data-i18n="cta.joinWaitlist">Join Waitlist</span></button>
+    </form>
+    <p class="mt-4 text-xs text-white/35" data-i18n="waitlist.fineprint">Free. No spam. Unsubscribe anytime.</p>
+  </div>
 </section>
 
-<!-- Footer -->
-<footer class="mt-auto border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-background-dark">
-<div class="mx-auto max-w-7xl px-6">
-<div class="grid gap-12 md:grid-cols-4">
-<div class="col-span-1 md:col-span-2">
-<div class="flex items-center gap-2">
-<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-<span class="material-symbols-outlined text-sm">beach_access</span>
-</div>
-<h2 class="font-display text-lg font-bold text-ocean-deep dark:text-white">Los Cabos Rental App</h2>
-</div>
-<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400" data-i18n="footer.desc">
-A long-term rental app for Los Cabos, in English and Spanish. Coming soon.
-</p>
-<div class="mt-8">
-<p class="mb-3 text-sm font-semibold text-ocean-deep dark:text-slate-300" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
-<form data-waitlist class="flex gap-2 max-w-sm">
-<input type="hidden" name="role" value="agent"/>
-<input class="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white" placeholder="Your email" type="email" data-i18n-placeholder="placeholder.email"/>
-<button class="cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary/90" type="submit" data-i18n="cta.joinWaitlist">Join Waitlist</button>
-</form>
-</div>
-</div>
-<div>
-<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.quickLinks">Quick Links</h5>
-<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-<li><a class="hover:text-primary" href="index.html" data-i18n="nav.home">Home</a></li>
-<li><a class="hover:text-primary" href="about.html" data-i18n="nav.about">About</a></li>
-<li><a class="hover:text-primary" href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
-<li><a class="hover:text-primary" href="contact.html" data-i18n="nav.contact">Contact</a></li>
-</ul>
-</div>
-<div>
-<h5 class="mb-4 text-sm font-bold uppercase tracking-wider text-ocean-deep dark:text-white" data-i18n="footer.legal">Legal</h5>
-<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-<li><a class="hover:text-primary" href="terms.html" data-i18n="footer.termsOfService">Terms of Service</a></li>
-<li><a class="hover:text-primary" href="privacy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
-</ul>
-</div>
-</div>
-<div class="mt-16 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500" data-i18n="footer.copyright">
-&copy; 2026 Los Cabos Rental App. All rights reserved.
-</div>
-</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="mt-auto border-t border-line bg-white py-14">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div class="col-span-1 md:col-span-2">
+        <div class="flex items-center gap-2.5">
+          <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rausch text-white">
+            <span class="material-symbols-outlined" style="font-size:14px;">beach_access</span>
+          </div>
+          <span class="heading text-[15px] font-semibold text-ink">Los Cabos Rental</span>
+        </div>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted" data-i18n="footer.desc">
+          A long-term rental app for Los Cabos, in English and Spanish. Coming soon.
+        </p>
+        <div class="mt-8">
+          <p class="mb-3 text-sm font-semibold text-ink" data-i18n="footer.waitlistLabel">App coming soon. Join the waitlist:</p>
+          <form data-waitlist class="flex max-w-sm gap-2">
+            <input type="hidden" name="role" value="renter"/>
+            <label for="footer-email" class="sr-only" data-i18n="placeholder.email">Your email</label>
+            <input
+              id="footer-email"
+              type="email"
+              required
+              autocomplete="email"
+              class="flex-1 rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10"
+              placeholder="Your email"
+              data-i18n-placeholder="placeholder.email"
+            />
+            <button type="submit" class="btn-primary rounded-xl px-5 py-2.5 text-sm">
+              <span data-i18n="cta.join">Join</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <h5 class="mb-4 text-[11px] font-bold uppercase tracking-widest text-ink" data-i18n="footer.company">Company</h5>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="about.html"   class="transition-colors hover:text-ink" data-i18n="nav.about">About</a></li>
+          <li><a href="contact.html" class="transition-colors hover:text-ink" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="mb-4 text-[11px] font-bold uppercase tracking-widest text-ink" data-i18n="footer.legal">Legal</h5>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="terms.html"   class="transition-colors hover:text-ink" data-i18n="footer.termsOfService">Terms of Service</a></li>
+          <li><a href="privacy.html" class="transition-colors hover:text-ink" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-line pt-8 text-center text-xs text-muted" data-i18n="footer.copyright">
+      &copy; 2026 Los Cabos Rental App. All rights reserved.
+    </div>
+  </div>
 </footer>
 </div>
 <script defer src="/_vercel/insights/script.js"></script>
