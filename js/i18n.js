@@ -76,6 +76,8 @@
     "contact.form.title": { en: "Send Us a Message", es: "Envianos un Mensaje" },
     "contact.hero.subtitle": { en: "Questions about renting, listing, or partnering? We'd love to hear from you.", es: "Preguntas sobre rentar, publicar o asociarte? Nos encantaria saber de ti." },
     "contact.hero.title": { en: "Get in Touch", es: "Contactanos" },
+    "contact.info.emailTitle": { en: "Email", es: "Correo" },
+    "contact.info.emailDesc": { en: "Write in English or Spanish.", es: "Escríbenos en español o en inglés." },
     "contact.info.phoneDesc": { en: "Call the founder directly.", es: "Llama directo al fundador." },
     "contact.info.phoneTitle": { en: "Phone", es: "Telefono" },
     "contact.success.text": { en: "Thanks for reaching out. We will get back to you soon.", es: "Gracias por escribirnos. Te respondemos pronto." },
