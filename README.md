@@ -7,7 +7,7 @@ Marketing landing page for **Los Cabos Rental** — a long-term rental platform 
 - Vite 7
 - Tailwind CSS 4 (via CDN)
 - Vanilla HTML + JS
-- Supabase (waitlist capture)
+- Web3Forms (waitlist signups and contact form, emailed to the inbox)
 - Deployed on Vercel
 
 ## Design System

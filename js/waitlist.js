@@ -1,39 +1,31 @@
 (function () {
   "use strict";
 
-  // Supabase configuration
-  var SUPABASE_URL = "https://hbefkjibsxclwfoapsxj.supabase.co";
-  var SUPABASE_ANON_KEY = "sb_publishable_Aid53grO86f2Df0BpHL46g_5mH26Alp";
+  // Signups are emailed through Web3Forms (same key as the contact form).
+  var WEB3FORMS_URL = "https://api.web3forms.com/submit";
+  var WEB3FORMS_KEY = "a06d5803-4d0a-4be5-863b-a3814523ac3e";
 
   var MESSAGES = {
     en: {
       missingEmail: "Please enter your email address.",
       joining: "Joining...",
       success: "You're on the list! We'll email you when we launch.",
-      duplicate: "You're already on the waitlist.",
       error: "Something went wrong. Please try again in a moment."
     },
     es: {
       missingEmail: "Por favor ingresa tu correo electrónico.",
       joining: "Registrando...",
       success: "Ya estás en la lista. Te escribiremos cuando lancemos.",
-      duplicate: "Ya estás en la lista de espera.",
       error: "Algo salió mal. Intenta de nuevo en un momento."
     }
   };
 
-  var supabaseClient = null;
-
-  function getClient() {
-    if (!supabaseClient && window.supabase) {
-      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    }
-    return supabaseClient;
+  function currentLang() {
+    return document.documentElement.lang === "es" ? "es" : "en";
   }
 
   function t(key) {
-    var lang = document.documentElement.lang === "es" ? "es" : "en";
-    return MESSAGES[lang][key];
+    return MESSAGES[currentLang()][key];
   }
 
   function getRole(form) {
@@ -69,27 +61,34 @@
       return;
     }
 
-    var client = getClient();
-    if (!client) {
-      showMessage(form, t("error"), true);
-      return;
-    }
-
+    var role = getRole(form);
     var originalLabel = submitBtn ? submitBtn.innerHTML : "";
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = t("joining");
     }
 
-    client
-      .from("waitlist")
-      .insert([{ email: email, role: getRole(form) }])
-      .then(function (result) {
-        if (!result.error) {
+    fetch(WEB3FORMS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: "New waitlist signup (" + role + ")",
+        from_name: "Los Cabos Rental App Waitlist",
+        email: email,
+        role: role,
+        language: currentLang(),
+        page: window.location.pathname,
+        botcheck: false
+      })
+    })
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        if (data && data.success) {
           showMessage(form, t("success"), false);
           if (emailInput) emailInput.value = "";
-        } else if (result.error.code === "23505") {
-          showMessage(form, t("duplicate"), false);
         } else {
           showMessage(form, t("error"), true);
         }
