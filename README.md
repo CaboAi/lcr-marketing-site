@@ -5,7 +5,7 @@ Marketing landing page for **Los Cabos Rental** — a long-term rental platform 
 ## Stack
 
 - Vite 7
-- Tailwind CSS 4 (via CDN)
+- Tailwind CSS 3.4 (prebuilt to `css/site.css`, no runtime CDN)
 - Vanilla HTML + JS
 - Web3Forms (waitlist signups and contact form, emailed to the inbox)
 - Deployed on Vercel
@@ -20,3 +20,8 @@ See [DESIGN.md](./DESIGN.md) — Airbnb-inspired design tokens (Rausch Red, Inte
 npm install
 npm run dev   # http://localhost:5173
 ```
+
+## Styles and icons
+
+- Styles are prebuilt. After changing Tailwind classes in any `.html` or `js/` file, run `npm run build:css` and commit `css/site.css`. Classes that aren't in the build won't render.
+- The icon font only includes the icons the site uses (`icon_names=` in each page's Material Symbols link). When you add a new icon, add its name to that list on every page, keeping it in alphabetical order.
