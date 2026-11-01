@@ -3,18 +3,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        rausch: "#e8384f",
-        "rausch-dark": "#c82e42",
-        ink: "#1a1a1a",
-        "ink-soft": "#383838",
-        muted: "#717171",
-        line: "#e4e4e4",
-        surface: "#f8f8f8",
-        chip: "#f2f2f2"
+        // Cactus & Clay brand kit. "rausch" keeps its class name but is now Clay.
+        rausch: "#B5532F",
+        "rausch-dark": "#96421F",
+        ink: "#2A2320",
+        "ink-soft": "#4A3F38",
+        muted: "#6B6057",
+        line: "#DFD3C1",
+        surface: "#EFE6D8",
+        chip: "#EBE2D3",
+        paper: "#F8F4EE",
+        cardon: "#3E5A45",
+        clay: "#B5532F",
+        cantera: "#EFE6D8",
+        mesquite: "#2A2320",
+        agave: "#8FB39A",
+        dune: "#C9A77C"
       },
       fontFamily: {
         sans: [
-          "Outfit",
+          "Inter",
           "-apple-system",
           "system-ui",
           "sans-serif"
