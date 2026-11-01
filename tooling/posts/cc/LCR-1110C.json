@@ -1,0 +1,55 @@
+{
+ "layout": "a",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "For agents",
+   "head": "You prepare the lease. <u>They</u> sign it.",
+   "size": 108,
+   "lede": "Long-term rentals in Los Cabos, with the whole deal in one place."
+  },
+  {
+   "type": "rows",
+   "kicker": "In the app",
+   "rows": [
+    [
+     "Message renters and owners",
+     "In English or Spanish, every conversation in one place."
+    ],
+    [
+     "Put the lease together",
+     "Prepare it in the app and send it for signature."
+    ],
+    [
+     "Track every lease",
+     "See which are still pending and which are signed."
+    ]
+   ]
+  },
+  {
+   "type": "phone",
+   "kicker": "Who signs",
+   "head": "Renter first, then the landlord.",
+   "size": 70,
+   "phone": "assets/app-landlord-leases-en.jpg",
+   "lede": "You set it up and keep it moving. The two people making the deal sign it."
+  },
+  {
+   "type": "statement",
+   "kicker": "Coming soon",
+   "head": "Commission tracking.",
+   "size": 104,
+   "lede": "Set your own commission % for each listing on your profile. The app just keeps the record."
+  },
+  {
+   "type": "cta",
+   "dark": true,
+   "kicker": "Agents",
+   "head": "Get on the agent waitlist.",
+   "size": 100,
+   "lede": "Long-term rentals only, never vacation stays. Free to join, early access.",
+   "pill": "Agent waitlist · link in bio"
+  }
+ ],
+ "id": "LCR-1110C"
+}

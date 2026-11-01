@@ -1,0 +1,43 @@
+{
+ "layout": "a",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "One week, one Cabo rental group",
+   "head": "120 rental posts. <u>75</u> actual listings.",
+   "lede": "I read a week of posts in one of the bigger Los Cabos rental groups on Facebook. Here's what I found.",
+   "note": "Pilot sample, early October 2026"
+  },
+  {
+   "type": "statement",
+   "kicker": "Finding 1 of 3",
+   "big": "4×",
+   "head": "One 4-bedroom, posted four times in two days.",
+   "lede": "120 rental posts came down to 75 different listings once the repeats were merged."
+  },
+  {
+   "type": "statement",
+   "kicker": "Finding 2 of 3",
+   "big": "38<span style='font-size:.5em'> / 75</span>",
+   "head": "didn't say how long the lease was.",
+   "lede": "Only 33 clearly said long-term."
+  },
+  {
+   "type": "statement",
+   "kicker": "Finding 3 of 3",
+   "big": "<span style='font-size:.66em'>USD ≠ MXN</span>",
+   "head": "Two prices, one rent.",
+   "lede": "Some posts gave the rent in dollars and in pesos, and the numbers didn't match."
+  },
+  {
+   "type": "cta",
+   "dark": true,
+   "kicker": "What Cabo is missing",
+   "head": "Long-term rentals only, in one place.",
+   "size": 96,
+   "lede": "Search by area. Filter by price, bedrooms and move-in date. Message the owner or agent and sign a bilingual lease in the app.",
+   "pill": "Join the renter waitlist · link in bio"
+  }
+ ],
+ "id": "LCR-1102C"
+}

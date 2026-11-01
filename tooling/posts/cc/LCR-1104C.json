@@ -1,0 +1,102 @@
+{
+ "layout": "b",
+ "slides": [
+  {
+   "type": "fbpost",
+   "group": "Grupo de rentas · Los Cabos",
+   "meta": "Facebook · hace 2 h",
+   "postText": "Rento casa 3 recámaras, Cabo San Lucas 🏡",
+   "comments": [
+    [
+     "Ana",
+     "info"
+    ],
+    [
+     "Luis",
+     "info?"
+    ],
+    [
+     "Kate",
+     "¿sigue disponible?"
+    ],
+    [
+     "José",
+     "¿precio?"
+    ]
+   ],
+   "head": "¿Cuántos <u>“info”</u> recibió su último anuncio?",
+   "size": 80
+  },
+  {
+   "type": "chat",
+   "head": "Seis grupos, las mismas tres preguntas.",
+   "msgs": [
+    [
+     "them",
+     "¿Cuánto?"
+    ],
+    [
+     "them",
+     "¿Por cuánto tiempo?"
+    ],
+    [
+     "them",
+     "¿Sigue disponible?"
+    ],
+    [
+     "them",
+     "¿Cuánto? 🙏"
+    ]
+   ],
+   "chatTop": 380,
+   "body": "Publica, vuelve a publicar cuando se pierde y contesta lo mismo todo el día."
+  },
+  {
+   "type": "text",
+   "kicker": "Lo de siempre",
+   "head": "No es un problema de marketing. <u>Es la herramienta.</u>",
+   "size": 84,
+   "body": "Un grupo de Facebook no distingue a un inquilino serio de 12 meses de alguien que solo está viendo."
+  },
+  {
+   "type": "card",
+   "head": "Publique una vez, con todo claro.",
+   "cardTitle": "Anuncio de ejemplo",
+   "chip": "Largo plazo",
+   "fields": [
+    [
+     "Renta mensual",
+     "MX$28,000"
+    ],
+    [
+     "Plazo",
+     "12 meses"
+    ],
+    [
+     "Fecha de mudanza",
+     "1 de dic"
+    ],
+    [
+     "Recámaras",
+     "3"
+    ],
+    [
+     "Publicado por",
+     "Propietario"
+    ]
+   ],
+   "cardTop": 362,
+   "body": "Los inquilinos filtran por precio, recámaras y fecha de mudanza antes de escribirle.",
+   "note": "Valores de ejemplo."
+  },
+  {
+   "type": "cta",
+   "kicker": "Todavía no está al aire",
+   "head": "La lista de espera es <u>gratis</u>.",
+   "size": 92,
+   "body": "Quienes se anoten tienen acceso anticipado.",
+   "btn": "Elija propietario o agente · link en la bio"
+  }
+ ],
+ "id": "LCR-1104C"
+}

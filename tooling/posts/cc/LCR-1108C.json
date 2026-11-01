@@ -1,0 +1,26 @@
+{
+ "layout": "b",
+ "slides": [
+  {
+   "type": "options",
+   "head": "¿Qué es lo más difícil de encontrar renta a <u>largo plazo</u> en Cabo?",
+   "size": 66,
+   "options": [
+    "La misma casa publicada una y otra vez",
+    "Anuncios sin plazo de contrato",
+    "La renta en dólares y pesos que no cuadra",
+    "Escribes y ya no está disponible"
+   ],
+   "cardTop": 560
+  },
+  {
+   "type": "cta",
+   "kicker": "Cuéntanos en los comentarios",
+   "head": "Estamos construyendo la app con <u>sus respuestas</u>.",
+   "size": 84,
+   "body": "Los Cabos Rental es solo para rentas a largo plazo. La lista de espera es gratis.",
+   "btn": "Únete · link en la bio"
+  }
+ ],
+ "id": "LCR-1108C"
+}

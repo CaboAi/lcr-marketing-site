@@ -1,0 +1,47 @@
+{
+ "layout": "a",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Quick answers",
+   "head": "Long-term rentals <u>only</u>. Here's what that means.",
+   "size": 104,
+   "lede": "Los Cabos Rental is an app for people who live here, with leases of 6 to 12 months."
+  },
+  {
+   "type": "rows",
+   "kicker": "What it is, and isn't",
+   "rows": [
+    [
+     "No vacation rentals",
+     "No nightly stays, no weekend listings. Only homes for people moving in."
+    ],
+    [
+     "Cabo San Lucas to San José",
+     "Search by area, then filter by price, bedrooms and move-in date."
+    ],
+    [
+     "Rent and deposit stay between you",
+     "You arrange payment directly with the landlord or agent. The app doesn't process payments."
+    ]
+   ]
+  },
+  {
+   "type": "phone",
+   "kicker": "In the app",
+   "head": "Your leases in one place.",
+   "phone": "assets/app-landlord-leases-en.jpg",
+   "lede": "Who it's with, the rent, the term, and whether it's signed."
+  },
+  {
+   "type": "cta",
+   "dark": true,
+   "kicker": "Not live yet",
+   "head": "Join the free waitlist.",
+   "size": 104,
+   "lede": "Waitlist members get early access. Pick renter, landlord or agent.",
+   "pill": "Join the waitlist · link in bio"
+  }
+ ],
+ "id": "LCR-1106C"
+}
