@@ -39,9 +39,6 @@ const opts = {
       <p class="url" style="margin-top:34px;color:#8FB39A">caborentalapp.com · free waitlist</p>
     </div></body>`,
   C: `<body style="background:#3E5A45;color:#EFE6D8">
-    <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(12,140px);grid-auto-rows:92px;justify-content:center;align-content:center;gap:0 0;opacity:.10">
-      ${Array.from({ length: 84 }, (_, i) => `<div style="display:flex;justify-content:center;align-items:center;transform:translateX(${(Math.floor(i / 12) % 2) * 70}px)">${roof('#EFE6D8', 10)}</div>`).join('')}
-    </div>
     <div style="position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
       ${roof('#B5532F', 16).replace('width="140" height="70"', 'width="200" height="100"')}
       <h1 style="font-size:70px;margin-top:10px">Long-term rentals in Los Cabos</h1>
