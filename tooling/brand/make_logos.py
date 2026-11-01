@@ -1,8 +1,8 @@
 """Build standalone LCR logo SVGs with Manrope text converted to outlines.
 
 Centering rules (match Grok's "v2 r4" fix):
-- The roof apex sits over the visual center of "lcr." (text ink plus the dot).
-- The whole mark (roof + lcr.) is centered on the canvas both ways.
+- The roof apex sits directly over the center of the "c" (Mario, 2026-10-31).
+- In the icon, the apex and the "c" sit on the canvas's vertical center line; the mark is centered vertically.
 """
 from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
@@ -25,6 +25,7 @@ def text(s, x, y, size, tracking=0.0):
     pen = SVGPathPen(gs)
     cx = x
     inkL = inkR = inkT = None
+    spans = []
     for ch in s:
         g = gs[cmap[ord(ch)]]
         g.draw(TransformPen(pen, (sc, 0, 0, -sc, cx, y)))
@@ -34,7 +35,11 @@ def text(s, x, y, size, tracking=0.0):
             inkL = cx + l * sc if inkL is None else inkL
             inkR = cx + r * sc
             inkT = y - t * sc if inkT is None else min(inkT, y - t * sc)
+            spans.append((cx + l * sc, cx + r * sc))
+        else:
+            spans.append((cx, cx))
         cx += g.width * sc + tracking * size
+    text.spans = spans
     return pen.getCommands(), inkL, inkR, inkT, cx - x
 
 
@@ -47,7 +52,8 @@ def mark(size, lcr_c, dot_c, scale=1.0):
     dot_cx = R + 34 * scale + dot_r          # dot just after the r
     dot_cy = -dot_r                          # sits on the baseline
     groupL, groupR = L, dot_cx + dot_r
-    cx = (groupL + groupR) / 2               # roof apex goes here
+    cl, cr = text.spans[1]
+    cx = (cl + cr) / 2                       # roof apex sits over the "c"
     half = 247 * scale                       # half roof width (centerline)
     sw = 108 * scale                         # roof stroke
     apex_y = T - 145 * scale - 145 * scale   # roof sits above the ascender
@@ -57,14 +63,16 @@ def mark(size, lcr_c, dot_c, scale=1.0):
              f'<path d="{d}" fill="{lcr_c}"/>',
              f'<circle cx="{dot_cx}" cy="{dot_cy}" r="{dot_r}" fill="{dot_c}"/>']
     bbox = (min(cx - half - sw / 2, groupL), apex_y - sw / 2 * 1.2, max(cx + half + sw / 2, groupR), 0)
-    return parts, bbox
+    return parts, bbox, cx
 
 
 def icon(bg=None, circle=False, size=1080, fill=0.62, lcr_c=GREEN, dot_c=CLAY):
-    parts, (x0, y0, x1, y1) = mark(size, lcr_c, dot_c)
+    parts, (x0, y0, x1, y1), apex = mark(size, lcr_c, dot_c)
     w, h = x1 - x0, y1 - y0
-    s = size * fill / max(w, h)
-    tx = size / 2 - (x0 + w / 2) * s
+    # scale so the widest half (measured from the apex) fits, then put the apex/"c" on center
+    half = max(apex - x0, x1 - apex)
+    s = size * fill / max(2 * half, h)
+    tx = size / 2 - apex * s
     ty = size / 2 - (y0 + h / 2) * s
     bgsvg = ''
     if bg and circle:
@@ -78,7 +86,7 @@ def icon(bg=None, circle=False, size=1080, fill=0.62, lcr_c=GREEN, dot_c=CLAY):
 def lockup(dark=False):
     lcr_c = CANTERA if dark else GREEN
     bot_c = DUNE if dark else CLAY
-    parts, (x0, y0, x1, y1) = mark(1080, lcr_c, AGAVE)
+    parts, (x0, y0, x1, y1), _ = mark(1080, lcr_c, AGAVE)
     s = 112 / (y1 - y0)                      # mark height 112 in a 128-tall lockup
     tx = 8 - x0 * s
     ty = 120 - y1 * s
