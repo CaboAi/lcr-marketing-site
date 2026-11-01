@@ -1,0 +1,41 @@
+{
+  "id": "LCR-08R",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "One week in one Cabo rental group",
+      "kickerEs": "Una semana en un grupo de rentas de Cabo",
+      "head": "120 rental posts.<br><em>75 different listings.</em>",
+      "headEs": "120 publicaciones de renta. 75 propiedades distintas.",
+      "foot": "Pilot sample · a Los Cabos rental group on Facebook · early Oct 2026<br>Muestra piloto · un grupo de rentas de Los Cabos en Facebook · inicios de oct 2026"
+    },
+    {
+      "type": "stat",
+      "big": "4<small>×</small>",
+      "en": "One 4-bedroom was posted four times in two days.",
+      "es": "Una casa de 4 recámaras se publicó cuatro veces en dos días."
+    },
+    {
+      "type": "stat",
+      "big": "38<small> / 75</small>",
+      "en": "listings didn't say how long the lease was.",
+      "es": "propiedades no decían de cuánto tiempo era el contrato."
+    },
+    {
+      "type": "stat",
+      "big": "<small>USD ≠ MXN</small>",
+      "en": "Some gave the rent in dollars and in pesos. The numbers didn't match.",
+      "es": "Algunas daban la renta en dólares y en pesos, y las cantidades no cuadraban."
+    },
+    {
+      "type": "cta",
+      "kicker": "What Cabo is missing",
+      "kickerEs": "Lo que le falta a Cabo",
+      "head": "Long-term rentals only.<br><em>All in one place.</em>",
+      "headEs": "Solo rentas a largo plazo. Todo en un solo lugar.",
+      "chips": [["Area", "Zona"], ["Price", "Precio"], ["Bedrooms", "Recámaras"], ["Move-in date", "Fecha de mudanza"]],
+      "cta": "Join the free waitlist · link in bio",
+      "ctaEs": "Únete gratis a la lista de espera · link en la bio"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+ "id": "LCR-1104",
+ "lang": "ES",
+ "slides": [
+  {
+   "dark": true,
+   "kicker": "Para propietarios y agentes",
+   "head": "¿Cuántos “info” recibió su último anuncio?",
+   "headSize": 70,
+   "body": [
+    "¿Y cuántas de esas personas llegaron a ver la propiedad?"
+   ]
+  },
+  {
+   "dark": true,
+   "kicker": "Lo de siempre",
+   "num": "01",
+   "head": "Seis grupos,<br>las mismas preguntas",
+   "body": [
+    "Publica en seis grupos. Vuelve a publicar cuando se pierde. Contesta todo el día cuánto, por cuánto tiempo y si sigue disponible."
+   ]
+  },
+  {
+   "dark": true,
+   "kicker": "Lo de siempre",
+   "num": "02",
+   "head": "No es un problema<br>de marketing",
+   "body": [
+    "Es la herramienta. Un grupo de Facebook no distingue a un inquilino serio de 12 meses de alguien que solo está viendo."
+   ]
+  },
+  {
+   "dark": true,
+   "kicker": "En Los Cabos Rental",
+   "head": "Publique una vez.<br>Reciba mejores preguntas.",
+   "headSize": 68,
+   "body": [
+    "Su propiedad con fotos y la renta en pesos. Los inquilinos filtran por precio, recámaras y fecha de mudanza antes de escribirle.",
+    "Cada interesado en un solo lugar, del primer mensaje al contrato firmado."
+   ]
+  },
+  {
+   "dark": true,
+   "kicker": "Todavía no está al aire",
+   "head": "La lista de espera<br>es gratis",
+   "headSize": 72,
+   "body": [
+    "Quienes se anoten tienen acceso anticipado. Elija propietario o agente: link en la bio."
+   ],
+   "btn": "Siga a @caborentalapp"
+  }
+ ]
+}

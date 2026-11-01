@@ -1,0 +1,37 @@
+{
+ "id": "LCR-1108",
+ "lang": "ES",
+ "slides": [
+  {
+   "dark": true,
+   "kicker": "Pregunta para ti",
+   "head": "¿Qué es lo más difícil de encontrar renta a largo plazo en Cabo?",
+   "headSize": 64,
+   "body": [
+    "Cuéntanos en los comentarios. Estamos construyendo la app con sus respuestas."
+   ]
+  },
+  {
+   "dark": true,
+   "kicker": "Elige una",
+   "head": "¿Cuál te ha pasado?",
+   "headSize": 66,
+   "body": [
+    "La misma casa publicada una y otra vez.",
+    "Anuncios que no dicen el plazo del contrato.",
+    "La renta en dólares y en pesos, y no cuadra.",
+    "Escribes y ya no está disponible."
+   ]
+  },
+  {
+   "dark": true,
+   "kicker": "Solo largo plazo",
+   "head": "Únete a la lista<br>de espera",
+   "headSize": 72,
+   "body": [
+    "Es gratis y quienes se anoten entran primero. Link en la bio."
+   ],
+   "btn": "Sigue a @caborentalapp"
+  }
+ ]
+}
