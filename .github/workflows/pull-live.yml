@@ -1,0 +1,33 @@
+name: Copy live site files into git
+on:
+  push:
+    branches: [chore/save-live-site]
+    paths: [.github/workflows/pull-live.yml]
+permissions:
+  contents: write
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download files from the live site
+        run: |
+          set -e
+          BASE=https://www.caborentalapp.com
+          for f in images/rental-cabo-house.webp images/rental-el-tezal.webp images/rental-san-jose.webp; do
+            curl -fsSL "$BASE/$f" -o "$f"
+          done
+          for f in index.html renters.html landlords.html agents.html about.html contact.html js/i18n.js; do
+            curl -fsSL "$BASE/$f" -o "$f.tmp"
+            sed 's/\r$//' "$f.tmp" > "$f"; rm "$f.tmp"
+          done
+          ls -la images
+          git status --short
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git rm -q .github/workflows/pull-live.yml
+          git add -A
+          git commit -m "Save live listing photos and page changes to git" -m "Copied from www.caborentalapp.com, which was deployed from a local folder on Nov 2 and was not in git."
+          git push
