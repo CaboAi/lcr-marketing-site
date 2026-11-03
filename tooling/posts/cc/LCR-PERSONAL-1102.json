@@ -1,0 +1,23 @@
+{
+ "id": "LCR-PERSONAL-1102",
+ "layout": "a",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Coming soon · Los Cabos",
+   "head": "Finding a place to live in Cabo is about to get <u>easier</u>.",
+   "size": 96,
+   "lede": "Los Cabos Rental is an app for long-term rentals only. Find a place, message the owner, sign the lease in the app.",
+   "footR": "caborentalapp.com"
+  },
+  {
+   "type": "cta",
+   "dark": true,
+   "kicker": "Not open yet",
+   "head": "Get on the waitlist.",
+   "size": 104,
+   "lede": "Renters, landlords and agents hear first when it opens.",
+   "pill": "caborentalapp.com"
+  }
+ ]
+}

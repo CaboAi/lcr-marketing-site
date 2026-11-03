@@ -66,6 +66,8 @@ body.dk{background:var(--mesq);color:var(--cantera)}
 .bub b{font-weight:600;margin-right:8px}
 .b h1{position:absolute;left:80px;right:80px;bottom:170px;font-family:Manrope;font-weight:800;font-size:88px;line-height:1.03;letter-spacing:-.035em}
 .lst{position:absolute;left:80px;right:80px;padding:40px 46px}
+.limg{height:210px;border-radius:20px;margin:-14px -20px 22px}
+.lst.hasimg{padding-top:34px;padding-bottom:22px}.lst.hasimg .f{padding:16px 0}
 .lst h2{font-family:Manrope;font-weight:800;font-size:40px;letter-spacing:-.02em}
 .lst .chip{display:inline-block;font-size:21px;font-weight:600;background:#dfe9e1;color:var(--green);padding:6px 16px;border-radius:999px;margin-left:12px;vertical-align:middle}
 .f{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ece4d8;padding:24px 0;font-size:32px}
@@ -111,14 +113,14 @@ function B(s, i, n) {
   let body = '';
   if (s.type === 'fbpost') {
     body = `<div class="post card"><div class="ph"><div class="av"></div><div><b>${s.group}</b><small>${s.meta}</small></div></div>
-      <p class="pt">${s.postText}</p><div class="img"></div>
+      <p class="pt">${s.postText}</p><div class="img"${s.photo ? ` style="background:url('file://${path.join(ROOT, s.photo)}') center/cover"` : ''}></div>
       <div>${s.comments.map(c => `<span class="bub"><b>${c[0]}</b>${c[1]}</span>`).join('')}</div></div>
       <h1 style="font-size:${s.size || 88}px">${s.head}</h1>`;
   } else if (s.type === 'chat') {
     body = `<p class="t2">${s.head}</p><div class="chat" style="top:${s.chatTop || 400}px">${s.msgs.map(m => `<span class="${m[0]}">${m[1]}</span>`).join('')}</div>
       ${s.body ? `<p class="bbody" style="bottom:190px">${s.body}</p>` : ''}`;
   } else if (s.type === 'card') {
-    body = `<p class="t2">${s.head}</p><div class="lst card" style="top:${s.cardTop || 380}px"><h2>${s.cardTitle}${s.chip ? `<span class="chip">${s.chip}</span>` : ''}</h2>
+    body = `<p class="t2">${s.head}</p><div class="lst card${s.photo ? ' hasimg' : ''}" style="top:${s.cardTop || 380}px">${s.photo ? `<div class="limg" style="background:url('file://${path.join(ROOT, s.photo)}') center/cover"></div>` : ''}<h2>${s.cardTitle}${s.chip ? `<span class="chip">${s.chip}</span>` : ''}</h2>
       ${s.fields.map(r => `<div class="f"><span>${r[0]}</span><b>${r[1]}<i class="ok">✓</i></b></div>`).join('')}</div>
       ${s.body ? `<p class="bbody" style="bottom:230px">${s.body}</p>` : ''}${s.note ? `<p class="bnote" style="bottom:150px">${s.note}</p>` : ''}`;
   } else if (s.type === 'options') {

@@ -25,7 +25,8 @@
     ]
    ],
    "head": "¿Cuántos <u>“info”</u> recibió su último anuncio?",
-   "size": 80
+   "size": 80,
+   "photo": "assets/rental-cabo-house.jpg"
   },
   {
    "type": "chat",
@@ -79,15 +80,12 @@
     [
      "Recámaras",
      "3"
-    ],
-    [
-     "Publicado por",
-     "Propietario"
     ]
    ],
-   "cardTop": 362,
+   "cardTop": 372,
    "body": "Los inquilinos filtran por precio, recámaras y fecha de mudanza antes de escribirle.",
-   "note": "Valores de ejemplo."
+   "note": "Valores de ejemplo.",
+   "photo": "assets/rental-cabo-house.jpg"
   },
   {
    "type": "cta",
