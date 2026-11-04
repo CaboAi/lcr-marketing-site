@@ -135,6 +135,17 @@
   .panel-renter   { background: linear-gradient(135deg, #F8E9DF 0%, #F6EEE3 100%); }
   .panel-landlord { background: linear-gradient(135deg, #E7EFE8 0%, #F1F0E7 100%); }
   .panel-agent    { background: linear-gradient(135deg, #F4ECDD 0%, #EFE6D8 100%); }
+
+  /* ── Role mock panels ── */
+  /* Grid items default to min-width:auto, so the agent mock's no-wrap titles
+     forced the page wider than the phone screen. */
+  #benefits .grid > * { min-width: 0; }
+  .mock-panel { aspect-ratio: 4 / 3; }
+  @media (max-width: 639px) {
+    /* A fixed 4:3 box is too short for the cards on phones; let it grow. */
+    .mock-panel { aspect-ratio: auto; padding: 1.25rem; }
+    .panel-renter.mock-panel { padding-bottom: 4.75rem; }
+  }
 </style>
 <link rel="stylesheet" href="css/site.css"/>
 </head>
@@ -375,16 +386,16 @@
           </a>
         </div>
         <div class="order-first lg:order-last">
-          <div class="panel-renter relative overflow-hidden rounded-3xl p-8" style="aspect-ratio:4/3;">
+          <div class="panel-renter relative overflow-hidden rounded-3xl mock-panel p-8">
             <div class="rounded-2xl bg-white p-4 shadow-soft">
               <div class="mb-3 text-[10px] font-bold uppercase tracking-wider text-muted" data-i18n="mock.exampleListing">Example listing</div>
               <div class="mb-4 h-32 rounded-xl" style="background: center / cover url('images/rental-san-jose.webp');" aria-hidden="true"></div>
-              <div class="flex items-start justify-between">
-                <div>
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0">
                   <div class="text-[12px] font-semibold text-ink" data-i18n="mock.renter.title">Studio · San José del Cabo</div>
                   <div class="text-[10px] text-muted" data-i18n="mock.renter.meta">Available now</div>
                 </div>
-                <span class="text-sm font-bold text-rausch">MX$15,000<span class="text-[11px] font-normal text-muted" data-i18n="hero.card.perMonth">/mo</span></span>
+                <span class="flex-shrink-0 whitespace-nowrap text-sm font-bold text-rausch">MX$15,000<span class="text-[11px] font-normal text-muted" data-i18n="hero.card.perMonth">/mo</span></span>
               </div>
               <div class="mt-3 flex gap-1.5">
                 <span class="rounded-full bg-chip px-2.5 py-1 text-[10px] font-semibold text-muted" data-i18n="mock.renter.tag1">1 bath</span>
@@ -406,7 +417,7 @@
       <!-- ② Landlords -->
       <div class="reveal grid items-center gap-12 py-16 lg:grid-cols-2 lg:gap-20">
         <div>
-          <div class="panel-landlord relative overflow-hidden rounded-3xl p-8" style="aspect-ratio:4/3;">
+          <div class="panel-landlord relative overflow-hidden rounded-3xl mock-panel p-8">
             <div class="rounded-2xl bg-white p-5 shadow-soft">
               <div class="mb-3 text-[10px] font-bold uppercase tracking-widest text-muted" data-i18n="mock.landlord.title">Inquiries · 2-bed in El Tezal</div>
               <div class="space-y-2">
@@ -471,7 +482,7 @@
           </a>
         </div>
         <div class="order-first lg:order-last">
-          <div class="panel-agent relative overflow-hidden rounded-3xl p-8" style="aspect-ratio:4/3;">
+          <div class="panel-agent relative overflow-hidden rounded-3xl mock-panel p-8">
             <div class="rounded-2xl bg-white p-4 shadow-soft">
               <div class="mb-3 text-[10px] font-bold uppercase tracking-wider text-muted" data-i18n="mock.agent.title">Example listings</div>
               <div class="mb-2 flex items-center gap-3 rounded-xl bg-surface p-2.5">
